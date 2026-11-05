@@ -97,7 +97,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen overflow-x-clip bg-paper text-ink">
-      <header className="sticky top-0 z-40 border-b border-line bg-paper">
+      <header className="sticky top-0 z-40 border-b border-line bg-paper/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
           <Link to="/" className="flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
             <Mark />
@@ -252,7 +252,7 @@ export function ArrowCta({
 export function PageIntro({ kicker, title, text }: { kicker: string; title: ReactNode; text: ReactNode }) {
   return (
     <div className="max-w-2xl">
-      <p className="text-sm font-semibold text-teal">{kicker}</p>
+      <p className="kicker">{kicker}</p>
       <h1 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">{title}</h1>
       <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">{text}</p>
     </div>

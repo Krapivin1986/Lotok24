@@ -43,7 +43,7 @@ function HomePage() {
       <section className="bg-surface">
         <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-14 lg:py-24">
           <div>
-            <p className="text-sm font-semibold text-teal">{copy.heroKicker}</p>
+            <p className="kicker">{copy.heroKicker}</p>
             <h1 className="mt-4 font-display text-display leading-display tracking-tight">{copy.heroTitle}</h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
               <SeriesText text={copy.heroText} />
@@ -87,7 +87,7 @@ function HomePage() {
           {PROOF.map((item) => (
             <div key={item.label} className="border-b border-line px-4 py-4 odd:border-r sm:px-6 sm:py-8 lg:border-b-0 lg:odd:border-r-0 lg:[&:not(:last-child)]:border-r">
               <dt className="text-sm text-muted">{item.label}</dt>
-              <dd className="mt-2 font-display text-xl tracking-tight tabular-nums sm:text-3xl">
+              <dd className="mt-2 font-display text-xl tracking-tight text-teal tabular-nums sm:text-3xl">
                 {item.value}
                 <span className="ml-2 font-sans text-base font-medium text-muted">{item.unit}</span>
               </dd>
@@ -109,7 +109,7 @@ function HomePage() {
             />
           </figure>
           <div>
-            <p className="text-sm font-semibold text-teal">Преимущества</p>
+            <p className="kicker">Преимущества</p>
             <h2 className="mt-2 font-display text-2xl tracking-tight sm:text-3xl">Зачем использовать металлический лоток</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               Оцинкованная сталь несёт кабель годами: не горит, не гниёт и не требует покраски на объекте. Секцию крепят
@@ -138,7 +138,7 @@ function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:py-24">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold text-teal">Серии</p>
+            <p className="kicker">Серии</p>
             <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Три лотка — одна система крепёжа</h2>
           </div>
           <Link to="/catalog" className="text-sm font-semibold text-teal hover:text-teal-deep">
@@ -147,7 +147,7 @@ function HomePage() {
         </div>
         <ul className="mt-10 grid gap-4 md:grid-cols-3">
           {seriesList.map((series) => (
-            <li key={series.id} className="flex flex-col rounded-card border border-line bg-surface p-5">
+            <li key={series.id} className="flex flex-col rounded-card border border-line bg-surface p-5 ring-1 ring-transparent transition hover:ring-[#7ee2a8]">
               <p className="text-sm font-semibold text-teal">{series.code}</p>
               <h3 className="mt-3 font-display text-xl tracking-tight">
                 <Link to="/catalog/$series" params={{ series: series.id }} className="hover:text-teal">
@@ -172,7 +172,7 @@ function HomePage() {
       <section className="border-y border-line bg-surface">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold text-teal">Объекты</p>
+            <p className="kicker">Объекты</p>
             <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Как это выглядит на площадке</h2>
           </div>
           <ul className="mt-10 grid gap-4 lg:grid-cols-3">
