@@ -156,7 +156,9 @@ function HomePage() {
           </Link>
         </div>
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {seriesList.map((series) => (
+          {seriesList
+            .filter((series) => series.id !== "cover" && series.id !== "strut" && series.id !== "fastener")
+            .map((series) => (
             <li key={series.id} className="flex flex-col rounded-card border border-line bg-surface p-5 ring-1 ring-transparent transition hover:ring-[#7ee2a8]">
               <p className="text-sm font-semibold text-teal">{series.code}</p>
               <h3 className="mt-3 font-display text-xl tracking-tight">
@@ -165,7 +167,10 @@ function HomePage() {
                 </Link>
               </h3>
               <p className="mt-2 font-display text-2xl tracking-tight tabular-nums">
-                от {series.priceFrom} <span className="text-base font-medium text-muted">рублей за метр</span>
+                от {series.priceFrom}{" "}
+                <span className="text-base font-medium text-muted">
+                  рублей {series.id === "fastener" ? "за штуку" : "за метр"}
+                </span>
               </p>
               <p className="mt-3 text-sm leading-relaxed text-muted">
                 <SeriesText text={series.text} />
@@ -186,6 +191,46 @@ function HomePage() {
                 className="mt-5 inline-flex h-11 items-center text-sm font-semibold text-ink"
               >
                 Смотреть серию
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-10 sm:px-6 sm:pb-16">
+        <div className="max-w-2xl">
+          <p className="kicker">Комплектующие</p>
+          <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Крышка, профиль и крепёж в той же поставке</h2>
+          <p className="mt-3 text-muted">
+            Крышка закрывает лоток, страт-профиль несёт консоль, метизы собирают стык. Ширина и резьба подбираются под секцию, не «примерно».
+          </p>
+        </div>
+        <ul className="mt-10 grid gap-4 lg:grid-cols-3">
+          {seriesList
+            .filter((series) => series.id === "cover" || series.id === "strut" || series.id === "fastener")
+            .map((series) => (
+            <li key={series.id} className="flex flex-col rounded-card border border-line bg-surface p-5 ring-1 ring-transparent transition hover:ring-[#7ee2a8]">
+              <p className="text-sm font-semibold text-teal">{series.code}</p>
+              <h3 className="mt-3 font-display text-xl tracking-tight">
+                <Link to="/catalog/$series" params={{ series: series.id }} className="hover:text-teal">
+                  {series.name}
+                </Link>
+              </h3>
+              <p className="mt-2 font-display text-2xl tracking-tight tabular-nums">
+                от {series.priceFrom}{" "}
+                <span className="text-base font-medium text-muted">
+                  рублей {series.id === "fastener" ? "за штуку" : "за метр"}
+                </span>
+              </p>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                <SeriesText text={series.text} />
+              </p>
+              <Link
+                to="/catalog/$series"
+                params={{ series: series.id }}
+                className="mt-5 inline-flex h-11 items-center text-sm font-semibold text-ink"
+              >
+                Смотреть категорию
               </Link>
             </li>
           ))}

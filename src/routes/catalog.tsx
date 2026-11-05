@@ -38,7 +38,7 @@ function CatalogPage() {
           <PageIntro
             kicker="Каталог"
             title={<SeriesText text="Кабельные лотки: перфорированные, неперфорированные, лестничные и проволочные" />}
-            text="Выберите серию по среде и нагрузке. В письме — прайс на нужную ширину, фасонка и срок отгрузки. Подбор по плану отдельно не тарифицируется."
+            text="Выберите серию по среде и нагрузке. Крышка лотка, страт-профиль и метизы идут в той же спецификации. Подбор по плану отдельно не тарифицируется."
           />
         </div>
       </section>
@@ -64,7 +64,10 @@ function CatalogPage() {
                 <p className="text-sm font-semibold text-teal">{series.code}</p>
                 <h2 className="mt-2 font-display text-3xl tracking-tight">{series.name}</h2>
                 <p className="mt-2 font-display text-2xl tracking-tight tabular-nums">
-                  от {series.priceFrom} <span className="text-base font-medium text-muted">рублей за метр</span>
+                  от {series.priceFrom}{" "}
+                  <span className="text-base font-medium text-muted">
+                    рублей {series.id === "fastener" ? "за штуку" : "за метр"}
+                  </span>
                 </p>
                 <p className="mt-4 leading-relaxed text-muted">
                   <SeriesText text={series.text} />
