@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { NAV, type NavTo } from "@/components/site/content";
+import { SeriesText } from "@/components/site/series-text";
 import { useSiteCopy } from "@/components/site/use-site-copy";
 
 export function Mark({ className = "size-9" }: { className?: string }) {
@@ -150,7 +151,9 @@ export function SiteFrame({ children }: { children: ReactNode }) {
               <Mark className="size-8" />
               <span className="font-display tracking-tight">Лоток24</span>
             </div>
-            <p className="mt-3 max-w-sm text-sm leading-relaxed">{copy.footerText}</p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed">
+              <SeriesText text={copy.footerText} className="underline decoration-white/40 underline-offset-2 hover:text-paper" />
+            </p>
           </div>
           <nav aria-label="Подвал" className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
             {NAV.map((item) =>
@@ -230,7 +233,7 @@ export function ArrowCta({
   );
 }
 
-export function PageIntro({ kicker, title, text }: { kicker: string; title: string; text: string }) {
+export function PageIntro({ kicker, title, text }: { kicker: string; title: ReactNode; text: ReactNode }) {
   return (
     <div className="max-w-2xl">
       <p className="text-sm font-semibold text-teal">{kicker}</p>

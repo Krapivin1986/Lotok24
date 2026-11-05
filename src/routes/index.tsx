@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { jsonLd } from "@/components/site/seo";
+import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
 import { FEATURES, PROOF } from "@/components/site/content";
 import { ArrowCta, CtaLink } from "@/components/site/shell";
@@ -44,7 +45,9 @@ function HomePage() {
           <div>
             <p className="text-sm font-semibold text-teal">{copy.heroKicker}</p>
             <h1 className="mt-4 font-display text-display leading-display tracking-tight">{copy.heroTitle}</h1>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">{copy.heroText}</p>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+              <SeriesText text={copy.heroText} />
+            </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <CtaLink to="/contacts">
                 <ArrowCta>Рассчитать трассу</ArrowCta>
@@ -69,7 +72,9 @@ function HomePage() {
                 className="aspect-video w-full"
               />
               <figcaption className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 bg-green-soft px-4 py-3 text-sm text-green-ink sm:px-5">
-                <span className="font-medium">Лоток перфорированный 200×100</span>
+                <span className="font-medium">
+                  Лоток <SeriesText text="перфорированный" /> 200×100
+                </span>
                 <span className="shrink-0 tabular-nums">Zn · 3 м</span>
               </figcaption>
             </div>
@@ -119,7 +124,9 @@ function HomePage() {
                       <Icon className="size-4 shrink-0 text-teal" aria-hidden="true" />
                       <h3 className="font-display text-sm tracking-tight">{feature.title}</h3>
                     </div>
-                    <p className="mt-1.5 text-xs leading-snug text-muted">{feature.text}</p>
+                    <p className="mt-1.5 text-xs leading-snug text-muted">
+                      <SeriesText text={feature.text} />
+                    </p>
                   </li>
                 );
               })}
@@ -142,8 +149,14 @@ function HomePage() {
           {seriesList.map((series) => (
             <li key={series.id} className="flex flex-col rounded-card border border-line bg-surface p-5">
               <p className="text-sm font-semibold text-teal">{series.code}</p>
-              <h3 className="mt-3 font-display text-xl tracking-tight">{series.name}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{series.text}</p>
+              <h3 className="mt-3 font-display text-xl tracking-tight">
+                <Link to="/catalog/$series" params={{ series: series.id }} className="hover:text-teal">
+                  {series.name}
+                </Link>
+              </h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                <SeriesText text={series.text} />
+              </p>
               <Link
                 to="/catalog/$series"
                 params={{ series: series.id }}

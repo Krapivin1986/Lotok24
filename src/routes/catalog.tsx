@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { ACCESSORIES, FEATURES, SPECS, USES } from "@/components/site/content";
 import { breadcrumbLd, jsonLd } from "@/components/site/seo";
+import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
 import { CtaLink, PageIntro } from "@/components/site/shell";
 import { useMergedSeries } from "@/components/site/use-site-copy";
@@ -36,7 +37,7 @@ function CatalogPage() {
         <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-16">
           <PageIntro
             kicker="Каталог"
-            title="Кабельные лотки: перфорированные, лестничные и глухие"
+            title={<SeriesText text="Кабельные лотки: перфорированные, лестничные и глухие" />}
             text="Прямые секции, крышки и фасонка одной системы. Меняется сечение, а не логика монтажа на консолях и шпильках."
           />
         </div>
@@ -62,7 +63,9 @@ function CatalogPage() {
               <div>
                 <p className="text-sm font-semibold text-teal">{series.code}</p>
                 <h2 className="mt-2 font-display text-3xl tracking-tight">{series.name}</h2>
-                <p className="mt-4 leading-relaxed text-muted">{series.text}</p>
+                <p className="mt-4 leading-relaxed text-muted">
+                  <SeriesText text={series.text} />
+                </p>
                 <ul className="mt-6 flex flex-col gap-3">
                   {series.points.map((point) => (
                     <li key={point} className="flex gap-3 text-sm leading-relaxed">
@@ -129,7 +132,9 @@ function CatalogPage() {
             {USES.map((use) => (
               <li key={use.title} className="rounded-card border border-line bg-surface p-5">
                 <h3 className="font-display text-xl tracking-tight">{use.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{use.text}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  <SeriesText text={use.text} />
+                </p>
               </li>
             ))}
           </ul>
@@ -160,7 +165,9 @@ function CatalogPage() {
                     <Icon className="size-5 text-teal" aria-hidden="true" />
                   </div>
                   <h3 className="mt-6 font-display text-xl tracking-tight">{feature.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">{feature.text}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    <SeriesText text={feature.text} />
+                  </p>
                 </li>
               );
             })}

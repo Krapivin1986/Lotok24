@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { breadcrumbLd, jsonLd } from "@/components/site/seo";
+import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
 import { ArrowCta, CtaLink } from "@/components/site/shell";
 
@@ -140,7 +141,7 @@ function BlogPage() {
               className="aspect-[4/3] w-full"
             />
             <figcaption className="bg-green-soft px-4 py-3 text-sm font-medium text-green-ink">
-              Трасса на объекте · лестничный лоток
+              Трасса на объекте · <SeriesText text="лестничный" /> лоток
             </figcaption>
           </figure>
         </div>
@@ -182,11 +183,17 @@ function BlogPage() {
             </div>
             <div className="max-w-2xl">
               <p className="text-sm font-semibold text-teal">{post.tag}</p>
-              <h2 className="mt-2 font-display text-2xl tracking-tight sm:text-3xl">{post.title}</h2>
-              <p className="mt-4 text-lg leading-relaxed">{post.lead}</p>
+              <h2 className="mt-2 font-display text-2xl tracking-tight sm:text-3xl">
+                <SeriesText text={post.title} />
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed">
+                <SeriesText text={post.lead} />
+              </p>
               <div className="mt-4 flex flex-col gap-3 leading-relaxed text-muted">
                 {post.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={paragraph}>
+                    <SeriesText text={paragraph} />
+                  </p>
                 ))}
               </div>
             </div>

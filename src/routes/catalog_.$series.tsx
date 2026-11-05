@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { SERIES, type SeriesId } from "@/components/site/content";
 import { breadcrumbLd, jsonLd, SERIES_SEO } from "@/components/site/seo";
+import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
 import { ArrowCta, CtaLink } from "@/components/site/shell";
 import { useMergedSeries } from "@/components/site/use-site-copy";
@@ -70,7 +71,9 @@ function SeriesPage() {
               <span>{series.code}</span>
             </p>
             <h1 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">{series.pageTitle}</h1>
-            <p className="mt-4 text-lg leading-relaxed text-muted">{series.lead}</p>
+            <p className="mt-4 text-lg leading-relaxed text-muted">
+              <SeriesText text={series.lead} skip={series.id} />
+            </p>
             <div className="mt-8">
               <CtaLink to="/contacts">
                 <ArrowCta>Запросить эту серию</ArrowCta>
@@ -132,7 +135,9 @@ function SeriesPage() {
                 >
                   <p className="text-sm font-semibold text-teal">{item.code}</p>
                   <p className="mt-2 font-display text-xl tracking-tight">{item.name}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">{item.text}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    <SeriesText text={item.text} skip={series.id} />
+                  </p>
                 </Link>
               </li>
             ))}
