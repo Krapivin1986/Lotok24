@@ -34,7 +34,7 @@ function CatalogPage() {
   return (
     <>
       <section className="border-b border-line bg-surface">
-        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
           <PageIntro
             kicker="Каталог"
             title={<SeriesText text="Кабельные лотки: перфорированные, неперфорированные, лестничные и проволочные" />}
@@ -43,8 +43,8 @@ function CatalogPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:py-24">
-        <ul className="flex flex-col gap-10 sm:gap-16">
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-10 lg:py-14">
+        <ul className="flex flex-col gap-10 sm:gap-10">
           {seriesList.map((series, index) => (
             <li key={series.id} id={series.id} className="grid items-center gap-8 lg:grid-cols-2">
               <div className={index % 2 === 1 ? "lg:order-2" : ""}>

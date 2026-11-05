@@ -61,7 +61,7 @@ function SeriesPage() {
   return (
     <>
       <section className="border-b border-line bg-surface">
-        <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:gap-10 sm:px-6 sm:py-12 lg:grid-cols-2 lg:py-16">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:gap-10 sm:px-6 sm:py-12 lg:grid-cols-2 lg:py-12">
           <div>
             <p className="text-sm text-muted">
               <Link to="/catalog" className="font-semibold text-teal hover:text-teal-deep">
@@ -119,7 +119,7 @@ function SeriesPage() {
         </ul>
       </section>
 
-      <section className="mx-auto grid max-w-6xl items-start gap-6 px-4 py-10 sm:gap-8 sm:px-6 sm:py-16 lg:grid-cols-2">
+      <section className="mx-auto grid max-w-6xl items-start gap-6 px-4 py-10 sm:gap-8 sm:px-6 sm:py-10 lg:grid-cols-2">
         <div>
           <h2 className="font-display text-2xl tracking-tight">Что входит</h2>
           <ul className="mt-6 flex flex-col gap-3">
@@ -149,7 +149,7 @@ function SeriesPage() {
       </section>
 
       <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-10">
           <h2 className="font-display text-2xl tracking-tight">Другие серии</h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2">
             {others.map((item) => (

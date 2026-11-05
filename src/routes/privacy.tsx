@@ -86,7 +86,7 @@ export const Route = createFileRoute("/privacy")({
 
 function PrivacyPage() {
   return (
-    <section className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-16">
+    <section className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-10">
       <PageIntro
         kicker="Документы"
         title="Политика конфиденциальности"

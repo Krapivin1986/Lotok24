@@ -20,16 +20,15 @@ import { useSiteCopy } from "@/components/site/use-site-copy";
 
 export function Wordmark({ onDark = false }: { onDark?: boolean }) {
   return (
-    <span className="truncate font-display text-[15px] leading-none tracking-[-0.03em] sm:text-[17px]">
-      <span className="font-medium">Лоток</span>
-      <span className={onDark ? "font-semibold text-[#8ae8b4]" : "font-semibold text-teal"}>24</span>
+    <span className="truncate font-display text-[18px] font-semibold leading-none tracking-[-0.045em] sm:text-[20px]">
+      Лоток<span className={onDark ? "text-[#8ae8b4]" : "text-[#3db878]"}>24</span>
     </span>
   );
 }
 
-export function Mark({ className = "size-9" }: { className?: string }) {
+export function Mark({ className = "size-8" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 36 36" className={className} aria-hidden="true" fill="none">
+    <svg viewBox="7 7 22 22" className={className} aria-hidden="true" fill="none">
       <path
         d="M25.5 11.7a9.8 9.8 0 1 1-10.8-2.9"
         stroke="#5ed492"
@@ -116,7 +115,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
     <div className="min-h-screen overflow-x-clip bg-paper text-ink">
       <header className="sticky top-0 z-40 border-b border-line bg-paper/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
-          <Link to="/" className="flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
+          <Link to="/" className="flex min-w-0 items-center gap-1" onClick={() => setOpen(false)}>
             <Mark />
             <Wordmark />
           </Link>
@@ -185,10 +184,10 @@ export function SiteFrame({ children }: { children: ReactNode }) {
       </header>
       <main>{children}</main>
       <footer className="border-t border-line-strong bg-ink text-on-ink">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[minmax(0,1fr)_auto] md:gap-16">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 py-8 sm:px-6 md:grid-cols-[minmax(0,1fr)_auto] md:gap-10">
           <div>
-            <div className="flex items-center gap-2.5 text-paper">
-              <Mark className="size-8" />
+            <div className="flex items-center gap-1 text-paper">
+              <Mark className="size-7" />
               <Wordmark onDark />
             </div>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-on-ink/80">

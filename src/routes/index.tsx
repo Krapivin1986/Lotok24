@@ -50,7 +50,7 @@ function HomePage() {
   return (
     <>
       <section className="bg-surface">
-        <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-14 lg:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:gap-8 sm:px-6 sm:py-10 lg:grid-cols-2 lg:gap-10 lg:py-14">
           <div>
             <p className="kicker">{copy.heroKicker}</p>
             <h1 className="mt-4 font-display text-display leading-display tracking-tight">{copy.heroTitle}</h1>
@@ -103,7 +103,7 @@ function HomePage() {
         </dl>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
+      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-10">
         <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
           <figure className="overflow-hidden rounded-card border border-line bg-paper">
             <Photo
@@ -142,7 +142,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:py-24">
+      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-10 lg:py-14">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
             <p className="kicker">Серии</p>
@@ -236,7 +236,7 @@ function HomePage() {
       </section>
 
       <section className="border-y border-line bg-surface">
-        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-10">
           <p className="kicker">До заказа</p>
           <h2 className="mt-3 max-w-2xl font-display text-3xl tracking-tight sm:text-4xl">Что важно знать заранее</h2>
           <p className="mt-3 max-w-2xl text-muted">
@@ -267,7 +267,7 @@ function HomePage() {
       </section>
 
       <section className="border-y border-line bg-surface">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
           <div className="max-w-2xl">
             <p className="kicker">Отзывы</p>
             <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Отзывы наших клиентов</h2>
@@ -288,7 +288,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
+      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-10">
         <div className="flex flex-col items-start justify-between gap-4 rounded-card bg-ink px-5 py-6 text-paper sm:flex-row sm:items-center sm:px-6">
           <div className="max-w-xl">
             <h2 className="font-display text-2xl tracking-tight sm:text-3xl">Не знаете серию?</h2>

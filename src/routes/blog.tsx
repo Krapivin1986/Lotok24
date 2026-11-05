@@ -123,7 +123,7 @@ function BlogPage() {
   return (
     <>
       <section className="bg-surface">
-        <div className="mx-auto grid max-w-6xl items-end gap-8 px-4 py-10 sm:px-6 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+        <div className="mx-auto grid max-w-6xl items-end gap-8 px-4 py-10 sm:px-6 sm:py-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
           <div>
             <p className="text-sm font-semibold text-teal">Блог · 5 заметок</p>
             <h1 className="mt-4 font-display text-display leading-display tracking-tight">
@@ -166,7 +166,7 @@ function BlogPage() {
           <article
             key={post.id}
             id={post.id}
-            className="grid scroll-mt-24 gap-6 border-b border-line py-10 lg:grid-cols-[240px_1fr] lg:gap-14 lg:py-14"
+            className="grid scroll-mt-24 gap-6 border-b border-line py-10 lg:grid-cols-[240px_1fr] lg:gap-8 lg:py-14"
           >
             <div>
               <p className="font-display text-4xl tracking-tight text-teal">{String(index + 1).padStart(2, "0")}</p>

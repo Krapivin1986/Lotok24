@@ -13,7 +13,7 @@ export const Route = createFileRoute("/login")({
 
 function LoginPage() {
   return (
-    <section className="mx-auto max-w-md px-4 py-16 sm:py-24">
+    <section className="mx-auto max-w-md px-4 py-10 sm:py-14">
       <p className="text-sm font-semibold text-teal">Админка</p>
       <h1 className="mt-3 font-display text-3xl tracking-tight">Вход для правки текстов</h1>
       <p className="mt-4 text-sm leading-relaxed text-muted">

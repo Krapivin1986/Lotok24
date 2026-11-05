@@ -76,7 +76,7 @@ function DeliveryPage() {
   return (
     <>
       <section className="border-b border-line bg-surface">
-        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
           <PageIntro
             kicker="Доставка и оплата"
             title={copy.deliveryTitle}
@@ -85,7 +85,7 @@ function DeliveryPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:py-24">
+      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-10 lg:py-14">
         <h2 className="font-display text-3xl tracking-tight">Как везём</h2>
         <ul className="mt-8 grid gap-4 lg:grid-cols-3">
           {SHIPPING.map((item) => (
