@@ -9,6 +9,8 @@ export const organizationLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Лоток24",
+  legalName: "ООО «3К»",
+  taxID: "9718232170",
   description:
     "Производитель оцинкованных кабельных лотков: перфорированные, неперфорированные, лестничные и проволочные. Склад в Москве, отгрузка по России.",
   address: {

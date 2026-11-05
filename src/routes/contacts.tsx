@@ -57,6 +57,14 @@ function ContactsPage() {
               <MailLink />
             </dd>
           </div>
+          <div className="rounded-card border border-line bg-surface px-5 py-4">
+            <dt className="text-sm font-semibold text-teal">Реквизиты</dt>
+            <dd className="mt-1 font-medium">ООО «3К»</dd>
+            <dd className="mt-1 text-sm leading-relaxed text-muted">
+              ИНН 9718232170, КПП 771801001. Юридический адрес: бульвар Маршала Рокоссовского, д. 8, корп. 2, кв. 26,
+              г. Москва.
+            </dd>
+          </div>
           {facts.map((fact) => (
             <div key={fact.label} className="rounded-card border border-line bg-surface px-5 py-4">
               <dt className="text-sm font-semibold text-teal">{fact.label}</dt>
