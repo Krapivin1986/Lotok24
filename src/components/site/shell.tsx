@@ -201,7 +201,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
         </div>
         <div className="border-t border-line-strong">
           <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs sm:flex-row sm:items-center sm:justify-between sm:px-6">
-            <p>© 2026 ООО «3К». Сайт Лоток24. Ориентир, не оферта. ИНН 9718232170, КПП 771801001.</p>
+            <p>© 2026 ООО «3К». Сайт Лоток24. ИНН 9718232170, КПП 771801001.</p>
             <Link to="/privacy" className="hover:text-paper">
               Политика конфиденциальности
             </Link>
