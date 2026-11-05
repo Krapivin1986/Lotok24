@@ -20,8 +20,8 @@ import { useSiteCopy } from "@/components/site/use-site-copy";
 
 export function Wordmark({ onDark = false }: { onDark?: boolean }) {
   return (
-    <span className="truncate font-display text-[18px] font-semibold leading-none tracking-[-0.045em] sm:text-[20px]">
-      Лоток<span className={onDark ? "text-[#8ae8b4]" : "text-[#3db878]"}>24</span>
+    <span className="truncate font-display text-[17px] font-medium leading-none tracking-[-0.02em] text-ink sm:text-[19px]">
+      Лоток<span className={onDark ? "font-semibold text-[#c8f5dc]" : "font-semibold text-[#14753c]"}>24</span>
     </span>
   );
 }
