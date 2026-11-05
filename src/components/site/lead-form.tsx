@@ -81,7 +81,7 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
                 onClick={() => setPlan(active ? null : item.id)}
                 className={
                   active
-                    ? "press inline-flex h-11 items-center rounded-control bg-teal px-4 text-sm font-semibold text-paper"
+                    ? "press inline-flex h-11 items-center rounded-control bg-[#1a56db] px-4 text-sm font-semibold text-white"
                     : "press inline-flex h-11 items-center rounded-control border border-line bg-surface px-4 text-sm font-semibold text-ink hover:bg-paper-deep"
                 }
               >
