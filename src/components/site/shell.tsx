@@ -38,10 +38,23 @@ export function Mark({ className = "size-9" }: { className?: string }) {
         </linearGradient>
       </defs>
       <rect width="36" height="36" rx="11" fill={`url(#${gradientId})`} />
-      <rect x="8.5" y="11" width="3.6" height="14.5" rx="1.8" className="fill-paper" />
-      <rect x="23.9" y="11" width="3.6" height="14.5" rx="1.8" className="fill-paper" />
-      <rect x="8.5" y="21.2" width="19" height="4.3" rx="2.15" className="fill-paper" />
-      <rect x="15.1" y="22.25" width="5.8" height="2.2" rx="1.1" fill={`url(#${gradientId})`} />
+      <circle cx="18" cy="18" r="9" fill="none" className="stroke-paper" strokeWidth="1.7" />
+      <path
+        d="M18 10.2v1.7M18 24.1v1.7M10.2 18h1.7M24.1 18h1.7"
+        fill="none"
+        className="stroke-paper"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M18 18V12.4M18 18l4.6 2.7"
+        fill="none"
+        className="stroke-paper"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="18" cy="18" r="1.35" className="fill-paper" />
     </svg>
   );
 }
