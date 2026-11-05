@@ -59,7 +59,7 @@ function HomePage() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <CtaLink to="/contacts">
-                <ArrowCta>Рассчитать трассу</ArrowCta>
+                <ArrowCta>Рассчитать стоимость</ArrowCta>
               </CtaLink>
               <CtaLink to="/delivery" tone="ghost">
                 Доставка и оплата
