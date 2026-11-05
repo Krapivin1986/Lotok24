@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { SERIES, type SeriesId } from "@/components/site/content";
 import { ArrowCta, CtaLink } from "@/components/site/shell";
+import { useMergedSeries } from "@/components/site/use-site-copy";
 
 function isSeriesId(value: string): value is SeriesId {
   return SERIES.some((item) => item.id === value);
@@ -28,9 +29,10 @@ export const Route = createFileRoute("/catalog_/$series")({
 
 function SeriesPage() {
   const { series: id } = Route.useParams();
-  const series = SERIES.find((item) => item.id === id);
+  const seriesList = useMergedSeries();
+  const series = seriesList.find((item) => item.id === id);
   if (!series) return null;
-  const others = SERIES.filter((item) => item.id !== series.id);
+  const others = seriesList.filter((item) => item.id !== series.id);
 
   return (
     <>

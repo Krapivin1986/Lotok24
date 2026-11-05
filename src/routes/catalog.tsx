@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
-import { ACCESSORIES, FEATURES, SERIES, SPECS, USES } from "@/components/site/content";
+import { ACCESSORIES, FEATURES, SPECS, USES } from "@/components/site/content";
 import { CtaLink, PageIntro } from "@/components/site/shell";
+import { useMergedSeries } from "@/components/site/use-site-copy";
 
 export const Route = createFileRoute("/catalog")({
   head: () => ({
@@ -18,6 +19,7 @@ export const Route = createFileRoute("/catalog")({
 });
 
 function CatalogPage() {
+  const seriesList = useMergedSeries();
   return (
     <>
       <section className="border-b border-line bg-surface">
@@ -32,7 +34,7 @@ function CatalogPage() {
 
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <ul className="flex flex-col gap-16">
-          {SERIES.map((series, index) => (
+          {seriesList.map((series, index) => (
             <li key={series.id} id={series.id} className="grid items-center gap-8 lg:grid-cols-2">
               <figure
                 className={`overflow-hidden rounded-card border border-line bg-surface ${index % 2 === 1 ? "lg:order-2" : ""}`}

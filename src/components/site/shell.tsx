@@ -2,6 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { NAV, type NavTo } from "@/components/site/content";
+import { useSiteCopy } from "@/components/site/use-site-copy";
 
 export function Mark({ className = "size-9" }: { className?: string }) {
   return (
@@ -22,6 +23,7 @@ function navClass(mobile: boolean) {
 }
 
 export function SiteFrame({ children }: { children: ReactNode }) {
+  const copy = useSiteCopy();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -105,9 +107,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
               <Mark className="size-8" />
               <span className="font-display tracking-tight">СТАЛЬТРАССА</span>
             </div>
-            <p className="mt-3 max-w-sm text-sm leading-relaxed">
-              Металлические кабельные лотки: перфорированные, лестничные и глухие. Москва, отгрузка по России.
-            </p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed">{copy.footerText}</p>
           </div>
           <nav aria-label="Подвал" className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
             {NAV.map((item) => (
@@ -115,6 +115,9 @@ export function SiteFrame({ children }: { children: ReactNode }) {
                 {item.label}
               </Link>
             ))}
+            <Link to="/admin" className="hover:text-paper">
+              Админка
+            </Link>
           </nav>
         </div>
         <div className="border-t border-line-strong">

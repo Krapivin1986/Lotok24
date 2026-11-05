@@ -2,11 +2,13 @@ import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-r
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { SiteFrame } from "@/components/site/shell";
+import { getSiteCopy } from "@/lib/site-copy.functions";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "СТАЛЬТРАССА — металлические кабельные лотки";
 
 export const Route = createRootRoute({
+  loader: () => getSiteCopy(),
   head: () => ({
     meta: [
       { charSet: "utf-8" },

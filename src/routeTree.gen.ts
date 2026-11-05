@@ -10,14 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as CatalogRouteImport } from './routes/catalog'
 import { Route as ContactsRouteImport } from './routes/contacts'
 import { Route as DeliveryRouteImport } from './routes/delivery'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as CatalogSeriesRouteImport } from './routes/catalog_.$series'
+import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CatalogRoute = CatalogRouteImport.update({
@@ -35,54 +43,95 @@ const DeliveryRoute = DeliveryRouteImport.update({
   path: '/delivery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CatalogSeriesRoute = CatalogSeriesRouteImport.update({
   id: '/catalog_/$series',
   path: '/catalog/$series',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
+  id: '/api/auth/$',
+  path: '/api/auth/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/catalog': typeof CatalogRoute
   '/contacts': typeof ContactsRoute
   '/delivery': typeof DeliveryRoute
+  '/login': typeof LoginRoute
   '/catalog/$series': typeof CatalogSeriesRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/catalog': typeof CatalogRoute
   '/contacts': typeof ContactsRoute
   '/delivery': typeof DeliveryRoute
+  '/login': typeof LoginRoute
   '/catalog/$series': typeof CatalogSeriesRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/catalog': typeof CatalogRoute
   '/contacts': typeof ContactsRoute
   '/delivery': typeof DeliveryRoute
+  '/login': typeof LoginRoute
   '/catalog_/$series': typeof CatalogSeriesRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/catalog' | '/contacts' | '/delivery' | '/catalog/$series'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/catalog' | '/contacts' | '/delivery' | '/catalog/$series'
-  id:
-    | '__root__'
+  fullPaths:
     | '/'
+    | '/admin'
     | '/catalog'
     | '/contacts'
     | '/delivery'
+    | '/login'
+    | '/catalog/$series'
+    | '/api/auth/$'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/admin'
+    | '/catalog'
+    | '/contacts'
+    | '/delivery'
+    | '/login'
+    | '/catalog/$series'
+    | '/api/auth/$'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/catalog'
+    | '/contacts'
+    | '/delivery'
+    | '/login'
     | '/catalog_/$series'
+    | '/api/auth/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   CatalogRoute: typeof CatalogRoute
   ContactsRoute: typeof ContactsRoute
   DeliveryRoute: typeof DeliveryRoute
+  LoginRoute: typeof LoginRoute
   CatalogSeriesRoute: typeof CatalogSeriesRoute
+  ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/catalog': {
@@ -115,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DeliveryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/catalog_/$series': {
       id: '/catalog_/$series'
       path: '/catalog/$series'
@@ -122,15 +185,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CatalogSeriesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/auth/$': {
+      id: '/api/auth/$'
+      path: '/api/auth/$'
+      fullPath: '/api/auth/$'
+      preLoaderRoute: typeof ApiAuthSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   CatalogRoute: CatalogRoute,
   ContactsRoute: ContactsRoute,
   DeliveryRoute: DeliveryRoute,
+  LoginRoute: LoginRoute,
   CatalogSeriesRoute: CatalogSeriesRoute,
+  ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

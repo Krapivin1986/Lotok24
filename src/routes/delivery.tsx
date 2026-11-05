@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowCta, CtaLink, PageIntro } from "@/components/site/shell";
+import { useSiteCopy } from "@/components/site/use-site-copy";
 
 const SHIPPING = [
   {
@@ -62,14 +63,15 @@ export const Route = createFileRoute("/delivery")({
 });
 
 function DeliveryPage() {
+  const copy = useSiteCopy();
   return (
     <>
       <section className="border-b border-line bg-surface">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <PageIntro
             kicker="Доставка и оплата"
-            title="Металл уезжает со счётом, а не с сюрпризом"
-            text="Стоимость перевозки считаем до оплаты. В машине — пачки с маркировкой по осям и закрывающие документы."
+            title={copy.deliveryTitle}
+            text={copy.deliveryText}
           />
         </div>
       </section>

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PROOF, REVIEWS, SERIES } from "@/components/site/content";
+import { PROOF } from "@/components/site/content";
 import { ArrowCta, CtaLink } from "@/components/site/shell";
+import { useMergedSeries, useSiteCopy } from "@/components/site/use-site-copy";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -17,19 +18,16 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const copy = useSiteCopy();
+  const seriesList = useMergedSeries();
   return (
     <>
       <section className="bg-surface">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-14 lg:py-24">
           <div>
-            <p className="text-sm font-semibold tracking-wide text-teal">Каталог стали · кабельные трассы</p>
-            <h1 className="mt-4 font-display text-display leading-display tracking-tight">
-              Металлический лоток для трасс на годы
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-              Оцинкованные лотки для цехов, ЦОД и коммерческих зданий. Считаем нагрузку по пролёту опор, комплектуем
-              фасонку и отгружаем со склада — монтаж не ждёт металл.
-            </p>
+            <p className="text-sm font-semibold tracking-wide text-teal">{copy.heroKicker}</p>
+            <h1 className="mt-4 font-display text-display leading-display tracking-tight">{copy.heroTitle}</h1>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">{copy.heroText}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <CtaLink to="/contacts">
                 <ArrowCta>Рассчитать трассу</ArrowCta>
@@ -87,7 +85,7 @@ function HomePage() {
           </Link>
         </div>
         <ul className="mt-10 grid gap-4 md:grid-cols-3">
-          {SERIES.map((series) => (
+          {seriesList.map((series) => (
             <li key={series.id} className="flex flex-col rounded-card border border-line bg-surface p-5">
               <p className="text-sm font-semibold text-teal">{series.code}</p>
               <h3 className="mt-3 font-display text-xl tracking-tight">{series.name}</h3>
@@ -111,7 +109,7 @@ function HomePage() {
             <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Как это выглядит на площадке</h2>
           </div>
           <ul className="mt-10 grid gap-4 lg:grid-cols-3">
-            {REVIEWS.map((review) => (
+            {copy.reviews.map((review) => (
               <li key={review.name}>
                 <figure className="flex h-full flex-col rounded-card border border-line bg-paper p-5">
                   <blockquote className="text-base leading-relaxed">«{review.quote}»</blockquote>
