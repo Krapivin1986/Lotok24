@@ -71,6 +71,9 @@ function SeriesPage() {
               <span>{series.code}</span>
             </p>
             <h1 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">{series.pageTitle}</h1>
+            <p className="mt-3 font-display text-2xl tracking-tight tabular-nums">
+              от {series.priceFrom} <span className="text-base font-medium text-muted">рублей за метр</span>
+            </p>
             <p className="mt-4 text-lg leading-relaxed text-muted">
               <SeriesText text={series.lead} skip={series.id} />
             </p>

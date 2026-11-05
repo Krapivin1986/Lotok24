@@ -63,6 +63,9 @@ function CatalogPage() {
               <div>
                 <p className="text-sm font-semibold text-teal">{series.code}</p>
                 <h2 className="mt-2 font-display text-3xl tracking-tight">{series.name}</h2>
+                <p className="mt-2 font-display text-2xl tracking-tight tabular-nums">
+                  от {series.priceFrom} <span className="text-base font-medium text-muted">рублей за метр</span>
+                </p>
                 <p className="mt-4 leading-relaxed text-muted">
                   <SeriesText text={series.text} />
                 </p>

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { jsonLd } from "@/components/site/seo";
 import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
-import { FEATURES, PLANS, PROOF, STEPS } from "@/components/site/content";
+import { FEATURES, PROOF, STEPS } from "@/components/site/content";
 import { ArrowCta, CtaLink } from "@/components/site/shell";
 import { useMergedSeries, useSiteCopy } from "@/components/site/use-site-copy";
 
@@ -149,7 +149,7 @@ function HomePage() {
           <div className="max-w-2xl">
             <p className="kicker">Серии</p>
             <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Три лотка — одна система крепёжа</h2>
-            <p className="mt-3 text-muted">На карточке — ширина, толщина, длина и покрытие. Полная таблица открывается со страницы серии.</p>
+            <p className="mt-3 text-muted">Цена указана от самого узкого лотка серии, за метр. Ширина, толщина и покрытие меняют сумму в счёте.</p>
           </div>
           <Link to="/catalog" className="text-sm font-semibold text-teal hover:text-teal-deep">
             Весь каталог
@@ -164,6 +164,9 @@ function HomePage() {
                   {series.name}
                 </Link>
               </h3>
+              <p className="mt-2 font-display text-2xl tracking-tight tabular-nums">
+                от {series.priceFrom} <span className="text-base font-medium text-muted">рублей за метр</span>
+              </p>
               <p className="mt-3 text-sm leading-relaxed text-muted">
                 <SeriesText text={series.text} />
               </p>
@@ -240,39 +243,6 @@ function HomePage() {
             ))}
           </ul>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
-        <div className="max-w-2xl">
-          <p className="kicker">Тарифы</p>
-          <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Сколько стоит начать</h2>
-          <p className="mt-3 text-muted">
-            Цены — за типовую поставку, не за метр «в среднем». Состав и срок видны до оплаты. Точный счёт пришлём на почту.
-          </p>
-        </div>
-        <ul className="mt-8 grid gap-4 lg:grid-cols-3">
-          {PLANS.map((plan) => (
-            <li
-              key={plan.id}
-              className={`flex flex-col rounded-card border bg-surface p-5 ${plan.featured ? "border-teal" : "border-line"}`}
-            >
-              <p className="text-sm font-semibold text-teal">{plan.name}</p>
-              <p className="mt-3 font-display text-3xl tracking-tight tabular-nums">
-                {plan.price}
-                {plan.suffix ? <span className="ml-1 text-lg text-muted">{plan.suffix}</span> : null}
-              </p>
-              <p className="mt-1 text-sm text-muted">{plan.note}</p>
-              <ul className="mt-4 flex flex-1 flex-col gap-2 text-sm leading-relaxed">
-                {plan.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-              <Link to="/contacts" search={{ plan: plan.id }} className="press ios-filled mt-5 w-full">
-                {plan.cta}
-              </Link>
-            </li>
-          ))}
-        </ul>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
