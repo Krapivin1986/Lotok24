@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Photo } from "@/components/site/photo";
 import { FEATURES, PROOF } from "@/components/site/content";
 import { ArrowCta, CtaLink } from "@/components/site/shell";
 import { useMergedSeries, useSiteCopy } from "@/components/site/use-site-copy";
@@ -44,12 +45,12 @@ function HomePage() {
           </div>
           <figure className="min-w-0">
             <div className="overflow-hidden rounded-card border border-line bg-paper">
-              <img
+              <Photo
                 src="/images/tray-hero.jpg"
                 alt="Перфорированный оцинкованный кабельный лоток на светлом подиуме"
                 width={1792}
                 height={1008}
-                className="aspect-video w-full object-cover"
+                className="aspect-video w-full"
               />
               <figcaption className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 bg-green-soft px-4 py-3 text-sm text-green-ink sm:px-5">
                 <span className="font-medium">Лоток перфорированный 200×100</span>
@@ -77,13 +78,13 @@ function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
         <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
           <figure className="overflow-hidden rounded-card border border-line bg-paper">
-            <img
+            <Photo
               src="/images/tray-install.jpg"
               alt="Лестничные кабельные лотки с кабелем на светлом потолке промышленного зала"
               width={1728}
               height={1152}
               loading="lazy"
-              className="aspect-[4/3] w-full object-cover"
+              className="aspect-[4/3] w-full"
             />
           </figure>
           <div>

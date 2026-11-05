@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Photo } from "@/components/site/photo";
 import { ArrowCta, CtaLink } from "@/components/site/shell";
 
 const POSTS = [
@@ -103,12 +104,12 @@ function BlogPage() {
             </p>
           </div>
           <figure className="overflow-hidden rounded-card">
-            <img
+            <Photo
               src="/images/tray-install.jpg"
               alt="Кабельная трасса на потолке промышленного зала"
               width={1728}
               height={1152}
-              className="aspect-[4/3] w-full object-cover"
+              className="aspect-[4/3] w-full"
             />
             <figcaption className="bg-green-soft px-4 py-3 text-sm font-medium text-green-ink">
               Трасса на объекте · лестничный лоток
@@ -140,13 +141,13 @@ function BlogPage() {
             <div>
               <p className="font-display text-4xl tracking-tight text-teal">{String(index + 1).padStart(2, "0")}</p>
               {post.image ? (
-                <img
+                <Photo
                   src={post.image}
                   alt={post.alt}
                   width={1408}
                   height={1008}
                   loading="lazy"
-                  className="mt-4 aspect-[4/3] w-full rounded-card object-cover"
+                  className="mt-4 aspect-[4/3] w-full rounded-card"
                 />
               ) : null}
               <p className="mt-4 text-sm text-muted">{post.date}</p>

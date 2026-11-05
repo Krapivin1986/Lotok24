@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { ACCESSORIES, FEATURES, SPECS, USES } from "@/components/site/content";
+import { Photo } from "@/components/site/photo";
 import { CtaLink, PageIntro } from "@/components/site/shell";
 import { useMergedSeries } from "@/components/site/use-site-copy";
 
@@ -39,13 +40,13 @@ function CatalogPage() {
               <figure
                 className={`overflow-hidden rounded-card border border-line bg-surface ${index % 2 === 1 ? "lg:order-2" : ""}`}
               >
-                <img
+                <Photo
                   src={series.image}
                   alt={series.alt}
                   width={series.width}
                   height={series.height}
                   loading={index === 0 ? undefined : "lazy"}
-                  className="aspect-video w-full object-cover"
+                  className="aspect-video w-full"
                 />
                 <figcaption className="px-5 py-4 text-sm text-muted">{series.caption}</figcaption>
               </figure>
@@ -95,13 +96,13 @@ function CatalogPage() {
             </table>
           </div>
           <figure className="flex items-center gap-4 rounded-card border border-line bg-surface p-4 sm:p-5">
-            <img
+            <Photo
               src="/images/tray-zinc.jpg"
               alt="Крупный план кристаллического покрытия горячего цинка на кромке лотка"
               width={1408}
               height={1408}
               loading="lazy"
-              className="size-20 shrink-0 rounded-control object-cover sm:size-36"
+              className="size-20 shrink-0 rounded-control sm:size-36"
             />
             <figcaption>
               <p className="font-display text-lg tracking-tight">Горячий цинк</p>

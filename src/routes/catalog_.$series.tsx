@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { SERIES, type SeriesId } from "@/components/site/content";
+import { Photo } from "@/components/site/photo";
 import { ArrowCta, CtaLink } from "@/components/site/shell";
 import { useMergedSeries } from "@/components/site/use-site-copy";
 
@@ -55,12 +56,12 @@ function SeriesPage() {
             </div>
           </div>
           <figure className="overflow-hidden rounded-card border border-line bg-paper">
-            <img
+            <Photo
               src={series.image}
               alt={series.alt}
               width={series.width}
               height={series.height}
-              className="aspect-video w-full object-cover"
+              className="aspect-video w-full"
             />
             <figcaption className="px-5 py-4 text-sm text-muted">{series.caption}</figcaption>
           </figure>
