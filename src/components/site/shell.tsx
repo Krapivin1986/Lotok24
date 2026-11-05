@@ -119,6 +119,9 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <div className="flex items-center gap-2">
+            <a href="mailto:info@lotok24.ru" className="hidden truncate text-sm font-semibold text-ink hover:text-teal sm:inline">
+              info@lotok24.ru
+            </a>
             <ChatLinks copy={copy} />
             <Link to="/contacts" className="press ios-filled max-sm:min-h-9 max-sm:px-3.5 max-sm:text-[15px]">
               Заказать
@@ -135,6 +138,12 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             </button>
           </div>
         </div>
+        <a
+          href="mailto:info@lotok24.ru"
+          className="block border-t border-line px-4 py-2 text-center text-sm font-semibold text-ink hover:text-teal sm:hidden"
+        >
+          info@lotok24.ru
+        </a>
         {open ? (
           <nav id="mobile-nav" className="max-h-[70dvh] overflow-y-auto border-t border-line px-4 py-3 lg:hidden" aria-label="Разделы">
             <div className="mb-2 flex items-center gap-2">
