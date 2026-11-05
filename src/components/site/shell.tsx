@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState, type ReactNode } from "react";
+import { useEffect, useId, useLayoutEffect, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { NAV, type NavTo } from "@/components/site/content";
@@ -6,13 +6,20 @@ import { SeriesText } from "@/components/site/series-text";
 import { useSiteCopy } from "@/components/site/use-site-copy";
 
 export function Mark({ className = "size-9" }: { className?: string }) {
+  const gradientId = `mark-${useId().replace(/:/g, "")}`;
   return (
     <svg viewBox="0 0 36 36" className={className} aria-hidden="true">
-      <rect width="36" height="36" rx="11" className="fill-teal" />
+      <defs>
+        <linearGradient id={gradientId} x1="4" y1="2" x2="32" y2="34" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#8ae8b4" />
+          <stop offset="1" stopColor="#127a40" />
+        </linearGradient>
+      </defs>
+      <rect width="36" height="36" rx="11" fill={`url(#${gradientId})`} />
       <rect x="8.5" y="11" width="3.6" height="14.5" rx="1.8" className="fill-paper" />
       <rect x="23.9" y="11" width="3.6" height="14.5" rx="1.8" className="fill-paper" />
       <rect x="8.5" y="21.2" width="19" height="4.3" rx="2.15" className="fill-paper" />
-      <rect x="15.1" y="22.25" width="5.8" height="2.2" rx="1.1" className="fill-teal" />
+      <rect x="15.1" y="22.25" width="5.8" height="2.2" rx="1.1" fill={`url(#${gradientId})`} />
     </svg>
   );
 }
