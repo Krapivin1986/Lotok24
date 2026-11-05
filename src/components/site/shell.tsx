@@ -52,16 +52,20 @@ export function SiteFrame({ children }: { children: ReactNode }) {
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          entry.target.classList.add("reveal-in");
-          observer.unobserve(entry.target);
+          const target = entry.target as HTMLElement;
+          target.classList.add("reveal-in");
+          observer.unobserve(target);
+          target.addEventListener("transitionend", () => target.classList.add("reveal-done"), { once: true });
         });
       },
       { threshold: 0.05, rootMargin: "0px 0px 12% 0px" },
     );
-    items.forEach((item) => {
+    const limit = window.innerHeight * 0.92;
+    const tops = items.map((item) => item.getBoundingClientRect().top);
+    items.forEach((item, index) => {
       item.classList.add("reveal");
-      if (item.getBoundingClientRect().top < window.innerHeight * 0.92) {
-        item.classList.add("reveal-in");
+      if (tops[index] < limit) {
+        item.classList.add("reveal-in", "reveal-done");
         return;
       }
       observer.observe(item);
@@ -69,7 +73,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
     return () => {
       observer.disconnect();
       items.forEach((item) => {
-        item.classList.remove("reveal", "reveal-in");
+        item.classList.remove("reveal", "reveal-in", "reveal-done");
       });
     };
   }, [pathname]);
