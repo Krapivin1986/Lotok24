@@ -47,13 +47,13 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Link
             to="/"
-            className="press inline-flex h-12 items-center justify-center rounded-control bg-teal px-5 font-semibold text-paper hover:bg-teal-deep"
+            className="press md-filled bg-teal text-paper hover:bg-teal-deep"
           >
             На главную
           </Link>
           <button
             type="button"
-            className="press inline-flex h-12 items-center justify-center rounded-control border border-line px-5 font-semibold hover:bg-paper-deep"
+            className="press md-outline"
             onClick={() => setStatus("idle")}
           >
             Указать другой адрес
@@ -81,8 +81,8 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
                 onClick={() => setPlan(active ? null : item.id)}
                 className={
                   active
-                    ? "press inline-flex h-11 items-center rounded-control bg-teal px-4 text-sm font-semibold text-paper"
-                    : "press inline-flex h-11 items-center rounded-control border border-line bg-surface px-4 text-sm font-semibold text-ink hover:bg-paper-deep"
+                    ? "press md-filled h-8 bg-teal text-paper"
+                    : "press md-outline h-8"
                 }
               >
                 {item.name}
@@ -118,7 +118,7 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
       ) : null}
       <button
         type="submit"
-        className="press mt-4 inline-flex h-12 w-full items-center justify-center gap-2 rounded-control bg-teal px-5 font-semibold text-paper hover:bg-teal-deep"
+        className="press md-filled mt-4 w-full bg-teal text-paper hover:bg-teal-deep"
       >
         Отправить
         <ArrowRight className="size-4" aria-hidden="true" />

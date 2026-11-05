@@ -68,13 +68,13 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           <div className="flex items-center gap-2">
             <Link
               to="/contacts"
-              className="press inline-flex h-11 items-center justify-center rounded-control bg-teal px-3 text-sm font-semibold text-paper hover:bg-teal-deep sm:px-4"
+              className="press md-filled bg-teal px-3 text-paper hover:bg-teal-deep sm:px-4"
             >
               Заказать
             </Link>
             <button
               type="button"
-              className="press inline-flex size-11 shrink-0 items-center justify-center rounded-control border border-line bg-surface lg:hidden"
+              className="press md-icon lg:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
               onClick={() => setOpen((value) => !value)}
@@ -122,7 +122,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className="press inline-flex h-11 items-center justify-center rounded-control bg-teal px-4 text-sm font-semibold text-paper hover:bg-teal-deep"
+                  className="press md-filled bg-teal text-paper hover:bg-teal-deep"
                 >
                   На главную
                 </Link>
@@ -148,7 +148,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
 const TONES = {
   teal: "bg-teal text-paper hover:bg-teal-deep",
   paper: "bg-paper text-ink hover:bg-paper-deep",
-  ghost: "border border-line bg-paper text-ink hover:bg-paper-deep",
+  ghost: "text-teal",
 } as const;
 
 export function CtaLink({
@@ -164,7 +164,7 @@ export function CtaLink({
   children: ReactNode;
   className?: string;
 }) {
-  const classNames = `press inline-flex h-12 w-full items-center justify-center gap-2 rounded-control px-5 text-center font-semibold sm:w-auto ${TONES[tone]} ${className}`;
+  const classNames = `press ${tone === "ghost" ? "md-outline" : "md-filled"} w-full text-center sm:w-auto ${TONES[tone]} ${className}`;
   if (hash) {
     return (
       <Link to={to} hash={hash} className={classNames}>
