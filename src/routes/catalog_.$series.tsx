@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Check } from "lucide-react";
-import { SERIES, type SeriesId } from "@/components/site/content";
+import { GALLERY, SERIES, type SeriesId } from "@/components/site/content";
 import { breadcrumbLd, jsonLd, SERIES_SEO } from "@/components/site/seo";
 import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
@@ -97,6 +97,26 @@ function SeriesPage() {
             <figcaption className="px-5 py-4 text-sm text-muted">{series.caption}</figcaption>
           </figure>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6" aria-label="Дополнительные фото">
+        <ul className="grid gap-4 sm:grid-cols-2">
+          {GALLERY[series.id].map((photo) => (
+            <li key={photo.src}>
+              <figure className="overflow-hidden rounded-card border border-line bg-paper">
+                <Photo
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={1792}
+                  height={1008}
+                  loading="lazy"
+                  className="aspect-video w-full"
+                />
+                <figcaption className="px-5 py-3 text-sm text-muted">{photo.caption}</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="mx-auto grid max-w-6xl items-start gap-6 px-4 py-10 sm:gap-8 sm:px-6 sm:py-16 lg:grid-cols-2">

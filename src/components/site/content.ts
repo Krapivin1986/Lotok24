@@ -218,6 +218,96 @@ export const SERIES = [
 
 export type SeriesId = (typeof SERIES)[number]["id"];
 
+export const GALLERY: Record<
+  SeriesId,
+  { src: string; alt: string; caption: string }[]
+> = {
+  perforated: [
+    {
+      src: "/images/perforated-2.jpg",
+      alt: "Овальные отверстия в дне перфорированного лотка",
+      caption: "Перфорация по дну",
+    },
+    {
+      src: "/images/perforated-3.jpg",
+      alt: "Торец перфорированного лотка, виден борт",
+      caption: "Торец и борт",
+    },
+  ],
+  ladder: [
+    {
+      src: "/images/ladder-2.jpg",
+      alt: "Поперечины лестничного кабельного лотка",
+      caption: "Поперечины",
+    },
+    {
+      src: "/images/ladder-3.jpg",
+      alt: "Лестничный лоток сверху",
+      caption: "Секция сверху",
+    },
+  ],
+  solid: [
+    {
+      src: "/images/solid-2.jpg",
+      alt: "Сплошное дно неперфорированного лотка без отверстий",
+      caption: "Дно без отверстий",
+    },
+    {
+      src: "/images/solid-3.jpg",
+      alt: "Неперфорированный лоток с наполовину сдвинутой крышкой",
+      caption: "Крышка на лотке",
+    },
+  ],
+  wire: [
+    {
+      src: "/images/wire-2.jpg",
+      alt: "Сварная сетка проволочного лотка крупным планом",
+      caption: "Сетка прутка",
+    },
+    {
+      src: "/images/wire-3.jpg",
+      alt: "Проволочный лоток с торца",
+      caption: "Торец корзины",
+    },
+  ],
+  cover: [
+    {
+      src: "/images/cover-2.jpg",
+      alt: "Крышка, надетая на перфорированный лоток",
+      caption: "Крышка на секции",
+    },
+    {
+      src: "/images/cover-3.jpg",
+      alt: "Отбортовка крышки лотка крупным планом",
+      caption: "Кромка крышки",
+    },
+  ],
+  strut: [
+    {
+      src: "/images/strut-2.jpg",
+      alt: "Два страт-профиля 41×21 и 41×41 рядом",
+      caption: "41×21 и 41×41",
+    },
+    {
+      src: "/images/strut-3.jpg",
+      alt: "Канальная гайка с болтом в пазу страт-профиля",
+      caption: "Гайка в пазу",
+    },
+  ],
+  fastener: [
+    {
+      src: "/images/fastener-2.jpg",
+      alt: "Соединитель секций лотка с болтами",
+      caption: "Соединитель секций",
+    },
+    {
+      src: "/images/fastener-3.jpg",
+      alt: "Шпильки, гайки и шайбы для подвеса лотка",
+      caption: "Шпилька и гайки",
+    },
+  ],
+};
+
 export const FEATURES: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: ShieldCheck,

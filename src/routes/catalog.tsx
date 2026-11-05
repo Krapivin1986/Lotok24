@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
-import { ACCESSORIES, FEATURES, SPECS, USES } from "@/components/site/content";
+import { ACCESSORIES, FEATURES, GALLERY, SPECS, USES } from "@/components/site/content";
 import { breadcrumbLd, jsonLd } from "@/components/site/seo";
 import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
@@ -47,19 +47,36 @@ function CatalogPage() {
         <ul className="flex flex-col gap-10 sm:gap-16">
           {seriesList.map((series, index) => (
             <li key={series.id} id={series.id} className="grid items-center gap-8 lg:grid-cols-2">
-              <figure
-                className={`overflow-hidden rounded-card border border-line bg-surface ${index % 2 === 1 ? "lg:order-2" : ""}`}
-              >
-                <Photo
-                  src={series.image}
-                  alt={series.alt}
-                  width={series.width}
-                  height={series.height}
-                  loading={index === 0 ? undefined : "lazy"}
-                  className="aspect-video w-full"
-                />
-                <figcaption className="px-5 py-4 text-sm text-muted">{series.caption}</figcaption>
-              </figure>
+              <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                <figure className="overflow-hidden rounded-card border border-line bg-surface">
+                  <Photo
+                    src={series.image}
+                    alt={series.alt}
+                    width={series.width}
+                    height={series.height}
+                    loading={index === 0 ? undefined : "lazy"}
+                    className="aspect-video w-full"
+                  />
+                  <figcaption className="px-5 py-4 text-sm text-muted">{series.caption}</figcaption>
+                </figure>
+                <ul className="mt-3 grid grid-cols-2 gap-3">
+                  {GALLERY[series.id].map((photo) => (
+                    <li key={photo.src}>
+                      <figure className="overflow-hidden rounded-card border border-line bg-paper">
+                        <Photo
+                          src={photo.src}
+                          alt={photo.alt}
+                          width={1792}
+                          height={1008}
+                          loading="lazy"
+                          className="aspect-video w-full"
+                        />
+                        <figcaption className="px-3 py-2 text-xs text-muted">{photo.caption}</figcaption>
+                      </figure>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <div>
                 <p className="text-sm font-semibold text-teal">{series.code}</p>
                 <h2 className="mt-2 font-display text-3xl tracking-tight">{series.name}</h2>
