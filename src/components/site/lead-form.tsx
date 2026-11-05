@@ -127,8 +127,12 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
         <ArrowRight className="size-4" aria-hidden="true" />
       </button>
       <p className="mt-3 text-xs leading-relaxed text-muted">
-        Нажимая кнопку, вы соглашаетесь получить письмо со спецификацией. Адрес остаётся в этом браузере и не уходит
-        на сервер.
+        Нажимая кнопку, вы просите прайс и спецификацию. Адрес остаётся в этом браузере и не уходит на сервер.
+        Подробности — в{" "}
+        <Link to="/privacy" className="font-semibold text-teal underline decoration-teal/40 underline-offset-4">
+          политике конфиденциальности
+        </Link>
+        .
       </p>
     </form>
   );
