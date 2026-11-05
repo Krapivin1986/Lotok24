@@ -8,16 +8,11 @@ import { useSiteCopy } from "@/components/site/use-site-copy";
 export function Mark({ className = "size-9" }: { className?: string }) {
   return (
     <svg viewBox="0 0 36 36" className={className} aria-hidden="true">
-      <rect width="36" height="36" rx="12" className="fill-teal" />
-      <path
-        d="M10.5 13.5h15v9.2a2.8 2.8 0 0 1-2.8 2.8h-9.4a2.8 2.8 0 0 1-2.8-2.8v-9.2z"
-        className="fill-none stroke-paper"
-        strokeWidth="2.2"
-        strokeLinejoin="round"
-      />
-      <rect x="14.1" y="17.2" width="1.8" height="3.6" rx="0.9" className="fill-paper" />
-      <rect x="17.1" y="17.2" width="1.8" height="3.6" rx="0.9" className="fill-paper" />
-      <rect x="20.1" y="17.2" width="1.8" height="3.6" rx="0.9" className="fill-paper" />
+      <rect width="36" height="36" rx="11" className="fill-teal" />
+      <rect x="8.5" y="11" width="3.6" height="14.5" rx="1.8" className="fill-paper" />
+      <rect x="23.9" y="11" width="3.6" height="14.5" rx="1.8" className="fill-paper" />
+      <rect x="8.5" y="21.2" width="19" height="4.3" rx="2.15" className="fill-paper" />
+      <rect x="15.1" y="22.25" width="5.8" height="2.2" rx="1.1" className="fill-teal" />
     </svg>
   );
 }
