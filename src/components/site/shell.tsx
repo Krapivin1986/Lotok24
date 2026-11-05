@@ -119,10 +119,8 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <div className="flex items-center gap-2">
-            <Link
-              to="/contacts"
-              className="press ios-filled"
-            >
+            <ChatLinks copy={copy} />
+            <Link to="/contacts" className="press ios-filled max-sm:min-h-9 max-sm:px-3.5 max-sm:text-[15px]">
               Заказать
             </Link>
             <button
@@ -139,6 +137,9 @@ export function SiteFrame({ children }: { children: ReactNode }) {
         </div>
         {open ? (
           <nav id="mobile-nav" className="max-h-[70dvh] overflow-y-auto border-t border-line px-4 py-3 lg:hidden" aria-label="Разделы">
+            <div className="mb-2 flex items-center gap-2">
+              <ChatLinks copy={copy} wide />
+            </div>
             <ul className="flex flex-col">
               {NAV.map((item) => (
                 <li key={item.to}>
@@ -197,6 +198,58 @@ export function SiteFrame({ children }: { children: ReactNode }) {
         </div>
       </footer>
     </div>
+  );
+}
+
+function ChatLinks({
+  copy,
+  wide = false,
+}: {
+  copy: { whatsappUrl: string; telegramUrl: string };
+  wide?: boolean;
+}) {
+  const className = wide
+    ? "press inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-full px-4 text-sm font-semibold text-white"
+    : "press inline-flex size-9 items-center justify-center rounded-full text-white sm:size-11";
+  return (
+    <>
+      <a
+        href={copy.whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Написать в WhatsApp"
+        className={`${className} bg-[#25D366] shadow-[0_4px_12px_rgb(37_211_102/28%)]`}
+      >
+        <WhatsAppIcon />
+        {wide ? <span>WhatsApp</span> : null}
+      </a>
+      <a
+        href={copy.telegramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Написать в Telegram"
+        className={`${className} bg-[#2AABEE] shadow-[0_4px_12px_rgb(42_171_238/28%)]`}
+      >
+        <TelegramIcon />
+        {wide ? <span>Telegram</span> : null}
+      </a>
+    </>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-4 sm:size-5" aria-hidden="true" fill="currentColor">
+      <path d="M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.4a10 10 0 0 0 4.65 1.18h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2Zm5.76 13.95c-.24.68-1.4 1.3-1.94 1.38-.5.07-1.12.1-1.81-.11-.41-.13-.95-.31-1.64-.61-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.16-1.54-1.16-2.94s.73-2.08 1-2.37c.24-.26.64-.38.86-.38h.62c.2 0 .46-.07.72.55.27.64.9 2.2.98 2.36.08.16.13.35.03.56-.1.21-.15.34-.3.52-.15.18-.31.4-.44.54-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.13.63-.08.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.14.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.7-.17 1.38Z" />
+    </svg>
+  );
+}
+
+function TelegramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-4 sm:size-5" aria-hidden="true" fill="currentColor">
+      <path d="M21.5 4.4 2.7 11.6c-1.28.5-1.27 1.22-.23 1.54l4.82 1.5 11.2-7.07c.53-.32 1.01-.15.61.21l-9.07 8.2-.35 4.93c.51 0 .73-.23 1.01-.5l2.42-2.35 5.03 3.71c.93.51 1.59.25 1.82-.86l3.3-15.55c.34-1.34-.51-1.95-1.46-1.56Z" />
+    </svg>
   );
 }
 

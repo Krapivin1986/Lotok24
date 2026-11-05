@@ -18,6 +18,8 @@ export type SiteCopy = {
   reviews: Array<{ quote: string; name: string; role: string }>;
   contactsTitle: string;
   contactsText: string;
+  whatsappUrl: string;
+  telegramUrl: string;
   warehouse: string;
   hours: string;
   reply: string;
@@ -146,6 +148,8 @@ export const DEFAULT_SITE_COPY: SiteCopy = {
   ],
   contactsTitle: "Склад в Москве, ответ на почту",
   contactsText: "Напишите рабочий email. В ответ — прайс, таблица нагрузок и, если едете сами, пропуск на рампу.",
+  whatsappUrl: "https://wa.me/79000000000",
+  telegramUrl: "https://t.me/lotok24",
   warehouse: "Москва, Открытое шоссе, д. 12, стр. 4",
   hours: "пн–пт, 9:00–18:00",
   reply: "в тот же рабочий день",
@@ -199,6 +203,8 @@ export function sanitizeSiteCopy(input: unknown): SiteCopy {
     }),
     contactsTitle: clip(raw.contactsTitle, 120, base.contactsTitle),
     contactsText: clip(raw.contactsText, 400, base.contactsText),
+    whatsappUrl: clip(raw.whatsappUrl, 240, base.whatsappUrl),
+    telegramUrl: clip(raw.telegramUrl, 240, base.telegramUrl),
     warehouse: clip(raw.warehouse, 160, base.warehouse),
     hours: clip(raw.hours, 80, base.hours),
     reply: clip(raw.reply, 80, base.reply),
