@@ -208,9 +208,7 @@ function ChatLinks({
   copy: { whatsappUrl: string; telegramUrl: string };
   wide?: boolean;
 }) {
-  const className = wide
-    ? "press inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-full px-4 text-sm font-semibold text-white"
-    : "press inline-flex size-9 items-center justify-center rounded-full text-white sm:size-11";
+  const className = `press ${wide ? "chat-wide" : ""}`;
   return (
     <>
       <a
@@ -218,7 +216,7 @@ function ChatLinks({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Написать в WhatsApp"
-        className={`${className} bg-[#25D366] shadow-[0_4px_12px_rgb(37_211_102/28%)]`}
+        className={`${className} chat-wa`}
       >
         <WhatsAppIcon />
         {wide ? <span>WhatsApp</span> : null}
@@ -228,7 +226,7 @@ function ChatLinks({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Написать в Telegram"
-        className={`${className} bg-[#2AABEE] shadow-[0_4px_12px_rgb(42_171_238/28%)]`}
+        className={`${className} chat-tg`}
       >
         <TelegramIcon />
         {wide ? <span>Telegram</span> : null}

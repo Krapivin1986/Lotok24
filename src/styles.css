@@ -174,6 +174,71 @@
     box-shadow: 0 4px 12px rgb(14 78 44 / 12%);
   }
 
+  .chat-wa,
+  .chat-tg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    border: none;
+    border-radius: 999px;
+    min-width: 36px;
+    min-height: 36px;
+    padding: 0;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.23px;
+    line-height: 20px;
+  }
+
+  @media (min-width: 640px) {
+    .chat-wa,
+    .chat-tg {
+      min-width: 50px;
+      min-height: 50px;
+    }
+  }
+
+  .chat-wa {
+    background: #1ebe5d;
+    box-shadow:
+      0 1px 2px rgb(12 90 40 / 16%),
+      0 8px 18px rgb(12 90 40 / 22%);
+  }
+
+  .chat-wa:hover {
+    background: #17a852;
+  }
+
+  .chat-wa:active {
+    background: #12964a;
+    box-shadow: 0 1px 3px rgb(12 90 40 / 20%);
+  }
+
+  .chat-tg {
+    background: #229ed9;
+    box-shadow:
+      0 1px 2px rgb(16 90 130 / 16%),
+      0 8px 18px rgb(16 90 130 / 22%);
+  }
+
+  .chat-tg:hover {
+    background: #1b8cc4;
+  }
+
+  .chat-tg:active {
+    background: #157aab;
+    box-shadow: 0 1px 3px rgb(16 90 130 / 20%);
+  }
+
+  .chat-wide {
+    min-width: 0;
+    min-height: 50px;
+    flex: 1;
+    padding: 0 16px;
+  }
+
   .reveal {
     transform: translate3d(0, 10px, 0);
     opacity: 0;
