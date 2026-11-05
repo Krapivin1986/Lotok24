@@ -109,9 +109,9 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
       ) : null}
       <button
         type="submit"
-        className="press mt-4 inline-flex h-12 w-full items-center justify-center gap-2 rounded-control bg-teal px-5 font-semibold text-paper hover:bg-teal-deep"
+        className="press mt-4 inline-flex h-12 w-full items-center justify-center gap-2 rounded-control bg-[#1a56db] px-5 font-semibold text-white hover:bg-[#1447b8]"
       >
-        Получить прайс
+        Отправить
         <ArrowRight className="size-4" aria-hidden="true" />
       </button>
       <p className="mt-3 text-xs leading-relaxed text-muted">
