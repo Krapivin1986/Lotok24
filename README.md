@@ -71,7 +71,7 @@ npm run preview
 
 1. Войдите на [vercel.com](https://vercel.com) под аккаунтом с доступом к GitHub `Krapivin1986`.
 2. **Add New → Project**.
-3. Выберите [Krapivin1986/staltrassa](https://github.com/Krapivin1986/staltrassa). Если репозитория нет в списке, нажмите **Adjust GitHub App Permissions** и разрешите к нему доступ.
+3. Выберите [Krapivin1986/Lotok24](https://github.com/Krapivin1986/Lotok24). Если репозитория нет в списке, нажмите **Adjust GitHub App Permissions** и разрешите к нему доступ.
 
 ### 2. Сборка
 
