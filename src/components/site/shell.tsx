@@ -1,4 +1,4 @@
-import { useEffect, useId, useLayoutEffect, useState, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { NAV, type NavTo } from "@/components/site/content";
 import {
@@ -28,40 +28,24 @@ export function Wordmark({ onDark = false }: { onDark?: boolean }) {
 }
 
 export function Mark({ className = "size-9" }: { className?: string }) {
-  const gradientId = `mark-${useId().replace(/:/g, "")}`;
   return (
-    <svg viewBox="0 0 36 36" className={className} aria-hidden="true">
-      <defs>
-        <linearGradient id={gradientId} x1="4" y1="2" x2="32" y2="34" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#8ae8b4" />
-          <stop offset="1" stopColor="#127a40" />
-        </linearGradient>
-      </defs>
-      <rect width="36" height="36" rx="11" fill={`url(#${gradientId})`} />
+    <svg viewBox="0 0 36 36" className={className} aria-hidden="true" fill="none">
       <path
         d="M25.5 11.7a9.8 9.8 0 1 1-10.8-2.9"
-        fill="none"
-        className="stroke-paper"
-        strokeWidth="1.5"
+        stroke="#5ed492"
+        strokeWidth="1.7"
         strokeLinecap="round"
       />
       <path
         d="M12.1 8.3 14.7 8.8 13 10.8"
-        fill="none"
-        className="stroke-paper"
-        strokeWidth="1.5"
+        stroke="#5ed492"
+        strokeWidth="1.7"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx="18" cy="18" r="6" fill="none" className="stroke-paper" strokeWidth="1.5" />
-      <path
-        d="M18 18V14.2M18 18l3.1 1.8"
-        fill="none"
-        className="stroke-paper"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <circle cx="18" cy="18" r="1.05" className="fill-paper" />
+      <circle cx="18" cy="18" r="6" stroke="#5ed492" strokeWidth="1.7" />
+      <path d="M18 18V14.2M18 18l3.1 1.8" stroke="#5ed492" strokeWidth="1.7" strokeLinecap="round" />
+      <circle cx="18" cy="18" r="1.15" fill="#5ed492" />
     </svg>
   );
 }
