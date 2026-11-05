@@ -47,7 +47,7 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Link
             to="/"
-            className="press ios-filled bg-teal text-paper hover:bg-teal-deep"
+            className="press ios-filled"
           >
             На главную
           </Link>
@@ -81,7 +81,7 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
                 onClick={() => setPlan(active ? null : item.id)}
                 className={
                   active
-                    ? "press ios-filled ios-compact bg-teal text-paper"
+                    ? "press ios-filled ios-compact"
                     : "press ios-tinted ios-compact"
                 }
               >
@@ -118,7 +118,7 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
       ) : null}
       <button
         type="submit"
-        className="press ios-filled mt-4 w-full bg-teal text-paper hover:bg-teal-deep"
+        className="press ios-filled mt-4 w-full"
       >
         Отправить
         <ArrowRight className="size-4" aria-hidden="true" />

@@ -68,7 +68,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           <div className="flex items-center gap-2">
             <Link
               to="/contacts"
-              className="press ios-filled bg-teal px-3 text-paper hover:bg-teal-deep sm:px-4"
+              className="press ios-filled"
             >
               Заказать
             </Link>
@@ -122,7 +122,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className="press ios-filled bg-teal text-paper hover:bg-teal-deep"
+                  className="press ios-filled"
                 >
                   На главную
                 </Link>
@@ -146,9 +146,9 @@ export function SiteFrame({ children }: { children: ReactNode }) {
 }
 
 const TONES = {
-  teal: "bg-teal text-paper hover:bg-teal-deep",
-  paper: "bg-paper text-ink hover:bg-paper-deep",
-  ghost: "text-teal",
+  teal: "",
+  paper: "ios-on-dark",
+  ghost: "",
 } as const;
 
 export function CtaLink({

@@ -65,7 +65,7 @@ function CatalogPage() {
                   <Link
                     to="/catalog/$series"
                     params={{ series: series.id }}
-                    className="press ios-filled w-full bg-teal text-paper hover:bg-teal-deep sm:w-auto"
+                    className="press ios-filled w-full sm:w-auto"
                   >
                     Страница серии
                   </Link>

@@ -26,7 +26,7 @@ function SignedOutAdmin() {
       </p>
       <Link
         to="/login"
-        className="press ios-filled mt-6 bg-teal text-paper hover:bg-teal-deep"
+        className="press ios-filled mt-6"
       >
         Войти
       </Link>
@@ -198,7 +198,7 @@ function AdminDesk() {
           <button
             type="submit"
             disabled={saving}
-            className="press ios-filled bg-teal text-paper hover:bg-teal-deep disabled:opacity-60"
+            className="press ios-filled disabled:opacity-60"
           >
             {saving ? "Сохраняем…" : "Сохранить"}
           </button>
