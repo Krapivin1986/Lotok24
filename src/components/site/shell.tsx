@@ -116,12 +116,22 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             </div>
             <p className="mt-3 max-w-sm text-sm leading-relaxed">{copy.footerText}</p>
           </div>
-          <nav aria-label="Подвал" className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-            {NAV.map((item) => (
-              <Link key={item.to} to={item.to} className="hover:text-paper">
-                {item.label}
-              </Link>
-            ))}
+          <nav aria-label="Подвал" className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
+            {NAV.map((item) =>
+              item.to === "/" ? (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className="press inline-flex h-11 items-center justify-center rounded-control bg-[#1a56db] px-4 text-sm font-semibold text-white hover:bg-[#1447b8]"
+                >
+                  На главную
+                </Link>
+              ) : (
+                <Link key={item.to} to={item.to} className="hover:text-paper">
+                  {item.label}
+                </Link>
+              ),
+            )}
             <Link to="/admin" className="hover:text-paper">
               Админка
             </Link>

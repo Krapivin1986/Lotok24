@@ -1,4 +1,5 @@
 import { useEffect, useId, useState, type FormEvent } from "react";
+import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PLANS, planById, type PlanId } from "@/components/site/content";
 
@@ -43,13 +44,21 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
           Прайс и спецификацию отправим на {email.trim()}
           {chosen ? ` по тарифу «${chosen.name}»` : ""}. В рабочее время, без звонка «просто узнать».
         </p>
-        <button
-          type="button"
-          className="press mt-6 inline-flex h-12 items-center justify-center rounded-control border border-line px-5 font-semibold hover:bg-paper-deep"
-          onClick={() => setStatus("idle")}
-        >
-          Указать другой адрес
-        </button>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <Link
+            to="/"
+            className="press inline-flex h-12 items-center justify-center rounded-control bg-[#1a56db] px-5 font-semibold text-white hover:bg-[#1447b8]"
+          >
+            На главную
+          </Link>
+          <button
+            type="button"
+            className="press inline-flex h-12 items-center justify-center rounded-control border border-line px-5 font-semibold hover:bg-paper-deep"
+            onClick={() => setStatus("idle")}
+          >
+            Указать другой адрес
+          </button>
+        </div>
       </div>
     );
   }
