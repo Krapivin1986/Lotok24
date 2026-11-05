@@ -26,7 +26,7 @@ function SignedOutAdmin() {
       </p>
       <Link
         to="/login"
-        className="press md-filled mt-6 bg-teal text-paper hover:bg-teal-deep"
+        className="press ios-filled mt-6 bg-teal text-paper hover:bg-teal-deep"
       >
         Войти
       </Link>
@@ -198,13 +198,13 @@ function AdminDesk() {
           <button
             type="submit"
             disabled={saving}
-            className="press md-filled bg-teal text-paper hover:bg-teal-deep disabled:opacity-60"
+            className="press ios-filled bg-teal text-paper hover:bg-teal-deep disabled:opacity-60"
           >
             {saving ? "Сохраняем…" : "Сохранить"}
           </button>
           <button
             type="button"
-            className="press md-outline"
+            className="press ios-tinted"
             onClick={() => setCopy(DEFAULT_SITE_COPY)}
           >
             Вернуть исходные

@@ -21,7 +21,7 @@ function LoginPage() {
               key={provider.providerId}
               type="button"
               onClick={() => signIn(provider.providerId, { callbackURL: "/admin" })}
-              className="press md-outline w-full"
+              className="press ios-tinted w-full"
             >
               Войти через {provider.label}
             </button>

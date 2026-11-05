@@ -66,69 +66,60 @@
 @layer components {
   .press {
     transition:
-      background-color 200ms cubic-bezier(0.2, 0, 0, 1),
-      box-shadow 200ms cubic-bezier(0.2, 0, 0, 1),
-      border-color 200ms cubic-bezier(0.2, 0, 0, 1);
+      background-color 180ms ease,
+      opacity 180ms ease,
+      color 180ms ease;
   }
 
-  .md-filled,
-  .md-outline,
-  .md-icon {
+  .ios-filled,
+  .ios-tinted,
+  .ios-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     border: none;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    line-height: 1.25rem;
-  }
-
-  .md-filled,
-  .md-outline {
-    min-height: 40px;
-    padding: 0 1.5rem;
-  }
-
-  .md-filled {
-    box-shadow:
-      0 1px 2px rgb(18 24 38 / 30%),
-      0 1px 3px 1px rgb(18 24 38 / 15%);
-  }
-
-  .md-filled:hover {
-    box-shadow:
-      0 1px 2px rgb(18 24 38 / 30%),
-      0 2px 6px 2px rgb(18 24 38 / 15%);
-  }
-
-  .md-filled:active {
-    box-shadow: 0 1px 2px rgb(18 24 38 / 30%);
-  }
-
-  .md-outline {
-    background: transparent;
-    color: var(--color-teal);
+    border-radius: 999px;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
     box-shadow: none;
-    border: 1px solid color-mix(in oklab, var(--color-teal) 50%, transparent);
   }
 
-  .md-outline:hover {
-    background: color-mix(in oklab, var(--color-teal) 8%, transparent);
+  .ios-filled,
+  .ios-tinted {
+    min-height: 50px;
+    padding: 0 1.25rem;
   }
 
-  .md-icon {
-    width: 40px;
-    height: 40px;
+  .ios-filled:active,
+  .ios-tinted:active,
+  .ios-icon:active {
+    opacity: 0.72;
+  }
+
+  .ios-tinted {
+    background: color-mix(in oklab, var(--color-teal) 14%, white);
+    color: var(--color-teal);
+  }
+
+  .ios-tinted:hover {
+    background: color-mix(in oklab, var(--color-teal) 22%, white);
+  }
+
+  .ios-compact {
+    min-height: 32px;
+    padding: 0 0.9rem;
+    font-size: 15px;
+  }
+
+  .ios-icon {
+    width: 44px;
+    height: 44px;
     padding: 0;
-    background: transparent;
+    background: color-mix(in oklab, var(--color-ink) 6%, white);
     color: var(--color-ink);
-  }
-
-  .md-icon:hover {
-    background: color-mix(in oklab, var(--color-ink) 8%, transparent);
   }
 }
 

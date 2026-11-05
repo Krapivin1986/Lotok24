@@ -68,13 +68,13 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           <div className="flex items-center gap-2">
             <Link
               to="/contacts"
-              className="press md-filled bg-teal px-3 text-paper hover:bg-teal-deep sm:px-4"
+              className="press ios-filled bg-teal px-3 text-paper hover:bg-teal-deep sm:px-4"
             >
               Заказать
             </Link>
             <button
               type="button"
-              className="press md-icon lg:hidden"
+              className="press ios-icon lg:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
               onClick={() => setOpen((value) => !value)}
@@ -122,7 +122,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className="press md-filled bg-teal text-paper hover:bg-teal-deep"
+                  className="press ios-filled bg-teal text-paper hover:bg-teal-deep"
                 >
                   На главную
                 </Link>
@@ -164,7 +164,7 @@ export function CtaLink({
   children: ReactNode;
   className?: string;
 }) {
-  const classNames = `press ${tone === "ghost" ? "md-outline" : "md-filled"} w-full text-center sm:w-auto ${TONES[tone]} ${className}`;
+  const classNames = `press ${tone === "ghost" ? "ios-tinted" : "ios-filled"} w-full text-center sm:w-auto ${TONES[tone]} ${className}`;
   if (hash) {
     return (
       <Link to={to} hash={hash} className={classNames}>
