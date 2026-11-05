@@ -5,7 +5,7 @@ import { SiteFrame } from "@/components/site/shell";
 import { getSiteCopy } from "@/lib/site-copy.functions";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "СТАЛЬТРАССА — металлические кабельные лотки";
+const APP_NAME = "Лоток24 — металлические кабельные лотки";
 
 export const Route = createRootRoute({
   loader: () => getSiteCopy(),

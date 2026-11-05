@@ -51,7 +51,7 @@ const TERMS = [
 export const Route = createFileRoute("/delivery")({
   head: () => ({
     meta: [
-      { title: "Доставка и оплата — СТАЛЬТРАССА" },
+      { title: "Доставка и оплата — Лоток24" },
       {
         name: "description",
         content:

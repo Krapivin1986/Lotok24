@@ -16,10 +16,10 @@ export const Route = createFileRoute("/catalog_/$series")({
     const series = SERIES.find((item) => item.id === params.series);
     return {
       meta: [
-        { title: series ? `${series.pageTitle} — СТАЛЬТРАССА` : "Каталог — СТАЛЬТРАССА" },
+        { title: series ? `${series.pageTitle} — Лоток24` : "Каталог — Лоток24" },
         {
           name: "description",
-          content: series?.lead ?? "Кабельный лоток СТАЛЬТРАССА.",
+          content: series?.lead ?? "Кабельный лоток Лоток24.",
         },
       ],
     };

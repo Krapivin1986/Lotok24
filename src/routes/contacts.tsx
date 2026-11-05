@@ -6,7 +6,7 @@ import { useSiteCopy } from "@/components/site/use-site-copy";
 export const Route = createFileRoute("/contacts")({
   head: () => ({
     meta: [
-      { title: "Контакты — СТАЛЬТРАССА" },
+      { title: "Контакты — Лоток24" },
       {
         name: "description",
         content: "Склад кабельных лотков в Москве. Напишите email — пришлём прайс, спецификацию и пропуск на отгрузку.",

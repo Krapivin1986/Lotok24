@@ -6,7 +6,7 @@ import { useMergedSeries, useSiteCopy } from "@/components/site/use-site-copy";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "СТАЛЬТРАССА — металлические кабельные лотки" },
+      { title: "Лоток24 — металлические кабельные лотки" },
       {
         name: "description",
         content:

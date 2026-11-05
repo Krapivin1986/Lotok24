@@ -41,7 +41,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
           <Link to="/" className="flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
             <Mark />
-            <span className="truncate font-display text-sm tracking-tight sm:text-base">СТАЛЬТРАССА</span>
+            <span className="truncate font-display text-sm tracking-tight sm:text-base">Лоток24</span>
           </Link>
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Разделы">
             {NAV.map((item) => (
@@ -105,7 +105,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           <div>
             <div className="flex items-center gap-2.5 text-paper">
               <Mark className="size-8" />
-              <span className="font-display tracking-tight">СТАЛЬТРАССА</span>
+              <span className="font-display tracking-tight">Лоток24</span>
             </div>
             <p className="mt-3 max-w-sm text-sm leading-relaxed">{copy.footerText}</p>
           </div>
@@ -121,7 +121,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           </nav>
         </div>
         <div className="border-t border-line-strong">
-          <p className="mx-auto max-w-6xl px-4 py-4 text-xs sm:px-6">© 2026 СТАЛЬТРАССА. Ориентир, не оферта.</p>
+          <p className="mx-auto max-w-6xl px-4 py-4 text-xs sm:px-6">© 2026 Лоток24. Ориентир, не оферта.</p>
         </div>
       </footer>
     </div>

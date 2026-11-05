@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { GROK_PROVIDERS, authEnabled, signIn } from "@/lib/auth/client";
 
 export const Route = createFileRoute("/login")({
-  head: () => ({ meta: [{ title: "Вход — СТАЛЬТРАССА" }] }),
+  head: () => ({ meta: [{ title: "Вход — Лоток24" }] }),
   component: LoginPage,
 });
 

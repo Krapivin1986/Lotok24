@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { PLANS, planById, type PlanId } from "@/components/site/content";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const STORAGE_KEY = "staltrassa-leads";
+const STORAGE_KEY = "lotok24-leads";
 
 export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
   const [plan, setPlan] = useState<PlanId | null>(initialPlan ?? null);

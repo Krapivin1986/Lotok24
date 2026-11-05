@@ -5,7 +5,7 @@ import { claimAdmin, getAdminStatus, getSiteCopy, saveSiteCopy } from "@/lib/sit
 import { DEFAULT_SITE_COPY, type SiteCopy } from "@/lib/site-copy";
 
 export const Route = createFileRoute("/admin")({
-  head: () => ({ meta: [{ title: "Админка — СТАЛЬТРАССА" }] }),
+  head: () => ({ meta: [{ title: "Админка — Лоток24" }] }),
   component: AdminPage,
 });
 
