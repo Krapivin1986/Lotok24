@@ -23,7 +23,7 @@ export const Route = createFileRoute("/catalog_/$series")({
         { title: seo?.title ?? "Каталог кабельных лотков — Лоток24" },
         {
           name: "description",
-          content: seo?.description ?? "Оцинкованные кабельные лотки «Лоток24»: размеры, покрытие и поставка со склада в Москве.",
+          content: seo?.description ?? "Оцинкованные кабельные лотки «Лоток24»: размеры, покрытие и поставка со склада в Пушкино.",
         },
       ],
       scripts: series
