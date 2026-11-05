@@ -51,9 +51,9 @@ function HomePage() {
                 height={1008}
                 className="aspect-video w-full object-cover"
               />
-              <figcaption className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 bg-teal px-4 py-3 text-sm text-paper sm:px-5">
+              <figcaption className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 bg-green-soft px-4 py-3 text-sm text-green-ink sm:px-5">
                 <span className="font-medium">Лоток перфорированный 200×100</span>
-                <span className="shrink-0 tabular-nums text-on-ink">Zn · 3 м</span>
+                <span className="shrink-0 tabular-nums">Zn · 3 м</span>
               </figcaption>
             </div>
           </figure>

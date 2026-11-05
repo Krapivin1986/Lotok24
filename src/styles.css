@@ -9,8 +9,10 @@
   --color-surface: #fffcf7;
   --color-ink: #121826;
   --color-muted: #526071;
-  --color-teal: #007aff;
-  --color-teal-deep: #0066d6;
+  --color-teal: #1a8f4a;
+  --color-teal-deep: #14753c;
+  --color-green-soft: #7ee2a8;
+  --color-green-ink: #0e4e2c;
   --color-line: color-mix(in oklab, var(--color-ink) 12%, var(--color-paper));
   --color-line-strong: color-mix(in oklab, var(--color-paper) 22%, var(--color-ink));
   --color-on-ink: #dbe4f0;
@@ -94,21 +96,21 @@
   }
 
   .ios-filled {
-    background: var(--color-teal);
-    color: #fff;
+    background: var(--color-green-soft);
+    color: var(--color-green-ink);
   }
 
   .ios-filled:hover {
-    background: var(--color-teal-deep);
+    background: #68d696;
   }
 
   .ios-filled.ios-on-dark {
-    background: var(--color-teal);
-    color: #fff;
+    background: var(--color-green-soft);
+    color: var(--color-green-ink);
   }
 
   .ios-filled.ios-on-dark:hover {
-    background: var(--color-teal-deep);
+    background: #68d696;
   }
 
   .ios-filled:active,
@@ -118,12 +120,12 @@
   }
 
   .ios-tinted {
-    background: color-mix(in oklab, var(--color-teal) 14%, white);
-    color: var(--color-teal);
+    background: #e7f8ee;
+    color: var(--color-green-ink);
   }
 
   .ios-tinted:hover {
-    background: color-mix(in oklab, var(--color-teal) 22%, white);
+    background: #d3f3e0;
   }
 
   .ios-compact {
@@ -138,8 +140,8 @@
     width: 44px;
     height: 44px;
     padding: 0;
-    background: color-mix(in oklab, var(--color-teal) 14%, white);
-    color: var(--color-teal);
+    background: #e7f8ee;
+    color: var(--color-green-ink);
   }
 }
 
