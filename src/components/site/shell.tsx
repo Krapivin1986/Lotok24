@@ -168,31 +168,31 @@ export function SiteFrame({ children }: { children: ReactNode }) {
       </header>
       <main>{children}</main>
       <footer className="border-t border-line-strong bg-ink text-on-ink">
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 sm:px-6 md:flex-row md:items-start md:justify-between">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[minmax(0,1fr)_12rem] md:gap-12">
           <div>
             <div className="flex items-center gap-2.5 text-paper">
               <Mark className="size-8" />
               <Wordmark onDark />
             </div>
-            <p className="mt-3 max-w-sm text-sm leading-relaxed">
-              <SeriesText text={copy.footerText} className="underline decoration-white/40 underline-offset-2 hover:text-paper" />
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-on-ink/80">
+              <SeriesText text={copy.footerText} className="underline decoration-white/30 underline-offset-2 hover:text-paper" />
             </p>
           </div>
-          <nav aria-label="Подвал" className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
+          <nav aria-label="Подвал" className="flex flex-col gap-2.5 text-sm">
             {NAV.map((item) => (
-              <Link key={item.to} to={item.to} className="hover:text-paper">
+              <Link key={item.to} to={item.to} className="w-fit hover:text-paper">
                 {item.label}
               </Link>
             ))}
-            <Link to="/admin" className="hover:text-paper">
+            <Link to="/admin" className="mt-2 w-fit text-on-ink/60 hover:text-paper">
               Админка
             </Link>
           </nav>
         </div>
-        <div className="border-t border-line-strong">
-          <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div className="border-t border-white/10">
+          <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-on-ink/70 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <p>© 2026 ООО «3К». ИНН 9718232170, КПП 771801001.</p>
-            <Link to="/privacy" className="hover:text-paper">
+            <Link to="/privacy" className="w-fit hover:text-paper">
               Политика конфиденциальности
             </Link>
           </div>
