@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check } from "lucide-react";
+import { IconCheck } from "@/components/site/icons";
 import { ACCESSORIES, FEATURES, GALLERY, SPECS, USES } from "@/components/site/content";
 import { breadcrumbLd, jsonLd } from "@/components/site/seo";
 import { SeriesText } from "@/components/site/series-text";
@@ -92,7 +92,7 @@ function CatalogPage() {
                 <ul className="mt-6 flex flex-col gap-3">
                   {series.points.map((point) => (
                     <li key={point} className="flex gap-3 text-sm leading-relaxed">
-                      <Check className="mt-0.5 size-4 shrink-0 text-teal" aria-hidden="true" />
+                      <IconCheck className="mt-0.5 size-4 text-teal" />
                       <span>{point}</span>
                     </li>
                   ))}

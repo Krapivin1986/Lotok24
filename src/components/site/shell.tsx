@@ -1,7 +1,20 @@
 import { useEffect, useId, useLayoutEffect, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ArrowRight, Menu, X } from "lucide-react";
 import { NAV, type NavTo } from "@/components/site/content";
+import {
+  IconArrow,
+  IconCatalog,
+  IconClose,
+  IconHome,
+  IconMail,
+  IconMenu,
+  IconNews,
+  IconPhone,
+  IconSettings,
+  IconShield,
+  IconTelegram,
+  IconTruck,
+} from "@/components/site/icons";
 import { SeriesText } from "@/components/site/series-text";
 import { useSiteCopy } from "@/components/site/use-site-copy";
 
@@ -133,7 +146,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
               onClick={() => setOpen((value) => !value)}
             >
               <span className="sr-only">{open ? "Закрыть меню" : "Открыть меню"}</span>
-              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+              {open ? <IconClose className="size-5" /> : <IconMenu className="size-5" />}
             </button>
           </div>
         </div>
@@ -191,10 +204,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
               );
             })}
             <Link to="/admin" className="mt-2 inline-flex w-fit items-center gap-2 text-on-ink/60 hover:text-paper">
-              <Glyph className="size-4">
-                <circle cx="12" cy="12" r="3" />
-                <path d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6.1 6.1l1.6 1.6M16.3 16.3l1.6 1.6M17.9 6.1l-1.6 1.6M7.7 16.3l-1.6 1.6" />
-              </Glyph>
+              <IconSettings className="size-4" />
               Админка
             </Link>
           </nav>
@@ -203,9 +213,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-on-ink/70 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <p>© 2026 ООО «3К». ИНН 9718232170, КПП 771801001.</p>
             <Link to="/privacy" className="inline-flex w-fit items-center gap-1.5 hover:text-paper">
-              <Glyph className="size-3.5">
-                <path d="M12 3 5 6v6c0 4 3 6.5 7 8 4-1.5 7-4 7-8V6z" />
-              </Glyph>
+              <IconShield className="size-3.5" />
               Политика конфиденциальности
             </Link>
           </div>
@@ -216,61 +224,17 @@ export function SiteFrame({ children }: { children: ReactNode }) {
 }
 
 const FOOTER_ICONS = {
-  "/": () => (
-    <Glyph>
-      <path d="M4 11 12 4l8 7" />
-      <path d="M6 10v9h12v-9" />
-    </Glyph>
-  ),
-  "/catalog": () => (
-    <Glyph>
-      <rect x="4" y="4" width="7" height="7" rx="1.5" />
-      <rect x="13" y="4" width="7" height="7" rx="1.5" />
-      <rect x="4" y="13" width="7" height="7" rx="1.5" />
-      <rect x="13" y="13" width="7" height="7" rx="1.5" />
-    </Glyph>
-  ),
-  "/delivery": () => (
-    <Glyph>
-      <path d="M3 7h11v9H3z" />
-      <path d="M14 11h4l3 3v2h-7" />
-      <circle cx="7" cy="18" r="1.4" />
-      <circle cx="18" cy="18" r="1.4" />
-    </Glyph>
-  ),
-  "/blog": () => (
-    <Glyph>
-      <path d="M7 3.5h7l4 4V20a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z" />
-      <path d="M14 3.5V8h4.5M8 12h8M8 16h5" />
-    </Glyph>
-  ),
-  "/contacts": () => (
-    <Glyph>
-      <path d="M8 4h2.5l1.2 3.2-1.8 1a11 11 0 0 0 5 5l1-1.8 3.2 1.2V15a2 2 0 0 1-2 2A13 13 0 0 1 6 6a2 2 0 0 1 2-2z" />
-    </Glyph>
-  ),
-} as const satisfies Record<NavTo, () => ReactNode>;
-
-function Glyph({ className = "size-4", children }: { className?: string; children: ReactNode }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={`${className} shrink-0`}
-      aria-hidden="true"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      {children}
-    </svg>
-  );
-}
+  "/": IconHome,
+  "/catalog": IconCatalog,
+  "/delivery": IconTruck,
+  "/blog": IconNews,
+  "/contacts": IconPhone,
+} as const satisfies Record<NavTo, typeof IconHome>;
 
 export function CallButton({ className = "" }: { className?: string }) {
   return (
-    <a href="tel:+79859389776" className={`press ios-filled inline-flex items-center justify-center ${className}`}>
+    <a href="tel:+79859389776" className={`press ios-filled inline-flex items-center justify-center gap-2 ${className}`}>
+      <IconPhone className="size-4" />
       Позвонить
     </a>
   );
@@ -279,6 +243,7 @@ export function CallButton({ className = "" }: { className?: string }) {
 export function PhoneLink({ className = "inline-flex" }: { className?: string }) {
   return (
     <ContactChip href="tel:+79859389776" label="Позвонить по номеру +7 (985) 938-97-76" className={className}>
+      <IconPhone className="size-4" />
       +7 (985) 938-97-76
     </ContactChip>
   );
@@ -287,6 +252,7 @@ export function PhoneLink({ className = "inline-flex" }: { className?: string })
 export function MailLink({ className = "inline-flex" }: { className?: string }) {
   return (
     <ContactChip href="mailto:info@lotok24.ru" label="Написать на info@lotok24.ru" className={className}>
+      <IconMail className="size-4" />
       info@lotok24.ru
     </ContactChip>
   );
@@ -307,7 +273,7 @@ function ContactChip({
     <a
       href={href}
       aria-label={label}
-      className={`press min-h-9 items-center justify-center rounded-full bg-transparent px-3.5 text-sm font-semibold text-teal hover:bg-transparent hover:text-teal-deep ${className}`}
+      className={`press min-h-9 items-center justify-center gap-2 rounded-full bg-transparent px-3.5 text-sm font-semibold text-teal hover:bg-transparent hover:text-teal-deep ${className}`}
     >
       {children}
     </a>
@@ -329,17 +295,9 @@ function ChatLinks({
       aria-label="Написать в Telegram"
       className={`press chat-tg ${wide ? "chat-wide" : ""}`}
     >
-      <TelegramIcon />
+      <IconTelegram className="size-4 sm:size-5" />
       {wide ? <span>Telegram</span> : null}
     </a>
-  );
-}
-
-function TelegramIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="size-4 sm:size-5" aria-hidden="true" fill="currentColor">
-      <path d="M21.5 4.4 2.7 11.6c-1.28.5-1.27 1.22-.23 1.54l4.82 1.5 11.2-7.07c.53-.32 1.01-.15.61.21l-9.07 8.2-.35 4.93c.51 0 .73-.23 1.01-.5l2.42-2.35 5.03 3.71c.93.51 1.59.25 1.82-.86l3.3-15.55c.34-1.34-.51-1.95-1.46-1.56Z" />
-    </svg>
   );
 }
 
@@ -387,7 +345,7 @@ export function ArrowCta({
   return (
     <>
       {children}
-      <ArrowRight className={`size-4 ${className}`} aria-hidden="true" />
+      <IconArrow className={`size-4 ${className}`} />
     </>
   );
 }

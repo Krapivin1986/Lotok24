@@ -1,4 +1,5 @@
-import { BadgeCheck, Layers, ShieldCheck, Weight, Wind, Wrench, type LucideIcon } from "lucide-react";
+import type { ComponentType } from "react";
+import { IconBadge, IconLayers, IconShield, IconWeight, IconWind, IconWrench } from "@/components/site/icons";
 
 export const PROOF = [
   { value: "50–600", unit: "мм", label: "ширина лотка" },
@@ -308,34 +309,34 @@ export const GALLERY: Record<
   ],
 };
 
-export const FEATURES: { icon: LucideIcon; title: string; text: string }[] = [
+export const FEATURES: { icon: ComponentType<{ className?: string }>; title: string; text: string }[] = [
   {
-    icon: ShieldCheck,
+    icon: IconShield,
     title: "Покрытие под среду",
     text: "Сендзимир, класс 3, для сухих помещений: 180–275 г/м² по ГОСТ 14918. На улице — горячее цинкование готового лотка по ГОСТ 9.307, не менее 45 мкм.",
   },
   {
-    icon: Weight,
+    icon: IconWeight,
     title: "Нагрузка по пролёту",
     text: "Безопасную рабочую нагрузку берут с запасом 1,7 к разрушающей. Прогиб в середине пролёта — не больше 1/100 его длины.",
   },
   {
-    icon: Wind,
+    icon: IconWind,
     title: "Тепло уходит через перфорацию",
     text: "Отверстия вентилируют кабель и снижают вес секции. Неперфорированный лоток ставим только там, где нужна защита от пыли.",
   },
   {
-    icon: Layers,
+    icon: IconLayers,
     title: "Фасонка в одной поставке",
     text: "Крышки, углы 45° и 90°, тройники, редукции, разделители. Одна спецификация — одна отгрузка.",
   },
   {
-    icon: Wrench,
+    icon: IconWrench,
     title: "Монтаж без сварки",
     text: "Лотки совместимы со шпильками, консолями и С-профилем. Соединение внахлёст, болты в комплекте.",
   },
   {
-    icon: BadgeCheck,
+    icon: IconBadge,
     title: "Приёмка технадзора",
     text: "Прочность, покрытие и маркировка проверяют по ГОСТ Р 52868-2021 (МЭК 61537:2006). Это стандарт лотков и кабельных лестниц, не кабельных коробов.",
   },

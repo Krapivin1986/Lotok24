@@ -1,6 +1,6 @@
 import { useEffect, useId, useState, type FormEvent } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { IconArrow } from "@/components/site/icons";
 import { PLANS, planById, type PlanId } from "@/components/site/content";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -124,7 +124,7 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
         className="press ios-filled mt-4 w-full"
       >
         Отправить
-        <ArrowRight className="size-4" aria-hidden="true" />
+        <IconArrow className="size-4" />
       </button>
       <p className="mt-3 text-xs leading-relaxed text-muted">
         Нажимая кнопку, вы просите прайс и спецификацию. Адрес остаётся в этом браузере и не уходит на сервер.
