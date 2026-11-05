@@ -179,21 +179,11 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             </p>
           </div>
           <nav aria-label="Подвал" className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
-            {NAV.map((item) =>
-              item.to === "/" ? (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className="press ios-filled"
-                >
-                  На главную
-                </Link>
-              ) : (
-                <Link key={item.to} to={item.to} className="hover:text-paper">
-                  {item.label}
-                </Link>
-              ),
-            )}
+            {NAV.map((item) => (
+              <Link key={item.to} to={item.to} className="hover:text-paper">
+                {item.label}
+              </Link>
+            ))}
             <Link to="/admin" className="hover:text-paper">
               Админка
             </Link>
