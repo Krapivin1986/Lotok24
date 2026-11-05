@@ -2,9 +2,18 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { jsonLd } from "@/components/site/seo";
 import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
-import { FEATURES, PROOF } from "@/components/site/content";
+import { FEATURES, PROOF, STEPS } from "@/components/site/content";
 import { ArrowCta, CtaLink } from "@/components/site/shell";
 import { useMergedSeries, useSiteCopy } from "@/components/site/use-site-copy";
+
+const ORDER_FACTS = [
+  ["Длина секции", "Только 3 м. Секций другой длины нет."],
+  ["Склад", "Отгрузка от 1 рабочего дня. Пачки маркируют по осям из спецификации."],
+  ["Оплата", "Безналичный расчёт по счёту или оплата по QR-коду."],
+  ["Зачисление", "Деньги приходят на расчётный счёт продавца за 1–3 рабочих дня."],
+  ["Стандарт", "ГОСТ Р 52868-2021: геометрия, покрытие и маркировка."],
+  ["Комплект", "Крышка, углы, тройники и соединители идут в одной спецификации."],
+] as const;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -140,6 +149,7 @@ function HomePage() {
           <div className="max-w-2xl">
             <p className="kicker">Серии</p>
             <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Три лотка — одна система крепёжа</h2>
+            <p className="mt-3 text-muted">На карточке — ширина, толщина, длина и покрытие. Полная таблица открывается со страницы серии.</p>
           </div>
           <Link to="/catalog" className="text-sm font-semibold text-teal hover:text-teal-deep">
             Весь каталог
@@ -154,9 +164,19 @@ function HomePage() {
                   {series.name}
                 </Link>
               </h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+              <p className="mt-3 text-sm leading-relaxed text-muted">
                 <SeriesText text={series.text} />
               </p>
+              <dl className="mt-4 flex flex-1 flex-col gap-1.5 border-t border-line pt-4 text-sm">
+                {series.specs
+                  .filter(([name]) => name === "Ширина" || name === "Толщина" || name === "Длина" || name === "Покрытие")
+                  .map(([name, value]) => (
+                    <div key={name} className="flex items-baseline justify-between gap-3">
+                      <dt className="text-muted">{name}</dt>
+                      <dd className="text-right font-medium">{value}</dd>
+                    </div>
+                  ))}
+              </dl>
               <Link
                 to="/catalog/$series"
                 params={{ series: series.id }}
@@ -167,6 +187,37 @@ function HomePage() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="border-y border-line bg-surface">
+        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
+          <p className="kicker">До заказа</p>
+          <h2 className="mt-3 max-w-2xl font-display text-3xl tracking-tight sm:text-4xl">Что важно знать заранее</h2>
+          <p className="mt-3 max-w-2xl text-muted">
+            Длина, срок склада и оплата не зависят от серии. Подробности — на странице{" "}
+            <Link to="/delivery" className="font-semibold text-teal underline decoration-teal/40 underline-offset-2">
+              доставки и оплаты
+            </Link>
+            .
+          </p>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {ORDER_FACTS.map(([title, text]) => (
+              <li key={title} className="rounded-card border border-line bg-paper p-5">
+                <h3 className="font-display text-lg tracking-tight">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{text}</p>
+              </li>
+            ))}
+          </ul>
+          <ol className="mt-8 grid gap-3 md:grid-cols-3">
+            {STEPS.map((step) => (
+              <li key={step.n} className="rounded-card border border-line bg-paper p-5">
+                <p className="font-display text-sm text-teal">{step.n}</p>
+                <h3 className="mt-2 font-display text-lg tracking-tight">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
       </section>
 
       <section className="border-y border-line bg-surface">
