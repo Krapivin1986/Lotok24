@@ -122,6 +122,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             <PhoneLink className="hidden xl:inline-flex" />
             <MailLink className="hidden sm:inline-flex" />
             <ChatLinks copy={copy} />
+            <CallButton className="hidden xl:inline-flex" />
             <Link to="/contacts" className="press ios-filled max-sm:min-h-9 max-sm:px-3.5 max-sm:text-[15px]">
               Заказать
             </Link>
@@ -137,7 +138,8 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             </button>
           </div>
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 border-t border-line px-4 py-2 xl:hidden">
+        <div className="flex flex-wrap items-center justify-center gap-2 border-t border-line px-4 py-2 xl:hidden">
+          <CallButton className="max-sm:min-h-9 max-sm:px-3.5 max-sm:text-[15px]" />
           <PhoneLink />
           <MailLink className="inline-flex sm:hidden" />
         </div>
@@ -204,6 +206,14 @@ export function SiteFrame({ children }: { children: ReactNode }) {
         </div>
       </footer>
     </div>
+  );
+}
+
+export function CallButton({ className = "" }: { className?: string }) {
+  return (
+    <a href="tel:+79859389776" className={`press ios-filled inline-flex items-center justify-center ${className}`}>
+      Позвонить
+    </a>
   );
 }
 

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { breadcrumbLd, jsonLd } from "@/components/site/seo";
 import { LeadForm } from "@/components/site/lead-form";
-import { MailLink, PageIntro, PhoneLink } from "@/components/site/shell";
+import { CallButton, MailLink, PageIntro, PhoneLink } from "@/components/site/shell";
 import { isPlanId, type PlanId } from "@/components/site/content";
 
 import { useSiteCopy } from "@/components/site/use-site-copy";
@@ -46,8 +46,9 @@ function ContactsPage() {
         <dl className="mt-8 grid gap-3">
           <div className="rounded-card border border-line bg-surface px-5 py-4">
             <dt className="text-sm font-semibold text-teal">Телефон</dt>
-            <dd className="mt-2">
+            <dd className="mt-2 flex flex-wrap items-center gap-2">
               <PhoneLink />
+              <CallButton className="max-sm:min-h-9 max-sm:px-3.5 max-sm:text-[15px]" />
             </dd>
           </div>
           <div className="rounded-card border border-line bg-surface px-5 py-4">

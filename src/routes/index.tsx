@@ -3,7 +3,7 @@ import { jsonLd } from "@/components/site/seo";
 import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
 import { FEATURES, PROOF, STEPS } from "@/components/site/content";
-import { ArrowCta, CtaLink } from "@/components/site/shell";
+import { ArrowCta, CallButton, CtaLink } from "@/components/site/shell";
 import { useMergedSeries, useSiteCopy } from "@/components/site/use-site-copy";
 
 const ORDER_FACTS = [
@@ -61,6 +61,7 @@ function HomePage() {
               <CtaLink to="/contacts">
                 <ArrowCta>Рассчитать стоимость</ArrowCta>
               </CtaLink>
+              <CallButton className="w-full sm:w-auto" />
               <CtaLink to="/delivery" tone="ghost">
                 Доставка и оплата
               </CtaLink>
