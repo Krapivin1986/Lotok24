@@ -27,17 +27,42 @@ npm run preview
 
 `npm run preview` поднимает собранную версию на `http://127.0.0.1:8081`.
 
-## Развёртывание на Vercel
+## Настройка Vercel
 
-1. Откройте [репозиторий](https://github.com/Krapivin1986/staltrassa) и нажмите **Deploy** на [vercel.com/new](https://vercel.com/new), либо импортируйте `Krapivin1986/staltrassa` в панели Vercel.
-2. Framework Preset оставьте **Other**. Каталог сборки — корень репозитория.
-3. Команды не меняйте вручную, если Vercel их уже подхватил:
-   - Install: `npm install --omit=dev --no-audit --no-fund` (записано в `vercel.json`)
-   - Build: `npm run build`
-4. Переменные окружения не задавайте. `DATABASE_URL` нужен только если позже подключите Postgres.
-5. В настройках проекта выберите Node.js **22.x** и нажмите **Deploy**.
-6. После сборки сайт будет на адресе `*.vercel.app`. Свой домен добавляется в **Settings → Domains**.
+Сайт собирается пресетом Nitro `vercel`: команда `npm run build` сама пишет `.vercel/output`. Отдельный каталог `dist` указывать не нужно.
 
-Повторный деплой запускается сам при пуше в `main`.
+### Первый проект
 
-Сборка кладёт результат в `.vercel/output`. Этот каталог не коммитится: его создаёт `npm run build` на стороне Vercel.
+1. Войдите на [vercel.com](https://vercel.com) под аккаунтом, у которого есть доступ к GitHub `Krapivin1986`.
+2. **Add New → Project** и импортируйте [Krapivin1986/staltrassa](https://github.com/Krapivin1986/staltrassa). Если репозитория нет в списке, нажмите **Adjust GitHub App Permissions** и разрешите доступ к нему.
+3. На экране настройки оставьте:
+   - **Framework Preset** — `Other`. Не выбирайте Next.js: это не Next-проект.
+   - **Root Directory** — корень репозитория, `./`.
+4. Раскройте **Build and Output Settings** и проверьте команды:
+
+   | Поле | Значение |
+   | --- | --- |
+   | Install Command | `npm install --omit=dev --no-audit --no-fund` |
+   | Build Command | `npm run build` |
+   | Output Directory | пусто |
+
+   Install Command уже задан в `vercel.json`. Если поле пустое, Vercel возьмёт его оттуда. Output Directory оставьте пустым: если указать `dist`, `public` или `.vercel/output`, деплой сломается.
+5. Блок **Environment Variables** не заполняйте. Сайт работает без ключей. `DATABASE_URL` понадобится только если позже подключите Postgres.
+6. Нажмите **Deploy** и дождитесь статуса Ready.
+
+### После создания проекта
+
+В **Settings → General** выставьте **Node.js Version** `22.x`. В **Settings → Git** производственная ветка должна быть `main`: пуш в неё запускает новый деплой сам.
+
+Проверьте адреса:
+
+- `/`
+- `/catalog`
+- `/catalog/perforated`
+- `/catalog/ladder`
+- `/catalog/solid`
+- `/delivery`
+- `/contacts`
+
+Свой домен добавляется в **Settings → Domains**. Пока DNS не обновился, рабочий адрес — `*.vercel.app`.
+
