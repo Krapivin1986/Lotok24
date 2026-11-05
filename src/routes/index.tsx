@@ -22,13 +22,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Оцинкованные кабельные лотки от производителя: перфорированные, лестничные и глухие. ГОСТ Р 52868-2021, склад в Москве, отгрузка от 1 дня.",
+          "Оцинкованные кабельные лотки от производителя: перфорированные, неперфорированные, лестничные и проволочные. ГОСТ Р 52868-2021, склад в Москве, отгрузка от 1 дня.",
       },
       { property: "og:title", content: "Металлический кабельный лоток от производителя — Лоток24" },
       {
         property: "og:description",
         content:
-          "Оцинкованные кабельные лотки от производителя: перфорированные, лестничные и глухие. ГОСТ Р 52868-2021, склад в Москве, отгрузка от 1 дня.",
+          "Оцинкованные кабельные лотки от производителя: перфорированные, неперфорированные, лестничные и проволочные. ГОСТ Р 52868-2021, склад в Москве, отгрузка от 1 дня.",
       },
     ],
     scripts: [
@@ -148,14 +148,14 @@ function HomePage() {
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
             <p className="kicker">Серии</p>
-            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Три типа лотков — одна система построения кабельной трассы</h2>
+            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Четыре типа лотков — одна система построения кабельной трассы</h2>
             <p className="mt-3 text-muted">Цена указана от самого узкого лотка серии, за метр. Ширина, толщина и покрытие меняют сумму в счёте.</p>
           </div>
           <Link to="/catalog" className="text-sm font-semibold text-teal hover:text-teal-deep">
             Весь каталог
           </Link>
         </div>
-        <ul className="mt-10 grid gap-4 md:grid-cols-3">
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {seriesList.map((series) => (
             <li key={series.id} className="flex flex-col rounded-card border border-line bg-surface p-5 ring-1 ring-transparent transition hover:ring-[#7ee2a8]">
               <p className="text-sm font-semibold text-teal">{series.code}</p>
