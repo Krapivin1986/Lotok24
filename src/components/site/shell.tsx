@@ -120,12 +120,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           </nav>
           <div className="flex items-center gap-2">
             <PhoneLink className="hidden xl:inline-flex" />
-            <a
-              href="mailto:info@lotok24.ru"
-              className="hidden cursor-pointer text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep sm:inline-flex"
-            >
-              info@lotok24.ru
-            </a>
+            <MailLink className="hidden sm:inline-flex" />
             <ChatLinks copy={copy} />
             <Link to="/contacts" className="press ios-filled max-sm:min-h-9 max-sm:px-3.5 max-sm:text-[15px]">
               Заказать
@@ -144,12 +139,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
         </div>
         <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 border-t border-line px-4 py-2 xl:hidden">
           <PhoneLink />
-          <a
-            href="mailto:info@lotok24.ru"
-            className="cursor-pointer text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep sm:hidden"
-          >
-            info@lotok24.ru
-          </a>
+          <MailLink className="inline-flex sm:hidden" />
         </div>
         {open ? (
           <nav id="mobile-nav" className="max-h-[70dvh] overflow-y-auto border-t border-line px-4 py-3 lg:hidden" aria-label="Разделы">
@@ -219,12 +209,38 @@ export function SiteFrame({ children }: { children: ReactNode }) {
 
 export function PhoneLink({ className = "inline-flex" }: { className?: string }) {
   return (
+    <ContactChip href="tel:+79859389776" label="Позвонить по номеру +7 (985) 938-97-76" className={className}>
+      +7 (985) 938-97-76
+    </ContactChip>
+  );
+}
+
+export function MailLink({ className = "inline-flex" }: { className?: string }) {
+  return (
+    <ContactChip href="mailto:info@lotok24.ru" label="Написать на info@lotok24.ru" className={className}>
+      info@lotok24.ru
+    </ContactChip>
+  );
+}
+
+function ContactChip({
+  href,
+  label,
+  className,
+  children,
+}: {
+  href: string;
+  label: string;
+  className: string;
+  children: ReactNode;
+}) {
+  return (
     <a
-      href="tel:+79859389776"
-      aria-label="Позвонить по номеру +7 (985) 938-97-76"
+      href={href}
+      aria-label={label}
       className={`press min-h-9 items-center justify-center rounded-full bg-white px-3.5 text-sm font-semibold text-[#229ed9] shadow-[0_1px_2px_rgb(16_40_60/10%),0_8px_18px_rgb(16_40_60/12%)] hover:bg-[#f4f8fb] ${className}`}
     >
-      +7 (985) 938-97-76
+      {children}
     </a>
   );
 }
