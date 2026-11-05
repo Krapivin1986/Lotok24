@@ -238,7 +238,7 @@ function ContactChip({
     <a
       href={href}
       aria-label={label}
-      className={`press min-h-9 items-center justify-center rounded-full bg-white px-3.5 text-sm font-semibold text-[#229ed9] shadow-[0_1px_2px_rgb(16_40_60/10%),0_8px_18px_rgb(16_40_60/12%)] hover:bg-[#f4f8fb] ${className}`}
+      className={`press min-h-9 items-center justify-center rounded-full border border-line bg-transparent px-3.5 text-sm font-semibold text-[#229ed9] hover:bg-white/50 ${className}`}
     >
       {children}
     </a>

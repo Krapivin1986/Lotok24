@@ -199,22 +199,21 @@
   }
 
   .chat-tg {
-    background: #fff;
+    background: transparent;
     color: #229ed9;
-    box-shadow:
-      0 1px 2px rgb(16 40 60 / 10%),
-      0 8px 18px rgb(16 40 60 / 12%);
+    box-shadow: none;
+    border: 1px solid var(--color-line, #d7e5dc);
   }
 
   .chat-tg:hover {
-    background: #f4f8fb;
+    background: rgb(255 255 255 / 50%);
     color: #1b8cc4;
   }
 
   .chat-tg:active {
-    background: #e8f1f7;
+    background: rgb(255 255 255 / 70%);
     color: #157aab;
-    box-shadow: 0 1px 3px rgb(16 40 60 / 14%);
+    box-shadow: none;
   }
 
   .chat-wide {
