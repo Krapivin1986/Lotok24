@@ -200,7 +200,7 @@ function HomePage() {
       <section className="mx-auto max-w-6xl px-4 pb-10 sm:px-6 sm:pb-16">
         <div className="max-w-2xl">
           <p className="kicker">Комплектующие</p>
-          <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Крышка, профиль и крепёж в той же поставке</h2>
+          <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Добавьте крышку, профиль и крепёж в заказ</h2>
           <p className="mt-3 text-muted">
             Крышка закрывает лоток, страт-профиль несёт консоль, метизы собирают стык. Ширина и резьба подбираются под секцию, не «примерно».
           </p>
