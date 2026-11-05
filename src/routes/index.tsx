@@ -226,8 +226,8 @@ function HomePage() {
       <section className="border-y border-line bg-surface">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
           <div className="max-w-2xl">
-            <p className="kicker">Объекты</p>
-            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Как это выглядит на площадке</h2>
+            <p className="kicker">Отзывы</p>
+            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Отзывы наших клиентов</h2>
           </div>
           <ul className="mt-10 grid gap-4 lg:grid-cols-3">
             {copy.reviews.map((review) => (
