@@ -119,7 +119,10 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <div className="flex items-center gap-2">
-            <a href="mailto:info@lotok24.ru" className="hidden truncate text-sm font-semibold text-ink hover:text-teal sm:inline">
+            <a
+              href="mailto:info@lotok24.ru"
+              className="hidden cursor-pointer text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep sm:inline-flex"
+            >
               info@lotok24.ru
             </a>
             <ChatLinks copy={copy} />
@@ -140,7 +143,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
         </div>
         <a
           href="mailto:info@lotok24.ru"
-          className="block border-t border-line px-4 py-2 text-center text-sm font-semibold text-ink hover:text-teal sm:hidden"
+          className="block cursor-pointer border-t border-line px-4 py-2 text-center text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep sm:hidden"
         >
           info@lotok24.ru
         </a>

@@ -44,6 +44,14 @@ function ContactsPage() {
       <div>
         <PageIntro kicker="Контакты" title={copy.contactsTitle} text={copy.contactsText} />
         <dl className="mt-8 grid gap-3">
+          <div className="rounded-card border border-line bg-surface px-5 py-4">
+            <dt className="text-sm font-semibold text-teal">Почта</dt>
+            <dd className="mt-1 font-medium">
+              <a href="mailto:info@lotok24.ru" className="text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep">
+                info@lotok24.ru
+              </a>
+            </dd>
+          </div>
           {facts.map((fact) => (
             <div key={fact.label} className="rounded-card border border-line bg-surface px-5 py-4">
               <dt className="text-sm font-semibold text-teal">{fact.label}</dt>
