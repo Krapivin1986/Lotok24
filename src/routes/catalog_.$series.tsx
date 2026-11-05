@@ -80,15 +80,15 @@ function SeriesPage() {
           </ul>
         </div>
         <div className="overflow-hidden rounded-card border border-line bg-surface">
-          <table className="w-full text-left text-sm">
+          <table className="data-table w-full text-left text-sm">
             <caption className="px-5 pt-5 pb-3 text-left font-display text-lg tracking-tight">Размеры серии</caption>
             <tbody>
               {series.specs.map(([name, value]) => (
-                <tr key={name} className="border-t border-line">
-                  <th scope="row" className="px-5 py-3 font-medium text-muted">
+                <tr key={name} className="flex flex-col gap-1 border-t border-line px-5 py-3 sm:table-row">
+                  <th scope="row" className="font-medium text-muted sm:px-5 sm:py-3">
                     {name}
                   </th>
-                  <td className="px-5 py-3 text-right font-medium">{value}</td>
+                  <td className="font-medium sm:px-5 sm:py-3 sm:text-right">{value}</td>
                 </tr>
               ))}
             </tbody>

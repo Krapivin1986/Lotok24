@@ -65,7 +65,7 @@ function CatalogPage() {
                   <Link
                     to="/catalog/$series"
                     params={{ series: series.id }}
-                    className="press inline-flex h-12 items-center justify-center rounded-control bg-teal px-5 font-semibold text-paper hover:bg-teal-deep"
+                    className="press inline-flex h-12 w-full items-center justify-center rounded-control bg-teal px-5 font-semibold text-paper hover:bg-teal-deep sm:w-auto"
                   >
                     Страница серии
                   </Link>
@@ -80,28 +80,28 @@ function CatalogPage() {
 
         <div className="mt-16 grid items-start gap-6 lg:grid-cols-2">
           <div className="overflow-hidden rounded-card border border-line bg-surface">
-            <table className="w-full text-left text-sm">
+            <table className="data-table w-full text-left text-sm">
               <caption className="px-5 pt-5 pb-3 text-left font-display text-lg tracking-tight">Рабочий диапазон</caption>
               <tbody>
                 {SPECS.map(([name, value]) => (
-                  <tr key={name} className="border-t border-line">
-                    <th scope="row" className="px-5 py-3 font-medium text-muted">
+                  <tr key={name} className="flex flex-col gap-1 border-t border-line px-5 py-3 sm:table-row">
+                    <th scope="row" className="font-medium text-muted sm:px-5 sm:py-3">
                       {name}
                     </th>
-                    <td className="px-5 py-3 text-right font-medium tabular-nums">{value}</td>
+                    <td className="font-medium sm:px-5 sm:py-3 sm:text-right sm:tabular-nums">{value}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <figure className="flex items-center gap-4 rounded-card border border-line bg-surface p-5">
+          <figure className="flex flex-col gap-4 rounded-card border border-line bg-surface p-5 sm:flex-row sm:items-center">
             <img
               src="/images/tray-zinc.jpg"
               alt="Крупный план кристаллического покрытия горячего цинка на кромке лотка"
               width={1408}
               height={1408}
               loading="lazy"
-              className="size-28 shrink-0 rounded-control object-cover sm:size-36"
+              className="h-40 w-full shrink-0 rounded-control object-cover sm:size-36"
             />
             <figcaption>
               <p className="font-display text-lg tracking-tight">Горячий цинк</p>

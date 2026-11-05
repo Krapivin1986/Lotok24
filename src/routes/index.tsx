@@ -27,7 +27,7 @@ function HomePage() {
           <div>
             <p className="text-sm font-semibold tracking-wide text-teal">{copy.heroKicker}</p>
             <h1 className="mt-4 font-display text-display leading-display tracking-tight">{copy.heroTitle}</h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">{copy.heroText}</p>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">{copy.heroText}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <CtaLink to="/contacts">
                 <ArrowCta>Рассчитать трассу</ArrowCta>
@@ -51,7 +51,7 @@ function HomePage() {
                 height={1008}
                 className="aspect-video w-full object-cover"
               />
-              <figcaption className="flex items-center justify-between gap-3 bg-teal px-5 py-4 text-sm text-paper">
+              <figcaption className="flex flex-col items-start gap-1 bg-teal px-4 py-4 text-sm text-paper sm:flex-row sm:items-center sm:justify-between sm:px-5">
                 <span className="font-medium">Лоток перфорированный 200×100</span>
                 <span className="shrink-0 tabular-nums text-on-ink">Zn · 3 м</span>
               </figcaption>
@@ -63,9 +63,9 @@ function HomePage() {
       <section aria-label="Коротко о лотках" className="border-y border-line">
         <dl className="mx-auto grid max-w-6xl grid-cols-2 lg:grid-cols-4">
           {PROOF.map((item) => (
-            <div key={item.label} className="px-4 py-7 sm:px-6 sm:py-8">
+            <div key={item.label} className="border-b border-line px-4 py-5 odd:border-r sm:px-6 sm:py-8 lg:border-b-0 lg:odd:border-r-0 lg:[&:not(:last-child)]:border-r">
               <dt className="text-sm text-muted">{item.label}</dt>
-              <dd className="mt-2 font-display text-2xl tracking-tight tabular-nums sm:text-3xl">
+              <dd className="mt-2 font-display text-xl tracking-tight tabular-nums sm:text-3xl">
                 {item.value}
                 <span className="ml-2 font-sans text-base font-medium text-muted">{item.unit}</span>
               </dd>

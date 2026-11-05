@@ -35,6 +35,13 @@ export function SiteFrame({ children }: { children: ReactNode }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <div className="min-h-screen overflow-x-clip bg-paper text-ink">
       <header className="sticky top-0 z-40 border-b border-line bg-paper">
@@ -67,7 +74,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             </Link>
             <button
               type="button"
-              className="press inline-flex size-11 items-center justify-center rounded-control border border-line bg-surface lg:hidden"
+              className="press inline-flex size-11 shrink-0 items-center justify-center rounded-control border border-line bg-surface lg:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
               onClick={() => setOpen((value) => !value)}
@@ -78,7 +85,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           </div>
         </div>
         {open ? (
-          <nav id="mobile-nav" className="border-t border-line px-4 py-3 lg:hidden" aria-label="Разделы">
+          <nav id="mobile-nav" className="max-h-[70dvh] overflow-y-auto border-t border-line px-4 py-3 lg:hidden" aria-label="Разделы">
             <ul className="flex flex-col">
               {NAV.map((item) => (
                 <li key={item.to}>
@@ -147,7 +154,7 @@ export function CtaLink({
   children: ReactNode;
   className?: string;
 }) {
-  const classNames = `press inline-flex h-12 items-center justify-center gap-2 rounded-control px-5 text-center font-semibold ${TONES[tone]} ${className}`;
+  const classNames = `press inline-flex h-12 w-full items-center justify-center gap-2 rounded-control px-5 text-center font-semibold sm:w-auto ${TONES[tone]} ${className}`;
   if (hash) {
     return (
       <Link to={to} hash={hash} className={classNames}>
@@ -182,7 +189,7 @@ export function PageIntro({ kicker, title, text }: { kicker: string; title: stri
     <div className="max-w-2xl">
       <p className="text-sm font-semibold text-teal">{kicker}</p>
       <h1 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">{title}</h1>
-      <p className="mt-4 text-lg leading-relaxed text-muted">{text}</p>
+      <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">{text}</p>
     </div>
   );
 }
