@@ -5,6 +5,15 @@ import { NAV, type NavTo } from "@/components/site/content";
 import { SeriesText } from "@/components/site/series-text";
 import { useSiteCopy } from "@/components/site/use-site-copy";
 
+export function Wordmark({ onDark = false }: { onDark?: boolean }) {
+  return (
+    <span className="truncate font-display text-[15px] leading-none tracking-[-0.055em] sm:text-[17px]">
+      <span className="font-medium">Лоток</span>
+      <span className={onDark ? "font-semibold text-[#8ae8b4]" : "font-semibold text-teal"}>24</span>
+    </span>
+  );
+}
+
 export function Mark({ className = "size-9" }: { className?: string }) {
   const gradientId = `mark-${useId().replace(/:/g, "")}`;
   return (
@@ -92,7 +101,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
           <Link to="/" className="flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
             <Mark />
-            <span className="truncate font-display text-sm tracking-tight sm:text-base">Лоток24</span>
+            <Wordmark />
           </Link>
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Разделы">
             {NAV.map((item) => (
@@ -156,7 +165,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           <div>
             <div className="flex items-center gap-2.5 text-paper">
               <Mark className="size-8" />
-              <span className="font-display tracking-tight">Лоток24</span>
+              <Wordmark onDark />
             </div>
             <p className="mt-3 max-w-sm text-sm leading-relaxed">
               <SeriesText text={copy.footerText} className="underline decoration-white/40 underline-offset-2 hover:text-paper" />
