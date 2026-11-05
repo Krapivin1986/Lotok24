@@ -200,7 +200,12 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           </nav>
         </div>
         <div className="border-t border-line-strong">
-          <p className="mx-auto max-w-6xl px-4 py-4 text-xs sm:px-6">© 2026 Лоток24. Ориентир, не оферта.</p>
+          <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs sm:flex-row sm:items-center sm:justify-between sm:px-6">
+            <p>© 2026 Лоток24. Ориентир, не оферта.</p>
+            <Link to="/privacy" className="hover:text-paper">
+              Политика конфиденциальности
+            </Link>
+          </div>
         </div>
       </footer>
     </div>

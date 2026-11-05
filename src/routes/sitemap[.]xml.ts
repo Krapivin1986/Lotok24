@@ -13,6 +13,7 @@ const PATHS = [
   "/delivery",
   "/blog",
   "/contacts",
+  "/privacy",
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
