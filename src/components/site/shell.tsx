@@ -120,6 +120,12 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           </nav>
           <div className="flex items-center gap-2">
             <a
+              href="tel:+79859389776"
+              className="hidden cursor-pointer text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep xl:inline-flex"
+            >
+              +7 (985) 938-97-76
+            </a>
+            <a
               href="mailto:info@lotok24.ru"
               className="hidden cursor-pointer text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep sm:inline-flex"
             >
@@ -141,12 +147,20 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             </button>
           </div>
         </div>
-        <a
-          href="mailto:info@lotok24.ru"
-          className="block cursor-pointer border-t border-line px-4 py-2 text-center text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep sm:hidden"
-        >
-          info@lotok24.ru
-        </a>
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 border-t border-line px-4 py-2 xl:hidden">
+          <a
+            href="tel:+79859389776"
+            className="cursor-pointer text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep"
+          >
+            +7 (985) 938-97-76
+          </a>
+          <a
+            href="mailto:info@lotok24.ru"
+            className="cursor-pointer text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep sm:hidden"
+          >
+            info@lotok24.ru
+          </a>
+        </div>
         {open ? (
           <nav id="mobile-nav" className="max-h-[70dvh] overflow-y-auto border-t border-line px-4 py-3 lg:hidden" aria-label="Разделы">
             <div className="mb-2 flex items-center gap-2">

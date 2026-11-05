@@ -45,6 +45,14 @@ function ContactsPage() {
         <PageIntro kicker="Контакты" title={copy.contactsTitle} text={copy.contactsText} />
         <dl className="mt-8 grid gap-3">
           <div className="rounded-card border border-line bg-surface px-5 py-4">
+            <dt className="text-sm font-semibold text-teal">Телефон</dt>
+            <dd className="mt-1 font-medium">
+              <a href="tel:+79859389776" className="text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep">
+                +7 (985) 938-97-76
+              </a>
+            </dd>
+          </div>
+          <div className="rounded-card border border-line bg-surface px-5 py-4">
             <dt className="text-sm font-semibold text-teal">Почта</dt>
             <dd className="mt-1 font-medium">
               <a href="mailto:info@lotok24.ru" className="text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep">
@@ -60,8 +68,8 @@ function ContactsPage() {
           ))}
         </dl>
         <p className="mt-5 text-sm leading-relaxed text-muted">
-          Звонков «просто узнать» нет: заявка, спецификация и счёт идут письмом. Для пропуска на склад достаточно
-          номера машины и имени водителя в том же письме.
+          По этому номеру и на почту принимаем заявку и уточняем спецификацию. Для пропуска на склад достаточно
+          номера машины и имени водителя в письме.
         </p>
       </div>
       <div className="rounded-card border border-line bg-surface p-5 sm:p-6">
