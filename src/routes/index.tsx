@@ -148,7 +148,7 @@ function HomePage() {
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
             <p className="kicker">Серии</p>
-            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Три лотка — одна система крепёжа</h2>
+            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Три типа лотков — одна система построения кабельной трассы</h2>
             <p className="mt-3 text-muted">Цена указана от самого узкого лотка серии, за метр. Ширина, толщина и покрытие меняют сумму в счёте.</p>
           </div>
           <Link to="/catalog" className="text-sm font-semibold text-teal hover:text-teal-deep">
