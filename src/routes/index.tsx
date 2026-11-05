@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Оцинкованные кабельные лотки для цехов, ЦОД и коммерческих зданий. Расчёт нагрузки, комплектация и отгрузка от 5 дней.",
+          "Оцинкованные кабельные лотки для цехов, ЦОД и коммерческих зданий. Расчёт нагрузки, комплектация и срок отгрузки — от 5 дней.",
       },
     ],
   }),
@@ -60,7 +60,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section aria-label="Коротко о серии" className="border-y border-line">
+      <section aria-label="Коротко о лотках" className="border-y border-line">
         <dl className="mx-auto grid max-w-6xl grid-cols-2 lg:grid-cols-4">
           {PROOF.map((item) => (
             <div key={item.label} className="px-4 py-7 sm:px-6 sm:py-8">
@@ -78,7 +78,7 @@ function HomePage() {
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold text-teal">Серии</p>
-            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Три лотка — одна система крепежа</h2>
+            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Три лотка — одна система крепёжа</h2>
           </div>
           <Link to="/catalog" className="text-sm font-semibold text-teal hover:text-teal-deep">
             Весь каталог
@@ -133,7 +133,7 @@ function HomePage() {
             </p>
           </div>
           <CtaLink to="/contacts" tone="paper" className="shrink-0">
-            <ArrowCta>Получить подбор</ArrowCta>
+            <ArrowCta>Получить подбор лотка</ArrowCta>
           </CtaLink>
         </div>
       </section>
