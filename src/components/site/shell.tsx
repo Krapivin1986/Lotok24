@@ -119,12 +119,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <div className="flex items-center gap-2">
-            <a
-              href="tel:+79859389776"
-              className="hidden cursor-pointer text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep xl:inline-flex"
-            >
-              +7 (985) 938-97-76
-            </a>
+            <PhoneLink className="hidden xl:inline-flex" />
             <a
               href="mailto:info@lotok24.ru"
               className="hidden cursor-pointer text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep sm:inline-flex"
@@ -148,12 +143,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           </div>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 border-t border-line px-4 py-2 xl:hidden">
-          <a
-            href="tel:+79859389776"
-            className="cursor-pointer text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep"
-          >
-            +7 (985) 938-97-76
-          </a>
+          <PhoneLink />
           <a
             href="mailto:info@lotok24.ru"
             className="cursor-pointer text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 hover:text-teal-deep sm:hidden"
@@ -224,6 +214,18 @@ export function SiteFrame({ children }: { children: ReactNode }) {
         </div>
       </footer>
     </div>
+  );
+}
+
+export function PhoneLink({ className = "inline-flex" }: { className?: string }) {
+  return (
+    <a
+      href="tel:+79859389776"
+      aria-label="Позвонить по номеру +7 (985) 938-97-76"
+      className={`press min-h-9 items-center justify-center rounded-full bg-white px-3.5 text-sm font-semibold text-[#229ed9] shadow-[0_1px_2px_rgb(16_40_60/10%),0_8px_18px_rgb(16_40_60/12%)] hover:bg-[#f4f8fb] ${className}`}
+    >
+      +7 (985) 938-97-76
+    </a>
   );
 }
 
