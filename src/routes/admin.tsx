@@ -192,7 +192,6 @@ function AdminDesk() {
           <Field label="Склад" value={copy.warehouse} onChange={(warehouse) => setCopy({ ...copy, warehouse })} />
           <Field label="Часы" value={copy.hours} onChange={(hours) => setCopy({ ...copy, hours })} />
           <Field label="Срок ответа" value={copy.reply} onChange={(reply) => setCopy({ ...copy, reply })} />
-          <Field label="WhatsApp, ссылка" value={copy.whatsappUrl} onChange={(whatsappUrl) => setCopy({ ...copy, whatsappUrl })} />
           <Field label="Telegram, ссылка" value={copy.telegramUrl} onChange={(telegramUrl) => setCopy({ ...copy, telegramUrl })} />
         </Block>
 

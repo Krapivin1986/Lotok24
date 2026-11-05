@@ -174,7 +174,6 @@
     box-shadow: 0 4px 12px rgb(14 78 44 / 12%);
   }
 
-  .chat-wa,
   .chat-tg {
     display: inline-flex;
     align-items: center;
@@ -193,27 +192,10 @@
   }
 
   @media (min-width: 640px) {
-    .chat-wa,
     .chat-tg {
       min-width: 50px;
       min-height: 50px;
     }
-  }
-
-  .chat-wa {
-    background: #1ebe5d;
-    box-shadow:
-      0 1px 2px rgb(12 90 40 / 16%),
-      0 8px 18px rgb(12 90 40 / 22%);
-  }
-
-  .chat-wa:hover {
-    background: #17a852;
-  }
-
-  .chat-wa:active {
-    background: #12964a;
-    box-shadow: 0 1px 3px rgb(12 90 40 / 20%);
   }
 
   .chat-tg {
