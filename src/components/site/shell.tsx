@@ -1,6 +1,6 @@
 import { useEffect, useId, useLayoutEffect, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ArrowRight, Boxes, House, Menu, Newspaper, Phone, Settings, Shield, Truck, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { NAV, type NavTo } from "@/components/site/content";
 import { SeriesText } from "@/components/site/series-text";
 import { useSiteCopy } from "@/components/site/use-site-copy";
@@ -183,13 +183,18 @@ export function SiteFrame({ children }: { children: ReactNode }) {
               const Icon = FOOTER_ICONS[item.to];
               return (
                 <Link key={item.to} to={item.to} className="inline-flex w-fit items-center gap-2 hover:text-paper">
-                  <Icon className="size-4 shrink-0 text-[#8ae8b4]" aria-hidden="true" />
+                  <span className="text-[#8ae8b4]">
+                    <Icon />
+                  </span>
                   {item.label}
                 </Link>
               );
             })}
             <Link to="/admin" className="mt-2 inline-flex w-fit items-center gap-2 text-on-ink/60 hover:text-paper">
-              <Settings className="size-4 shrink-0" aria-hidden="true" />
+              <Glyph className="size-4">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6.1 6.1l1.6 1.6M16.3 16.3l1.6 1.6M17.9 6.1l-1.6 1.6M7.7 16.3l-1.6 1.6" />
+              </Glyph>
               Админка
             </Link>
           </nav>
@@ -198,7 +203,9 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-on-ink/70 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <p>© 2026 ООО «3К». ИНН 9718232170, КПП 771801001.</p>
             <Link to="/privacy" className="inline-flex w-fit items-center gap-1.5 hover:text-paper">
-              <Shield className="size-3.5 shrink-0" aria-hidden="true" />
+              <Glyph className="size-3.5">
+                <path d="M12 3 5 6v6c0 4 3 6.5 7 8 4-1.5 7-4 7-8V6z" />
+              </Glyph>
               Политика конфиденциальности
             </Link>
           </div>
@@ -209,12 +216,57 @@ export function SiteFrame({ children }: { children: ReactNode }) {
 }
 
 const FOOTER_ICONS = {
-  "/": House,
-  "/catalog": Boxes,
-  "/delivery": Truck,
-  "/blog": Newspaper,
-  "/contacts": Phone,
-} as const satisfies Record<NavTo, typeof House>;
+  "/": () => (
+    <Glyph>
+      <path d="M4 11 12 4l8 7" />
+      <path d="M6 10v9h12v-9" />
+    </Glyph>
+  ),
+  "/catalog": () => (
+    <Glyph>
+      <rect x="4" y="4" width="7" height="7" rx="1.5" />
+      <rect x="13" y="4" width="7" height="7" rx="1.5" />
+      <rect x="4" y="13" width="7" height="7" rx="1.5" />
+      <rect x="13" y="13" width="7" height="7" rx="1.5" />
+    </Glyph>
+  ),
+  "/delivery": () => (
+    <Glyph>
+      <path d="M3 7h11v9H3z" />
+      <path d="M14 11h4l3 3v2h-7" />
+      <circle cx="7" cy="18" r="1.4" />
+      <circle cx="18" cy="18" r="1.4" />
+    </Glyph>
+  ),
+  "/blog": () => (
+    <Glyph>
+      <path d="M7 3.5h7l4 4V20a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z" />
+      <path d="M14 3.5V8h4.5M8 12h8M8 16h5" />
+    </Glyph>
+  ),
+  "/contacts": () => (
+    <Glyph>
+      <path d="M8 4h2.5l1.2 3.2-1.8 1a11 11 0 0 0 5 5l1-1.8 3.2 1.2V15a2 2 0 0 1-2 2A13 13 0 0 1 6 6a2 2 0 0 1 2-2z" />
+    </Glyph>
+  ),
+} as const satisfies Record<NavTo, () => ReactNode>;
+
+function Glyph({ className = "size-4", children }: { className?: string; children: ReactNode }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={`${className} shrink-0`}
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {children}
+    </svg>
+  );
+}
 
 export function CallButton({ className = "" }: { className?: string }) {
   return (
