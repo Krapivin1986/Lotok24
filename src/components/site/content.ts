@@ -243,6 +243,7 @@ export const NAV = [
   { to: "/", label: "Главная" },
   { to: "/catalog", label: "Каталог" },
   { to: "/delivery", label: "Доставка и оплата" },
+  { to: "/blog", label: "Блог" },
   { to: "/contacts", label: "Контакты" },
 ] as const;
 
