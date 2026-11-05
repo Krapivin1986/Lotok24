@@ -24,7 +24,7 @@ function ContactsPage() {
     { label: "Ответ", value: copy.reply },
   ];
   return (
-    <section className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:py-16">
+    <section className="mx-auto grid max-w-6xl items-start gap-6 px-4 py-8 sm:gap-10 sm:px-6 sm:py-12 lg:grid-cols-2 lg:py-16">
       <div>
         <PageIntro kicker="Контакты" title={copy.contactsTitle} text={copy.contactsText} />
         <dl className="mt-8 grid gap-3">

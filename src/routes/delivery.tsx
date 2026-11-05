@@ -67,7 +67,7 @@ function DeliveryPage() {
   return (
     <>
       <section className="border-b border-line bg-surface">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-16">
           <PageIntro
             kicker="Доставка и оплата"
             title={copy.deliveryTitle}
@@ -76,7 +76,7 @@ function DeliveryPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:py-24">
         <h2 className="font-display text-3xl tracking-tight">Как везём</h2>
         <ul className="mt-8 grid gap-4 lg:grid-cols-3">
           {SHIPPING.map((item) => (
@@ -88,23 +88,23 @@ function DeliveryPage() {
           ))}
         </ul>
 
-        <div className="mt-16 overflow-hidden rounded-card border border-line bg-surface">
+        <div className="mt-10 overflow-hidden rounded-card border border-line bg-surface sm:mt-16">
           <table className="data-table w-full text-left text-sm">
             <caption className="px-5 pt-5 pb-3 text-left font-display text-lg tracking-tight">Сроки и условия</caption>
             <tbody>
               {TERMS.map(([name, value]) => (
-                <tr key={name} className="flex flex-col gap-1 border-t border-line px-5 py-3 sm:table-row">
-                  <th scope="row" className="font-medium text-muted sm:px-5 sm:py-3">
+                <tr key={name} className="flex items-baseline justify-between gap-3 border-t border-line px-5 py-3 sm:table-row">
+                  <th scope="row" className="shrink-0 font-medium text-muted sm:px-5 sm:py-3">
                     {name}
                   </th>
-                  <td className="font-medium sm:px-5 sm:py-3 sm:text-right">{value}</td>
+                  <td className="min-w-0 text-right font-medium sm:px-5 sm:py-3 sm:text-right">{value}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <h2 className="mt-16 font-display text-3xl tracking-tight">Как платите</h2>
+        <h2 className="mt-10 font-display text-3xl tracking-tight sm:mt-16">Как платите</h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
           {PAYMENTS.map((item) => (
             <li key={item.title} className="rounded-card border border-line bg-surface p-5">

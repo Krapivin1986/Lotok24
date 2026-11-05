@@ -23,9 +23,9 @@ function HomePage() {
   return (
     <>
       <section className="bg-surface">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-14 lg:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-14 lg:py-24">
           <div>
-            <p className="text-sm font-semibold tracking-wide text-teal">{copy.heroKicker}</p>
+            <p className="text-sm font-semibold text-teal">{copy.heroKicker}</p>
             <h1 className="mt-4 font-display text-display leading-display tracking-tight">{copy.heroTitle}</h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">{copy.heroText}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -51,7 +51,7 @@ function HomePage() {
                 height={1008}
                 className="aspect-video w-full object-cover"
               />
-              <figcaption className="flex flex-col items-start gap-1 bg-teal px-4 py-4 text-sm text-paper sm:flex-row sm:items-center sm:justify-between sm:px-5">
+              <figcaption className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 bg-teal px-4 py-3 text-sm text-paper sm:px-5">
                 <span className="font-medium">Лоток перфорированный 200×100</span>
                 <span className="shrink-0 tabular-nums text-on-ink">Zn · 3 м</span>
               </figcaption>
@@ -63,7 +63,7 @@ function HomePage() {
       <section aria-label="Коротко о лотках" className="border-y border-line">
         <dl className="mx-auto grid max-w-6xl grid-cols-2 lg:grid-cols-4">
           {PROOF.map((item) => (
-            <div key={item.label} className="border-b border-line px-4 py-5 odd:border-r sm:px-6 sm:py-8 lg:border-b-0 lg:odd:border-r-0 lg:[&:not(:last-child)]:border-r">
+            <div key={item.label} className="border-b border-line px-4 py-4 odd:border-r sm:px-6 sm:py-8 lg:border-b-0 lg:odd:border-r-0 lg:[&:not(:last-child)]:border-r">
               <dt className="text-sm text-muted">{item.label}</dt>
               <dd className="mt-2 font-display text-xl tracking-tight tabular-nums sm:text-3xl">
                 {item.value}
@@ -74,7 +74,7 @@ function HomePage() {
         </dl>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:py-24">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold text-teal">Серии</p>
@@ -124,7 +124,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
         <div className="flex flex-col items-start justify-between gap-4 rounded-card bg-ink px-5 py-6 text-paper sm:flex-row sm:items-center sm:px-6">
           <div className="max-w-xl">
             <h2 className="font-display text-2xl tracking-tight sm:text-3xl">Не знаете серию?</h2>

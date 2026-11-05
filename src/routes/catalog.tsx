@@ -23,7 +23,7 @@ function CatalogPage() {
   return (
     <>
       <section className="border-b border-line bg-surface">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-16">
           <PageIntro
             kicker="Каталог"
             title="Лотки, лестницы и глухие короба"
@@ -32,8 +32,8 @@ function CatalogPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-        <ul className="flex flex-col gap-16">
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:py-24">
+        <ul className="flex flex-col gap-10 sm:gap-16">
           {seriesList.map((series, index) => (
             <li key={series.id} id={series.id} className="grid items-center gap-8 lg:grid-cols-2">
               <figure
@@ -78,30 +78,30 @@ function CatalogPage() {
           ))}
         </ul>
 
-        <div className="mt-16 grid items-start gap-6 lg:grid-cols-2">
+        <div className="mt-10 sm:mt-16 grid items-start gap-6 lg:grid-cols-2">
           <div className="overflow-hidden rounded-card border border-line bg-surface">
             <table className="data-table w-full text-left text-sm">
               <caption className="px-5 pt-5 pb-3 text-left font-display text-lg tracking-tight">Рабочий диапазон</caption>
               <tbody>
                 {SPECS.map(([name, value]) => (
-                  <tr key={name} className="flex flex-col gap-1 border-t border-line px-5 py-3 sm:table-row">
-                    <th scope="row" className="font-medium text-muted sm:px-5 sm:py-3">
+                  <tr key={name} className="flex items-baseline justify-between gap-3 border-t border-line px-5 py-3 sm:table-row">
+                    <th scope="row" className="shrink-0 font-medium text-muted sm:px-5 sm:py-3">
                       {name}
                     </th>
-                    <td className="font-medium sm:px-5 sm:py-3 sm:text-right sm:tabular-nums">{value}</td>
+                    <td className="min-w-0 text-right font-medium sm:px-5 sm:py-3 sm:tabular-nums">{value}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <figure className="flex flex-col gap-4 rounded-card border border-line bg-surface p-5 sm:flex-row sm:items-center">
+          <figure className="flex items-center gap-4 rounded-card border border-line bg-surface p-4 sm:p-5">
             <img
               src="/images/tray-zinc.jpg"
               alt="Крупный план кристаллического покрытия горячего цинка на кромке лотка"
               width={1408}
               height={1408}
               loading="lazy"
-              className="h-40 w-full shrink-0 rounded-control object-cover sm:size-36"
+              className="size-20 shrink-0 rounded-control object-cover sm:size-36"
             />
             <figcaption>
               <p className="font-display text-lg tracking-tight">Горячий цинк</p>
@@ -113,7 +113,7 @@ function CatalogPage() {
           </figure>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-10 sm:mt-16">
           <h2 className="font-display text-3xl tracking-tight">Где ставят</h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2">
             {USES.map((use) => (
@@ -125,7 +125,7 @@ function CatalogPage() {
           </ul>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-10 sm:mt-16">
           <h2 className="font-display text-3xl tracking-tight">Фасонка в той же поставке</h2>
           <ul className="mt-6 flex flex-wrap gap-2">
             {ACCESSORIES.map((item) => (
@@ -136,7 +136,7 @@ function CatalogPage() {
           </ul>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-10 sm:mt-16">
           <h2 className="font-display text-3xl tracking-tight">Почему металл не становится проблемой</h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map((feature, index) => {

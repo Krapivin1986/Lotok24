@@ -37,7 +37,7 @@ function SeriesPage() {
   return (
     <>
       <section className="border-b border-line bg-surface">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:py-16">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:gap-10 sm:px-6 sm:py-12 lg:grid-cols-2 lg:py-16">
           <div>
             <p className="text-sm text-muted">
               <Link to="/catalog" className="font-semibold text-teal hover:text-teal-deep">
@@ -67,7 +67,7 @@ function SeriesPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl items-start gap-8 px-4 py-16 sm:px-6 lg:grid-cols-2 sm:py-20">
+      <section className="mx-auto grid max-w-6xl items-start gap-6 px-4 py-10 sm:gap-8 sm:px-6 sm:py-16 lg:grid-cols-2">
         <div>
           <h2 className="font-display text-2xl tracking-tight">Что входит</h2>
           <ul className="mt-6 flex flex-col gap-3">
@@ -84,11 +84,11 @@ function SeriesPage() {
             <caption className="px-5 pt-5 pb-3 text-left font-display text-lg tracking-tight">Размеры серии</caption>
             <tbody>
               {series.specs.map(([name, value]) => (
-                <tr key={name} className="flex flex-col gap-1 border-t border-line px-5 py-3 sm:table-row">
-                  <th scope="row" className="font-medium text-muted sm:px-5 sm:py-3">
+                <tr key={name} className="flex items-baseline justify-between gap-3 border-t border-line px-5 py-3 sm:table-row">
+                  <th scope="row" className="shrink-0 font-medium text-muted sm:px-5 sm:py-3">
                     {name}
                   </th>
-                  <td className="font-medium sm:px-5 sm:py-3 sm:text-right">{value}</td>
+                  <td className="min-w-0 text-right font-medium sm:px-5 sm:py-3 sm:text-right">{value}</td>
                 </tr>
               ))}
             </tbody>
@@ -97,7 +97,7 @@ function SeriesPage() {
       </section>
 
       <section className="border-t border-line">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
           <h2 className="font-display text-2xl tracking-tight">Другие серии</h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2">
             {others.map((item) => (
