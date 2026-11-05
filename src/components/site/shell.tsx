@@ -1,6 +1,6 @@
 import { useEffect, useId, useLayoutEffect, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Boxes, House, Menu, Newspaper, Phone, Settings, Shield, Truck, X } from "lucide-react";
 import { NAV, type NavTo } from "@/components/site/content";
 import { SeriesText } from "@/components/site/series-text";
 import { useSiteCopy } from "@/components/site/use-site-copy";
@@ -168,7 +168,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
       </header>
       <main>{children}</main>
       <footer className="border-t border-line-strong bg-ink text-on-ink">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[minmax(0,1fr)_12rem] md:gap-12">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[minmax(0,1fr)_auto] md:gap-16">
           <div>
             <div className="flex items-center gap-2.5 text-paper">
               <Mark className="size-8" />
@@ -179,12 +179,17 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             </p>
           </div>
           <nav aria-label="Подвал" className="flex flex-col gap-2.5 text-sm">
-            {NAV.map((item) => (
-              <Link key={item.to} to={item.to} className="w-fit hover:text-paper">
-                {item.label}
-              </Link>
-            ))}
-            <Link to="/admin" className="mt-2 w-fit text-on-ink/60 hover:text-paper">
+            {NAV.map((item) => {
+              const Icon = FOOTER_ICONS[item.to];
+              return (
+                <Link key={item.to} to={item.to} className="inline-flex w-fit items-center gap-2 hover:text-paper">
+                  <Icon className="size-4 shrink-0 text-[#8ae8b4]" aria-hidden="true" />
+                  {item.label}
+                </Link>
+              );
+            })}
+            <Link to="/admin" className="mt-2 inline-flex w-fit items-center gap-2 text-on-ink/60 hover:text-paper">
+              <Settings className="size-4 shrink-0" aria-hidden="true" />
               Админка
             </Link>
           </nav>
@@ -192,7 +197,8 @@ export function SiteFrame({ children }: { children: ReactNode }) {
         <div className="border-t border-white/10">
           <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs text-on-ink/70 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <p>© 2026 ООО «3К». ИНН 9718232170, КПП 771801001.</p>
-            <Link to="/privacy" className="w-fit hover:text-paper">
+            <Link to="/privacy" className="inline-flex w-fit items-center gap-1.5 hover:text-paper">
+              <Shield className="size-3.5 shrink-0" aria-hidden="true" />
               Политика конфиденциальности
             </Link>
           </div>
@@ -201,6 +207,14 @@ export function SiteFrame({ children }: { children: ReactNode }) {
     </div>
   );
 }
+
+const FOOTER_ICONS = {
+  "/": House,
+  "/catalog": Boxes,
+  "/delivery": Truck,
+  "/blog": Newspaper,
+  "/contacts": Phone,
+} as const satisfies Record<NavTo, typeof House>;
 
 export function CallButton({ className = "" }: { className?: string }) {
   return (
