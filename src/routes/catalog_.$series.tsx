@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { SERIES, type SeriesId } from "@/components/site/content";
+import { breadcrumbLd, jsonLd, SERIES_SEO } from "@/components/site/seo";
 import { Photo } from "@/components/site/photo";
 import { ArrowCta, CtaLink } from "@/components/site/shell";
 import { useMergedSeries } from "@/components/site/use-site-copy";
@@ -15,14 +16,35 @@ export const Route = createFileRoute("/catalog_/$series")({
   },
   head: ({ params }) => {
     const series = SERIES.find((item) => item.id === params.series);
+    const seo = series ? SERIES_SEO[series.id] : undefined;
     return {
       meta: [
-        { title: series ? `${series.pageTitle} — Лоток24` : "Каталог — Лоток24" },
+        { title: seo?.title ?? "Каталог кабельных лотков — Лоток24" },
         {
           name: "description",
-          content: series?.lead ?? "Кабельный лоток Лоток24.",
+          content: seo?.description ?? "Оцинкованные кабельные лотки Лоток24: размеры, покрытие и поставка со склада в Москве.",
         },
       ],
+      scripts: series
+        ? [
+            jsonLd(
+              breadcrumbLd([
+                { name: "Главная", path: "/" },
+                { name: "Каталог", path: "/catalog" },
+                { name: series.pageTitle, path: `/catalog/${series.id}` },
+              ]),
+            ),
+            jsonLd({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: series.pageTitle,
+              description: series.lead,
+              category: "Кабельные лотки",
+              brand: { "@type": "Brand", name: "Лоток24" },
+              image: series.image,
+            }),
+          ]
+        : [],
     };
   },
   component: SeriesPage,

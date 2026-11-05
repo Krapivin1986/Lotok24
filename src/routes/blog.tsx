@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { breadcrumbLd, jsonLd } from "@/components/site/seo";
 import { Photo } from "@/components/site/photo";
 import { ArrowCta, CtaLink } from "@/components/site/shell";
 
@@ -78,12 +79,39 @@ const POSTS = [
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "Блог — Лоток24" },
+      { title: "Блог о кабельных лотках: серия, цинк и нагрузка — Лоток24" },
       {
         name: "description",
         content:
-          "Заметки о кабельных лотках: как выбрать серию, покрытие и толщину стали, что входит в спецификацию и как принять поставку.",
+          "Как выбрать кабельный лоток: перфорированный, лестничный или глухой, какое цинкование взять и как посчитать нагрузку на пролёт.",
       },
+    ],
+    scripts: [
+      jsonLd(
+        breadcrumbLd([
+          { name: "Главная", path: "/" },
+          { name: "Блог о кабельных лотках", path: "/blog" },
+        ]),
+      ),
+      jsonLd({
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        name: "Блог Лоток24",
+        inLanguage: "ru",
+        blogPost: POSTS.map((post) => ({
+          "@type": "BlogPosting",
+          headline: post.title,
+          datePublished: {
+            "perforated-or-ladder": "2026-03-12",
+            zinc: "2026-03-28",
+            load: "2026-04-09",
+            fittings: "2026-04-21",
+            acceptance: "2026-05-06",
+          }[post.id],
+          articleSection: post.tag,
+          description: post.lead,
+        })),
+      }),
     ],
   }),
   component: BlogPage,

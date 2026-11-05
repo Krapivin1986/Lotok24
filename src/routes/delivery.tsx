@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { breadcrumbLd, jsonLd } from "@/components/site/seo";
 import { ArrowCta, CtaLink, PageIntro } from "@/components/site/shell";
 import { useSiteCopy } from "@/components/site/use-site-copy";
 
@@ -51,12 +52,20 @@ const TERMS = [
 export const Route = createFileRoute("/delivery")({
   head: () => ({
     meta: [
-      { title: "Доставка и оплата — Лоток24" },
+      { title: "Доставка кабельных лотков по России и оплата по счёту — Лоток24" },
       {
         name: "description",
         content:
-          "Самовывоз со склада в Москве, доставка по России, безналичная оплата по счёту и закрывающие документы.",
+          "Доставка кабельных лотков по Москве и России, самовывоз со склада. Безналичная оплата по счёту, НДС и закрывающие документы до отгрузки.",
       },
+    ],
+    scripts: [
+      jsonLd(
+        breadcrumbLd([
+          { name: "Главная", path: "/" },
+          { name: "Доставка и оплата", path: "/delivery" },
+        ]),
+      ),
     ],
   }),
   component: DeliveryPage,

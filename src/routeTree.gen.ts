@@ -16,6 +16,8 @@ import { Route as CatalogRouteImport } from './routes/catalog'
 import { Route as ContactsRouteImport } from './routes/contacts'
 import { Route as DeliveryRouteImport } from './routes/delivery'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as CatalogSeriesRouteImport } from './routes/catalog_.$series'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
@@ -54,6 +56,16 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CatalogSeriesRoute = CatalogSeriesRouteImport.update({
   id: '/catalog_/$series',
   path: '/catalog/$series',
@@ -73,6 +85,8 @@ export interface FileRoutesByFullPath {
   '/contacts': typeof ContactsRoute
   '/delivery': typeof DeliveryRoute
   '/login': typeof LoginRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/catalog/$series': typeof CatalogSeriesRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
@@ -84,6 +98,8 @@ export interface FileRoutesByTo {
   '/contacts': typeof ContactsRoute
   '/delivery': typeof DeliveryRoute
   '/login': typeof LoginRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/catalog/$series': typeof CatalogSeriesRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
@@ -96,6 +112,8 @@ export interface FileRoutesById {
   '/contacts': typeof ContactsRoute
   '/delivery': typeof DeliveryRoute
   '/login': typeof LoginRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/catalog_/$series': typeof CatalogSeriesRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
@@ -109,6 +127,8 @@ export interface FileRouteTypes {
     | '/contacts'
     | '/delivery'
     | '/login'
+    | '/robots.txt'
+    | '/sitemap.xml'
     | '/catalog/$series'
     | '/api/auth/$'
   fileRoutesByTo: FileRoutesByTo
@@ -120,6 +140,8 @@ export interface FileRouteTypes {
     | '/contacts'
     | '/delivery'
     | '/login'
+    | '/robots.txt'
+    | '/sitemap.xml'
     | '/catalog/$series'
     | '/api/auth/$'
   id:
@@ -131,6 +153,8 @@ export interface FileRouteTypes {
     | '/contacts'
     | '/delivery'
     | '/login'
+    | '/robots.txt'
+    | '/sitemap.xml'
     | '/catalog_/$series'
     | '/api/auth/$'
   fileRoutesById: FileRoutesById
@@ -143,6 +167,8 @@ export interface RootRouteChildren {
   ContactsRoute: typeof ContactsRoute
   DeliveryRoute: typeof DeliveryRoute
   LoginRoute: typeof LoginRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   CatalogSeriesRoute: typeof CatalogSeriesRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
@@ -198,6 +224,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/catalog_/$series': {
       id: '/catalog_/$series'
       path: '/catalog/$series'
@@ -223,6 +263,8 @@ const rootRouteChildren: RootRouteChildren = {
   ContactsRoute: ContactsRoute,
   DeliveryRoute: DeliveryRoute,
   LoginRoute: LoginRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   CatalogSeriesRoute: CatalogSeriesRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }

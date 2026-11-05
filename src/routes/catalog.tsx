@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { ACCESSORIES, FEATURES, SPECS, USES } from "@/components/site/content";
+import { breadcrumbLd, jsonLd } from "@/components/site/seo";
 import { Photo } from "@/components/site/photo";
 import { CtaLink, PageIntro } from "@/components/site/shell";
 import { useMergedSeries } from "@/components/site/use-site-copy";
@@ -8,12 +9,20 @@ import { useMergedSeries } from "@/components/site/use-site-copy";
 export const Route = createFileRoute("/catalog")({
   head: () => ({
     meta: [
-      { title: "Каталог — Лоток24" },
+      { title: "Каталог кабельных лотков — перфорированный, лестничный, глухой" },
       {
         name: "description",
         content:
-          "Перфорированные, лестничные и глухие кабельные лотки. Размеры, покрытие и фасонка по ГОСТ Р 52868-2021.",
+          "Каталог оцинкованных кабельных лотков: перфорированный, лестничный и глухой с крышкой. Размеры, покрытие и фасонка по ГОСТ Р 52868-2021.",
       },
+    ],
+    scripts: [
+      jsonLd(
+        breadcrumbLd([
+          { name: "Главная", path: "/" },
+          { name: "Каталог кабельных лотков", path: "/catalog" },
+        ]),
+      ),
     ],
   }),
   component: CatalogPage,
@@ -27,7 +36,7 @@ function CatalogPage() {
         <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-16">
           <PageIntro
             kicker="Каталог"
-            title="Лотки, лестницы и глухие короба"
+            title="Кабельные лотки: перфорированные, лестничные и глухие"
             text="Прямые секции, крышки и фасонка одной системы. Меняется сечение, а не логика монтажа на консолях и шпильках."
           />
         </div>

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { breadcrumbLd, jsonLd } from "@/components/site/seo";
 import { LeadForm } from "@/components/site/lead-form";
 import { PageIntro } from "@/components/site/shell";
 import { useSiteCopy } from "@/components/site/use-site-copy";
@@ -6,11 +7,20 @@ import { useSiteCopy } from "@/components/site/use-site-copy";
 export const Route = createFileRoute("/contacts")({
   head: () => ({
     meta: [
-      { title: "Контакты — Лоток24" },
+      { title: "Кабельный лоток со склада в Москве — контакты Лоток24" },
       {
         name: "description",
-        content: "Склад кабельных лотков в Москве. Напишите email — пришлём прайс, спецификацию и пропуск на отгрузку.",
+        content:
+          "Склад кабельных лотков в Москве, Открытое шоссе. Прайс, спецификация и пропуск на отгрузку — ответом на почту в тот же рабочий день.",
       },
+    ],
+    scripts: [
+      jsonLd(
+        breadcrumbLd([
+          { name: "Главная", path: "/" },
+          { name: "Контакты", path: "/contacts" },
+        ]),
+      ),
     ],
   }),
   component: ContactsPage,

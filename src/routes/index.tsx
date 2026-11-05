@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { jsonLd } from "@/components/site/seo";
 import { Photo } from "@/components/site/photo";
 import { FEATURES, PROOF } from "@/components/site/content";
 import { ArrowCta, CtaLink } from "@/components/site/shell";
@@ -7,12 +8,27 @@ import { useMergedSeries, useSiteCopy } from "@/components/site/use-site-copy";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Лоток24 — металлические кабельные лотки" },
+      { title: "Металлический кабельный лоток от производителя — Лоток24" },
       {
         name: "description",
         content:
-          "Оцинкованные кабельные лотки для цехов, ЦОД и коммерческих зданий. Расчёт нагрузки, комплектация и срок отгрузки — от 5 дней.",
+          "Оцинкованные кабельные лотки от производителя: перфорированные, лестничные и глухие. ГОСТ Р 52868-2021, склад в Москве, отгрузка по России от 5 дней.",
       },
+      { property: "og:title", content: "Металлический кабельный лоток от производителя — Лоток24" },
+      {
+        property: "og:description",
+        content:
+          "Оцинкованные кабельные лотки от производителя: перфорированные, лестничные и глухие. ГОСТ Р 52868-2021, склад в Москве, отгрузка по России от 5 дней.",
+      },
+    ],
+    scripts: [
+      jsonLd({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Лоток24",
+        description: "Металлические кабельные лотки от производителя",
+        inLanguage: "ru",
+      }),
     ],
   }),
   component: HomePage,

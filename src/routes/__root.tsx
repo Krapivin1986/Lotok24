@@ -3,6 +3,7 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { SiteFrame } from "@/components/site/shell";
 import { getSiteCopy } from "@/lib/site-copy.functions";
+import { jsonLd, organizationLd } from "@/components/site/seo";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "Лоток24 — металлические кабельные лотки";
@@ -17,8 +18,12 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Оцинкованные кабельные лотки: перфорированные, лестничные и глухие. Расчёт нагрузки, комплектация и срок отгрузки — от 5 дней.",
+          "Оцинкованные кабельные лотки от производителя: перфорированные, лестничные и глухие. Склад в Москве, отгрузка по России.",
       },
+      { name: "robots", content: "index, follow" },
+      { property: "og:site_name", content: "Лоток24" },
+      { property: "og:locale", content: "ru_RU" },
+      { property: "og:type", content: "website" },
       { name: "theme-color", content: "#f6f3ec" },
     ],
     links: [
@@ -33,6 +38,7 @@ export const Route = createRootRoute({
         href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap",
       },
     ],
+    scripts: [jsonLd(organizationLd)],
   }),
   component: () => (
     <html lang="ru" suppressHydrationWarning>
