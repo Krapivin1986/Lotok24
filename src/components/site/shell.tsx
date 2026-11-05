@@ -7,7 +7,7 @@ import { useSiteCopy } from "@/components/site/use-site-copy";
 
 export function Wordmark({ onDark = false }: { onDark?: boolean }) {
   return (
-    <span className="truncate font-display text-[15px] leading-none tracking-[-0.055em] sm:text-[17px]">
+    <span className="truncate font-display text-[15px] leading-none tracking-[-0.03em] sm:text-[17px]">
       <span className="font-medium">Лоток</span>
       <span className={onDark ? "font-semibold text-[#8ae8b4]" : "font-semibold text-teal"}>24</span>
     </span>
