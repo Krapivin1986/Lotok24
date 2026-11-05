@@ -1,5 +1,5 @@
-import { useEffect, useState, type ReactNode } from "react";
-import { Link } from "@tanstack/react-router";
+import { useEffect, useLayoutEffect, useState, type ReactNode } from "react";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { NAV, type NavTo } from "@/components/site/content";
 import { useSiteCopy } from "@/components/site/use-site-copy";
@@ -24,6 +24,7 @@ function navClass(mobile: boolean) {
 
 export function SiteFrame({ children }: { children: ReactNode }) {
   const copy = useSiteCopy();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -41,6 +42,37 @@ export function SiteFrame({ children }: { children: ReactNode }) {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  useLayoutEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const main = document.querySelector("main");
+    if (!main) return;
+    const items = [...main.querySelectorAll<HTMLElement>("article, section:not(:has(article))")];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("reveal-in");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" },
+    );
+    items.forEach((item) => {
+      item.classList.add("reveal");
+      if (item.getBoundingClientRect().top < window.innerHeight * 0.92) {
+        item.classList.add("reveal-in");
+        return;
+      }
+      observer.observe(item);
+    });
+    return () => {
+      observer.disconnect();
+      items.forEach((item) => {
+        item.classList.remove("reveal", "reveal-in");
+      });
+    };
+  }, [pathname]);
 
   return (
     <div className="min-h-screen overflow-x-clip bg-paper text-ink">
