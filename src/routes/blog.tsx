@@ -89,33 +89,20 @@ export const Route = createFileRoute("/blog")({
 });
 
 function BlogPage() {
-  const [featured, ...rest] = POSTS;
-
   return (
     <>
-      <section className="border-b border-line bg-surface">
-        <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:px-6 sm:py-12 lg:grid-cols-2 lg:gap-10">
+      <section className="bg-surface">
+        <div className="mx-auto grid max-w-6xl items-end gap-8 px-4 py-10 sm:px-6 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
           <div>
-            <p className="text-sm font-semibold text-teal">Блог</p>
-            <h1 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Заметки с объектов и со склада</h1>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
-              Короткие разборы без рекламных обещаний: какую серию ставить, какое покрытие переживёт улицу и что
-              проверить до подъёма пачки на отметку.
+            <p className="text-sm font-semibold text-teal">Блог · 5 заметок</p>
+            <h1 className="mt-4 font-display text-display leading-display tracking-tight">
+              Заметки с объектов и со склада
+            </h1>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
+              Какую серию ставить, какое покрытие переживёт улицу и что проверить до подъёма пачки на отметку.
             </p>
-            <ul className="mt-6 flex flex-wrap gap-2">
-              {POSTS.map((post) => (
-                <li key={post.id}>
-                  <a
-                    href={`#${post.id}`}
-                    className="inline-flex rounded-full bg-green-soft px-3 py-1.5 text-sm font-semibold text-green-ink"
-                  >
-                    {post.tag}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
-          <figure className="overflow-hidden rounded-card border border-line">
+          <figure className="overflow-hidden rounded-card">
             <img
               src="/images/tray-install.jpg"
               alt="Кабельная трасса на потолке промышленного зала"
@@ -123,64 +110,61 @@ function BlogPage() {
               height={1152}
               className="aspect-[4/3] w-full object-cover"
             />
+            <figcaption className="bg-green-soft px-4 py-3 text-sm font-medium text-green-ink">
+              Трасса на объекте · лестничный лоток
+            </figcaption>
           </figure>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
-        <article id={featured.id} className="scroll-mt-24 overflow-hidden rounded-card border border-line bg-surface">
-          <div className="grid lg:grid-cols-2">
-            <img
-              src={featured.image}
-              alt={featured.alt}
-              width={1792}
-              height={1008}
-              className="aspect-[4/3] h-full w-full object-cover lg:aspect-auto"
-            />
-            <div className="p-5 sm:p-8">
-              <p className="text-sm font-semibold text-teal">Свежая заметка · {featured.date}</p>
-              <h2 className="mt-3 font-display text-2xl tracking-tight sm:text-3xl">{featured.title}</h2>
-              <p className="mt-4 text-base leading-relaxed text-muted">{featured.lead}</p>
-              <div className="mt-4 flex flex-col gap-3 text-sm leading-relaxed">
-                {featured.paragraphs.map((paragraph) => (
+      <nav aria-label="Заметки" className="border-y border-line">
+        <ol className="mx-auto grid max-w-6xl sm:grid-cols-5">
+          {POSTS.map((post, index) => (
+            <li key={post.id} className="border-line sm:border-l sm:first:border-l-0">
+              <a href={`#${post.id}`} className="flex h-full flex-col gap-1 px-4 py-4 hover:bg-paper-deep sm:px-5">
+                <span className="font-display text-sm text-teal">{String(index + 1).padStart(2, "0")}</span>
+                <span className="text-sm font-semibold">{post.tag}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+        {POSTS.map((post, index) => (
+          <article
+            key={post.id}
+            id={post.id}
+            className="grid scroll-mt-24 gap-6 border-b border-line py-10 lg:grid-cols-[240px_1fr] lg:gap-14 lg:py-14"
+          >
+            <div>
+              <p className="font-display text-4xl tracking-tight text-teal">{String(index + 1).padStart(2, "0")}</p>
+              {post.image ? (
+                <img
+                  src={post.image}
+                  alt={post.alt}
+                  width={1408}
+                  height={1008}
+                  loading="lazy"
+                  className="mt-4 aspect-[4/3] w-full rounded-card object-cover"
+                />
+              ) : null}
+              <p className="mt-4 text-sm text-muted">{post.date}</p>
+            </div>
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold text-teal">{post.tag}</p>
+              <h2 className="mt-2 font-display text-2xl tracking-tight sm:text-3xl">{post.title}</h2>
+              <p className="mt-4 text-lg leading-relaxed">{post.lead}</p>
+              <div className="mt-4 flex flex-col gap-3 leading-relaxed text-muted">
+                {post.paragraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
             </div>
-          </div>
-        </article>
+          </article>
+        ))}
 
-        <ul className="mt-4 grid gap-4 md:grid-cols-2">
-          {rest.map((post) => (
-            <li key={post.id}>
-              <article id={post.id} className="scroll-mt-24 overflow-hidden rounded-card border border-line bg-surface">
-                {post.image ? (
-                  <img src={post.image} alt={post.alt} width={1408} height={1008} className="aspect-[16/9] w-full object-cover" />
-                ) : (
-                  <div className="bg-green-soft px-5 py-8">
-                    <p className="font-display text-3xl tracking-tight text-green-ink">05</p>
-                    <p className="mt-2 text-sm font-semibold text-green-ink">{post.tag}</p>
-                  </div>
-                )}
-                <div className="p-5">
-                  <p className="text-sm font-semibold text-teal">
-                    <span className="rounded-full bg-green-soft px-2.5 py-1 text-xs text-green-ink">{post.tag}</span>
-                    <span className="ml-2 font-medium text-muted">{post.date}</span>
-                  </p>
-                  <h2 className="mt-3 font-display text-xl tracking-tight">{post.title}</h2>
-                  <p className="mt-3 leading-relaxed text-muted">{post.lead}</p>
-                  <div className="mt-4 flex flex-col gap-3 text-sm leading-relaxed">
-                    {post.paragraphs.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-10 flex flex-col items-start justify-between gap-4 rounded-card bg-ink px-5 py-6 text-paper sm:flex-row sm:items-center sm:px-6">
+        <div className="my-10 flex flex-col items-start justify-between gap-4 rounded-card bg-ink px-5 py-6 text-paper sm:flex-row sm:items-center sm:px-6">
           <div>
             <h2 className="font-display text-2xl tracking-tight">Нужна спецификация, а не статья?</h2>
             <p className="mt-2 text-on-ink">Пришлите план — подберём серию, покрытие и фасонку.</p>
