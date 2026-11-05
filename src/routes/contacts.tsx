@@ -2,9 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { breadcrumbLd, jsonLd } from "@/components/site/seo";
 import { LeadForm } from "@/components/site/lead-form";
 import { PageIntro } from "@/components/site/shell";
+import { isPlanId, type PlanId } from "@/components/site/content";
+
 import { useSiteCopy } from "@/components/site/use-site-copy";
 
 export const Route = createFileRoute("/contacts")({
+  validateSearch: (search: Record<string, unknown>): { plan?: PlanId } => ({
+    plan: isPlanId(search.plan) ? search.plan : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Кабельный лоток со склада в Москве — контакты Лоток24" },
@@ -28,6 +33,7 @@ export const Route = createFileRoute("/contacts")({
 
 function ContactsPage() {
   const copy = useSiteCopy();
+  const { plan } = Route.useSearch();
   const facts = [
     { label: "Склад", value: copy.warehouse },
     { label: "Часы", value: copy.hours },
@@ -51,7 +57,7 @@ function ContactsPage() {
         </p>
       </div>
       <div className="rounded-card border border-line bg-surface p-5 sm:p-6">
-        <LeadForm />
+        <LeadForm initialPlan={plan} />
       </div>
     </section>
   );

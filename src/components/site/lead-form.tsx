@@ -68,6 +68,9 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
       <label htmlFor="email" className="font-display text-xl tracking-tight">
         Куда отправить прайс
       </label>
+      <p className="mt-2 text-sm leading-relaxed text-muted">
+        В письме будут прайс, спецификация и срок отгрузки. Ответим в тот же рабочий день.
+      </p>
       <fieldset className="mt-4">
         <legend className="text-sm text-muted">Тариф, если его уже выбрали</legend>
         <div className="mt-2 flex flex-wrap gap-2">
