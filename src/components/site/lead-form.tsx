@@ -69,7 +69,7 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
         Куда отправить прайс
       </label>
       <fieldset className="mt-4">
-        <legend className="text-sm text-muted">Тариф, если уже выбрали</legend>
+        <legend className="text-sm text-muted">Тариф, если его уже выбрали</legend>
         <div className="mt-2 flex flex-wrap gap-2">
           {PLANS.map((item) => {
             const active = plan === item.id;

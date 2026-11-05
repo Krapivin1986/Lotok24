@@ -9,7 +9,7 @@ import { useMergedSeries } from "@/components/site/use-site-copy";
 export const Route = createFileRoute("/catalog")({
   head: () => ({
     meta: [
-      { title: "Каталог кабельных лотков — перфорированный, лестничный, глухой" },
+      { title: "Каталог кабельных лотков: перфорированные, лестничные и глухие" },
       {
         name: "description",
         content:
@@ -124,7 +124,7 @@ function CatalogPage() {
         </div>
 
         <div className="mt-10 sm:mt-16">
-          <h2 className="font-display text-3xl tracking-tight">Где ставят</h2>
+          <h2 className="font-display text-3xl tracking-tight">Где ставят лоток</h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2">
             {USES.map((use) => (
               <li key={use.title} className="rounded-card border border-line bg-surface p-5">
