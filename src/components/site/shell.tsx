@@ -115,11 +115,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
     <div className="min-h-screen overflow-x-clip bg-paper text-ink">
       <header className="sticky top-0 z-40 border-b border-line bg-paper/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
-          <Link
-            to="/"
-            onClick={() => setOpen(false)}
-            className="press inline-flex min-w-0 items-center gap-1 rounded-full border border-[#5ed492]/55 bg-white py-1 pl-1.5 pr-3.5 shadow-[0_1px_2px_rgb(14_78_44/12%),0_8px_18px_rgb(14_78_44/12%)] hover:border-[#49c484] hover:bg-[#f4fbf7]"
-          >
+          <Link to="/" className="flex min-w-0 items-center gap-1" onClick={() => setOpen(false)}>
             <Mark />
             <Wordmark />
           </Link>
