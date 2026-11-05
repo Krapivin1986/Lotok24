@@ -68,7 +68,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           <div className="flex items-center gap-2">
             <Link
               to="/contacts"
-              className="press inline-flex h-11 items-center justify-center rounded-control bg-[#1a56db] px-3 text-sm font-semibold text-white hover:bg-[#1447b8] sm:px-4"
+              className="press inline-flex h-11 items-center justify-center rounded-control bg-teal px-3 text-sm font-semibold text-paper hover:bg-teal-deep sm:px-4"
             >
               Заказать
             </Link>
@@ -122,7 +122,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className="press inline-flex h-11 items-center justify-center rounded-control bg-[#1a56db] px-4 text-sm font-semibold text-white hover:bg-[#1447b8]"
+                  className="press inline-flex h-11 items-center justify-center rounded-control bg-teal px-4 text-sm font-semibold text-paper hover:bg-teal-deep"
                 >
                   На главную
                 </Link>

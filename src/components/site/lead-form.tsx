@@ -47,7 +47,7 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Link
             to="/"
-            className="press inline-flex h-12 items-center justify-center rounded-control bg-[#1a56db] px-5 font-semibold text-white hover:bg-[#1447b8]"
+            className="press inline-flex h-12 items-center justify-center rounded-control bg-teal px-5 font-semibold text-paper hover:bg-teal-deep"
           >
             На главную
           </Link>
@@ -81,7 +81,7 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
                 onClick={() => setPlan(active ? null : item.id)}
                 className={
                   active
-                    ? "press inline-flex h-11 items-center rounded-control bg-[#1a56db] px-4 text-sm font-semibold text-white"
+                    ? "press inline-flex h-11 items-center rounded-control bg-teal px-4 text-sm font-semibold text-paper"
                     : "press inline-flex h-11 items-center rounded-control border border-line bg-surface px-4 text-sm font-semibold text-ink hover:bg-paper-deep"
                 }
               >
@@ -118,7 +118,7 @@ export function LeadForm({ initialPlan }: { initialPlan?: PlanId }) {
       ) : null}
       <button
         type="submit"
-        className="press mt-4 inline-flex h-12 w-full items-center justify-center gap-2 rounded-control bg-[#1a56db] px-5 font-semibold text-white hover:bg-[#1447b8]"
+        className="press mt-4 inline-flex h-12 w-full items-center justify-center gap-2 rounded-control bg-teal px-5 font-semibold text-paper hover:bg-teal-deep"
       >
         Отправить
         <ArrowRight className="size-4" aria-hidden="true" />

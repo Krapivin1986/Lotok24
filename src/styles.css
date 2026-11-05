@@ -4,16 +4,16 @@
   --font-sans: "Manrope", system-ui, sans-serif;
   --font-display: "Unbounded", "Manrope", system-ui, sans-serif;
 
-  --color-paper: #f4f1ea;
-  --color-paper-deep: #e6e0d4;
-  --color-surface: #fffcf8;
-  --color-ink: #14181c;
-  --color-muted: #4e565e;
-  --color-teal: #0e4f5c;
-  --color-teal-deep: #0a3c46;
-  --color-line: color-mix(in oklab, var(--color-ink) 14%, var(--color-paper));
-  --color-line-strong: color-mix(in oklab, var(--color-paper) 24%, var(--color-ink));
-  --color-on-ink: #d5dbde;
+  --color-paper: #f6f3ec;
+  --color-paper-deep: #e8e2d4;
+  --color-surface: #fffcf7;
+  --color-ink: #121826;
+  --color-muted: #526071;
+  --color-teal: #1d4ed8;
+  --color-teal-deep: #1e3a8a;
+  --color-line: color-mix(in oklab, var(--color-ink) 12%, var(--color-paper));
+  --color-line-strong: color-mix(in oklab, var(--color-paper) 22%, var(--color-ink));
+  --color-on-ink: #dbe4f0;
 
   --radius-control: 0.75rem;
   --radius-card: 2rem;

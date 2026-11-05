@@ -19,7 +19,7 @@ export const Route = createRootRoute({
         content:
           "Оцинкованные кабельные лотки: перфорированные, лестничные и глухие. Расчёт нагрузки, комплектация и срок отгрузки — от 5 дней.",
       },
-      { name: "theme-color", content: "#f4f1ea" },
+      { name: "theme-color", content: "#f6f3ec" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
