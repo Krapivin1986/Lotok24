@@ -18,7 +18,7 @@ export function Photo({
       <img src={src} alt={alt} width={width} height={height} loading={loading} className="h-full w-full object-cover" />
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute right-2 bottom-2 select-none font-display text-[9px] font-medium tracking-[0.14em] text-white/35 [text-shadow:0_1px_1px_rgb(0_0_0/25%)]"
+        className="pointer-events-none absolute right-2 bottom-1.5 select-none font-display text-[8px] font-medium tracking-[0.12em] text-white/20"
       >
         lotok24
       </span>
