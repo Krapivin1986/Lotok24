@@ -75,26 +75,40 @@ function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
-        <div className="max-w-2xl">
-          <p className="text-sm font-semibold text-teal">Преимущества</p>
-          <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Зачем ставить металлический лоток</h2>
-          <p className="mt-4 text-base leading-relaxed text-muted">
-            Оцинкованная сталь несёт кабель годами: не горит, не гниёт и не требует покраски на объекте. Секцию крепят к
-            шпилькам и консолям без сварки. Перфорация отводит тепло, крышка закрывает трассу от пыли.
-          </p>
+        <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
+          <figure className="overflow-hidden rounded-card border border-line bg-paper">
+            <img
+              src="/images/tray-install.jpg"
+              alt="Лестничные кабельные лотки с кабелем на светлом потолке промышленного зала"
+              width={1728}
+              height={1152}
+              loading="lazy"
+              className="aspect-[4/3] w-full object-cover"
+            />
+          </figure>
+          <div>
+            <p className="text-sm font-semibold text-teal">Преимущества</p>
+            <h2 className="mt-2 font-display text-2xl tracking-tight sm:text-3xl">Зачем ставить металлический лоток</h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              Оцинкованная сталь несёт кабель годами: не горит, не гниёт и не требует покраски на объекте. Секцию крепят
+              к шпилькам и консолям без сварки. Перфорация отводит тепло, крышка закрывает трассу от пыли.
+            </p>
+            <ul className="mt-4 grid grid-cols-2 gap-2">
+              {FEATURES.map((feature) => {
+                const Icon = feature.icon;
+                return (
+                  <li key={feature.title} className="rounded-control border border-line bg-surface p-3">
+                    <div className="flex items-center gap-2">
+                      <Icon className="size-4 shrink-0 text-teal" aria-hidden="true" />
+                      <h3 className="font-display text-sm tracking-tight">{feature.title}</h3>
+                    </div>
+                    <p className="mt-1.5 text-xs leading-snug text-muted">{feature.text}</p>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURES.map((feature) => {
-            const Icon = feature.icon;
-            return (
-              <li key={feature.title} className="rounded-card border border-line bg-surface p-5">
-                <Icon className="size-5 text-teal" aria-hidden="true" />
-                <h3 className="mt-4 font-display text-xl tracking-tight">{feature.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{feature.text}</p>
-              </li>
-            );
-          })}
-        </ul>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:py-24">
