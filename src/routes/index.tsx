@@ -88,7 +88,7 @@ function HomePage() {
           </figure>
           <div>
             <p className="text-sm font-semibold text-teal">Преимущества</p>
-            <h2 className="mt-2 font-display text-2xl tracking-tight sm:text-3xl">Зачем ставить металлический лоток</h2>
+            <h2 className="mt-2 font-display text-2xl tracking-tight sm:text-3xl">Зачем использовать металлический лоток</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               Оцинкованная сталь несёт кабель годами: не горит, не гниёт и не требует покраски на объекте. Секцию крепят
               к шпилькам и консолям без сварки. Перфорация отводит тепло, крышка закрывает трассу от пыли.
