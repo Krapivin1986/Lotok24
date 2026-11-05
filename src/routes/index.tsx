@@ -62,9 +62,6 @@ function HomePage() {
                 <ArrowCta>Рассчитать стоимость</ArrowCta>
               </CtaLink>
               <CallButton className="w-full sm:w-auto" />
-              <CtaLink to="/delivery" tone="ghost">
-                Доставка и оплата
-              </CtaLink>
             </div>
             <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
               <li>ГОСТ Р 52868-2021</li>
