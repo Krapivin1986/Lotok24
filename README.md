@@ -58,38 +58,81 @@ npm run preview
 
 Фото, таблицы размеров и цены по-прежнему в коде.
 
-На своём проекте Vercel задайте `DATABASE_URL` (Postgres) в **Settings → Environment Variables**. Без базы правки не сохранятся после перезапуска.
+На своём проекте Vercel задайте `DATABASE_URL`, как в разделе [Деплой на Vercel](#деплой-на-vercel). Без базы правки не сохранятся после перезапуска.
 
 ## Деплой на Vercel
 
-Сайт собирается пресетом Nitro `vercel`. Команда `npm run build` сама готовит выход. Каталог сборки в настройках указывать не нужно.
+Сайт публикуется из GitHub. Сборка идёт пресетом Nitro `vercel`: `npm run build` сам пишет `.vercel/output`. Каталог `dist` указывать не нужно.
 
-### Первый проект
+### 1. Импорт
 
 1. Войдите на [vercel.com](https://vercel.com) под аккаунтом с доступом к GitHub `Krapivin1986`.
-2. **Add New → Project** и импортируйте [Krapivin1986/staltrassa](https://github.com/Krapivin1986/staltrassa). Если репозитория нет в списке, нажмите **Adjust GitHub App Permissions** и разрешите доступ.
-3. На экране настройки оставьте:
-   - **Framework Preset** — `Other`. Не выбирайте Next.js: это не Next-проект.
-   - **Root Directory** — корень репозитория, `./`.
-4. Раскройте **Build and Output Settings**.
+2. **Add New → Project**.
+3. Выберите [Krapivin1986/staltrassa](https://github.com/Krapivin1986/staltrassa). Если репозитория нет в списке, нажмите **Adjust GitHub App Permissions** и разрешите к нему доступ.
 
-   | Поле | Значение |
-   | --- | --- |
-   | Install Command | `npm install --omit=dev --no-audit --no-fund` |
-   | Build Command | `npm run build` |
-   | Output Directory | пусто |
+### 2. Сборка
 
-   Install Command уже задан в `vercel.json`. Если поле пустое, Vercel возьмёт его оттуда. Output Directory оставьте пустым: `dist`, `public` или `.vercel/output` сломают деплой.
-5. В **Environment Variables** добавьте `DATABASE_URL`, если нужна админка с сохранением текстов. Для простого показа сайта переменные не обязательны.
-6. Нажмите **Deploy** и дождитесь статуса Ready.
+На экране настройки:
 
-### После создания проекта
+| Поле | Значение |
+| --- | --- |
+| Framework Preset | `Other`. Не Next.js |
+| Root Directory | `./` |
+| Install Command | `npm install --omit=dev --no-audit --no-fund` |
+| Build Command | `npm run build` |
+| Output Directory | пусто |
 
-В **Settings → General** выставьте **Node.js Version** `22.x`.
+Install Command уже записан в `vercel.json`. Если поле пустое, Vercel возьмёт его оттуда.
 
-В **Settings → Git** производственная ветка должна быть `main`: пуш в неё запускает новый деплой сам.
+> Output Directory оставьте пустым. `dist`, `public` или `.vercel/output` сломают деплой: Vercel сам читает `.vercel/output`.
 
-Пока домен не подключён, сайт открывается на `*.vercel.app`. Проверьте адреса из таблицы в начале.
+### 3. Переменные
+
+Для показа сайта переменные не нужны. Добавьте их, если тексты из админки должны сохраняться.
+
+| Имя | Зачем | Пример |
+| --- | --- | --- |
+| `DATABASE_URL` | Postgres для текстов и входа | строка подключения Neon, с `sslmode=require` |
+| `BETTER_AUTH_SECRET` | подпись сессии администратора | длинная случайная строка, от 32 символов |
+| `BETTER_AUTH_URL` | адрес, с которого открывают сайт | `https://staltrassa.vercel.app` |
+
+Как взять базу:
+
+1. В проекте откройте **Storage → Create Database → Neon** (или вставьте уже готовую строку Postgres).
+2. Скопируйте connection string в `DATABASE_URL`.
+3. Отметьте окружение **Production**. Preview можно включить той же строкой, если черновики тоже должны писать в базу.
+
+`BETTER_AUTH_URL` — без слэша в конце. После подключения своего домена замените значение на `https://ваш-домен.ru` и задеплойте ещё раз.
+
+Секреты не коммитьте в репозиторий.
+
+### 4. Node.js
+
+После первого деплоя откройте **Settings → General** и поставьте **Node.js Version** `22.x`. Если проект ещё не создан, ту же версию можно выбрать на экране импорта, когда поле есть.
+
+В **Settings → Git** производственная ветка — `main`.
+
+### 5. Публикация
+
+Нажмите **Deploy** и дождитесь статуса **Ready**. Пока домен не подключён, сайт открывается на `*.vercel.app`.
+
+Проверьте:
+
+| Страница | Адрес |
+| --- | --- |
+| Главная | `/` |
+| Каталог | `/catalog` |
+| Серии | `/catalog/perforated`, `/catalog/ladder`, `/catalog/solid` |
+| Доставка | `/delivery` |
+| Контакты | `/contacts` |
+| Админка | `/admin` |
+
+### Повторный деплой
+
+Пуш в `main` запускает сборку сам. Вручную: **Deployments → … → Redeploy**.
+
+Если сборка красная, сначала проверьте три вещи: Framework Preset не Next.js, Output Directory пустой, Node.js `22.x`.
+
 
 ## Свой домен
 
