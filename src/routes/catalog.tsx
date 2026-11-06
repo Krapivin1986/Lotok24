@@ -4,7 +4,7 @@ import { ACCESSORIES, FEATURES, GALLERY, SPECS, USES } from "@/components/site/c
 import { breadcrumbLd, jsonLd } from "@/components/site/seo";
 import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
-import { PageIntro } from "@/components/site/shell";
+import { PageIntro, PopularSizes } from "@/components/site/shell";
 import { useMergedSeries } from "@/components/site/use-site-copy";
 
 export const Route = createFileRoute("/catalog")({
@@ -86,6 +86,7 @@ function CatalogPage() {
                     рублей {series.id === "fastener" ? "за штуку" : "за метр"}
                   </span>
                 </p>
+                <PopularSizes id={series.id} priceFrom={series.priceFrom} />
                 <p className="mt-4 leading-relaxed text-muted">
                   <SeriesText text={series.text} />
                 </p>

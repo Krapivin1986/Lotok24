@@ -4,7 +4,7 @@ import { GALLERY, SERIES, type SeriesId } from "@/components/site/content";
 import { breadcrumbLd, jsonLd, SERIES_SEO } from "@/components/site/seo";
 import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
-import { ArrowCta } from "@/components/site/shell";
+import { ArrowCta, PopularSizes } from "@/components/site/shell";
 import { useMergedSeries } from "@/components/site/use-site-copy";
 
 function isSeriesId(value: string): value is SeriesId {
@@ -77,6 +77,7 @@ function SeriesPage() {
                 рублей {series.id === "fastener" ? "за штуку" : "за метр"}
               </span>
             </p>
+            <PopularSizes id={series.id} priceFrom={series.priceFrom} />
             <p className="mt-4 text-lg leading-relaxed text-muted">
               <SeriesText text={series.lead} skip={series.id} />
             </p>

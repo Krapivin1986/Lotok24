@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { NAV, type NavTo } from "@/components/site/content";
+import { NAV, POPULAR_SIZES, type NavTo, type SeriesId } from "@/components/site/content";
 import {
   IconArrow,
   IconCatalog,
@@ -10,7 +10,6 @@ import {
   IconMenu,
   IconNews,
   IconPhone,
-  IconSettings,
   IconShield,
   IconTelegram,
   IconTruck,
@@ -187,7 +186,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
         ) : null}
       </header>
       <main>{children}</main>
-      <footer className="border-t border-line-strong bg-ink text-on-ink">
+      <footer className="border-t border-line-strong bg-ink pb-16 text-on-ink md:pb-0">
         <div className="mx-auto grid max-w-6xl gap-6 px-4 py-8 sm:px-6 md:grid-cols-[minmax(0,1fr)_auto] md:gap-10">
           <div>
             <div className="flex items-center gap-1 text-paper">
@@ -210,10 +209,6 @@ export function SiteFrame({ children }: { children: ReactNode }) {
                 </Link>
               );
             })}
-            <Link to="/admin" className="mt-2 inline-flex w-fit items-center gap-2 text-on-ink/60 hover:text-paper">
-              <IconSettings className="size-4" />
-              Админка
-            </Link>
           </nav>
         </div>
         <div className="border-t border-white/10">
@@ -226,6 +221,22 @@ export function SiteFrame({ children }: { children: ReactNode }) {
           </div>
         </div>
       </footer>
+      {open ? null : (
+        <div
+          className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/95 px-3 py-2 backdrop-blur md:hidden"
+          style={{ paddingBottom: "max(0.5rem, env(safe-area-inset-bottom))" }}
+        >
+          <div className="mx-auto grid max-w-lg grid-cols-2 gap-2">
+            <a href="tel:+79859389776" className="press ios-filled ios-compact">
+              <IconPhone className="size-4" />
+              Позвонить
+            </a>
+            <Link to="/contacts" className="press ios-tinted ios-compact">
+              Заказать
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -237,6 +248,24 @@ const FOOTER_ICONS = {
   "/blog": IconNews,
   "/contacts": IconPhone,
 } as const satisfies Record<NavTo, typeof IconHome>;
+
+export function PopularSizes({ id, priceFrom }: { id: SeriesId; priceFrom: string }) {
+  const sizes = POPULAR_SIZES[id];
+  const unit = id === "fastener" ? "₽/шт" : "₽/м";
+  return (
+    <div className="mt-3">
+      <p className="text-xs text-muted">Цена «от» — за самый узкий размер. Ходовые:</p>
+      <dl className="mt-1.5 grid gap-1 text-sm">
+        {sizes.map((size, index) => (
+          <div key={size} className="flex items-baseline justify-between gap-3">
+            <dt>{size}</dt>
+            <dd className="text-right font-medium tabular-nums">{index === 0 ? `от ${priceFrom} ${unit}` : "по запросу"}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
 
 export function CallButton({ className = "" }: { className?: string }) {
   return (

@@ -219,6 +219,16 @@ export const SERIES = [
 
 export type SeriesId = (typeof SERIES)[number]["id"];
 
+export const POPULAR_SIZES: Record<SeriesId, readonly [string, string, string]> = {
+  perforated: ["100×50", "200×100", "300×100"],
+  ladder: ["200×50", "300×100", "400×100"],
+  solid: ["100×50", "200×100", "300×100"],
+  wire: ["100×50", "200×50", "300×50"],
+  cover: ["100 мм", "200 мм", "300 мм"],
+  strut: ["41×21", "41×41", "41×62"],
+  fastener: ["М6", "М8", "М10"],
+};
+
 export const GALLERY: Record<
   SeriesId,
   { src: string; alt: string; caption: string }[]

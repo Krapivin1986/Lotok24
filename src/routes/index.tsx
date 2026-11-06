@@ -3,7 +3,7 @@ import { jsonLd } from "@/components/site/seo";
 import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
 import { FEATURES, PROOF, STEPS } from "@/components/site/content";
-import { ArrowCta, CallButton, CtaLink } from "@/components/site/shell";
+import { ArrowCta, CallButton, CtaLink, PopularSizes } from "@/components/site/shell";
 import { useMergedSeries, useSiteCopy } from "@/components/site/use-site-copy";
 
 const ORDER_FACTS = [
@@ -165,11 +165,9 @@ function HomePage() {
                 </Link>
               </h3>
               <p className="mt-2 font-display text-2xl tracking-tight tabular-nums">
-                от {series.priceFrom}{" "}
-                <span className="text-base font-medium text-muted">
-                  рублей {series.id === "fastener" ? "за штуку" : "за метр"}
-                </span>
+                от {series.priceFrom} <span className="text-base font-medium text-muted">рублей за метр</span>
               </p>
+              <PopularSizes id={series.id} priceFrom={series.priceFrom} />
               <p className="mt-3 text-sm leading-relaxed text-muted">
                 <SeriesText text={series.text} />
               </p>
@@ -184,11 +182,11 @@ function HomePage() {
                   ))}
               </dl>
               <Link
-                to="/catalog/$series"
-                params={{ series: series.id }}
-                className="mt-5 inline-flex h-11 items-center text-sm font-semibold text-ink"
+                to="/contacts"
+                search={{ series: series.id }}
+                className="press ios-filled ios-compact mt-5 w-full"
               >
-                Смотреть серию
+                Запросить этот лоток
               </Link>
             </li>
           ))}
@@ -220,15 +218,12 @@ function HomePage() {
                   рублей {series.id === "fastener" ? "за штуку" : "за метр"}
                 </span>
               </p>
+              <PopularSizes id={series.id} priceFrom={series.priceFrom} />
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
                 <SeriesText text={series.text} />
               </p>
-              <Link
-                to="/catalog/$series"
-                params={{ series: series.id }}
-                className="mt-5 inline-flex h-11 items-center text-sm font-semibold text-ink"
-              >
-                Смотреть категорию
+              <Link to="/contacts" search={{ series: series.id }} className="press ios-filled ios-compact mt-5 w-full">
+                Запросить
               </Link>
             </li>
           ))}
