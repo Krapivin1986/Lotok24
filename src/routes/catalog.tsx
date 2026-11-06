@@ -4,7 +4,7 @@ import { ACCESSORIES, FEATURES, GALLERY, SPECS, USES } from "@/components/site/c
 import { breadcrumbLd, jsonLd } from "@/components/site/seo";
 import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
-import { CtaLink, PageIntro } from "@/components/site/shell";
+import { PageIntro } from "@/components/site/shell";
 import { useMergedSeries } from "@/components/site/use-site-copy";
 
 export const Route = createFileRoute("/catalog")({
@@ -105,9 +105,9 @@ function CatalogPage() {
                   >
                     Страница серии
                   </Link>
-                  <CtaLink to="/contacts" tone="ghost">
+                  <Link to="/contacts" search={{ series: series.id }} className="press ios-tinted w-full text-center sm:w-auto">
                     Запросить серию
-                  </CtaLink>
+                  </Link>
                 </div>
               </div>
             </li>

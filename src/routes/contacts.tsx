@@ -2,14 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { breadcrumbLd, jsonLd } from "@/components/site/seo";
 import { LeadForm } from "@/components/site/lead-form";
 import { CallButton, MailLink, PageIntro, PhoneLink } from "@/components/site/shell";
-import { isPlanId, type PlanId } from "@/components/site/content";
+import { SERIES } from "@/components/site/content";
 
 import { useSiteCopy } from "@/components/site/use-site-copy";
 
 export const Route = createFileRoute("/contacts")({
-  validateSearch: (search: Record<string, unknown>): { plan?: PlanId } => ({
-    plan: isPlanId(search.plan) ? search.plan : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { series?: string } => {
+    const series = typeof search.series === "string" ? search.series : undefined;
+    return { series: SERIES.some((item) => item.id === series) ? series : undefined };
+  },
   head: () => ({
     meta: [
       { title: "Кабельный лоток со склада в Пушкино — контакты Лоток24" },
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/contacts")({
 
 function ContactsPage() {
   const copy = useSiteCopy();
-  const { plan } = Route.useSearch();
+  const { series } = Route.useSearch();
   const facts = [
     { label: "Склад", value: copy.warehouse },
     { label: "Часы", value: copy.hours },
@@ -79,7 +80,7 @@ function ContactsPage() {
         </p>
       </div>
       <div className="rounded-card border border-line bg-surface p-5 sm:p-6">
-        <LeadForm initialPlan={plan} />
+        <LeadForm initialSeries={series} />
       </div>
     </section>
     <section className="mx-auto max-w-6xl px-4 pb-10 sm:px-6 sm:pb-16">

@@ -4,7 +4,7 @@ import { GALLERY, SERIES, type SeriesId } from "@/components/site/content";
 import { breadcrumbLd, jsonLd, SERIES_SEO } from "@/components/site/seo";
 import { SeriesText } from "@/components/site/series-text";
 import { Photo } from "@/components/site/photo";
-import { ArrowCta, CtaLink } from "@/components/site/shell";
+import { ArrowCta } from "@/components/site/shell";
 import { useMergedSeries } from "@/components/site/use-site-copy";
 
 function isSeriesId(value: string): value is SeriesId {
@@ -81,9 +81,9 @@ function SeriesPage() {
               <SeriesText text={series.lead} skip={series.id} />
             </p>
             <div className="mt-8">
-              <CtaLink to="/contacts">
+              <Link to="/contacts" search={{ series: series.id }} className="press ios-filled inline-flex w-full items-center justify-center sm:w-auto">
                 <ArrowCta>Запросить эту серию</ArrowCta>
-              </CtaLink>
+              </Link>
             </div>
           </div>
           <figure className="overflow-hidden rounded-card border border-line bg-paper">

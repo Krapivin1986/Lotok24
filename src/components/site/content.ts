@@ -360,65 +360,6 @@ export const ACCESSORIES = [
   "Консоль",
 ] as const;
 
-export const PLANS = [
-  {
-    id: "sklad",
-    name: "Склад",
-    price: "42 000",
-    suffix: "₽",
-    note: "типовая отгрузка до 100 м",
-    featured: false,
-    points: [
-      "Перфорированный лоток 100×50, цинк Сендзимир",
-      "Соединители, болты и шайбы в комплекте",
-      "Отгрузка со склада от 1 рабочего дня",
-      "Схема раскладки по вашим осям",
-    ],
-    cta: "Заказать со склада",
-  },
-  {
-    id: "object",
-    name: "Объект",
-    price: "168 000",
-    suffix: "₽",
-    note: "до 400 м по спецификации",
-    featured: true,
-    points: [
-      "Ширины 100–400 мм, толщина под нагрузку",
-      "Углы, тройники, крышки и перегородки",
-      "Горячий цинк для улицы и влажных зон",
-      "Спецификация инженера за 48 часов",
-      "Поставка на объект за 5–7 дней",
-    ],
-    cta: "Рассчитать объект",
-  },
-  {
-    id: "contract",
-    name: "Контракт",
-    price: "По запросу",
-    suffix: "",
-    note: "на год и несколько площадок",
-    featured: false,
-    points: [
-      "Резерв металла под ваш график",
-      "Лестничные системы и нержавеющая сталь",
-      "Единый прайс на все объекты",
-      "Шефмонтаж и персональный менеджер",
-    ],
-    cta: "Обсудить контракт",
-  },
-] as const;
-
-export type PlanId = (typeof PLANS)[number]["id"];
-
-export function isPlanId(value: unknown): value is PlanId {
-  return value === "sklad" || value === "object" || value === "contract";
-}
-
-export function planById(id: PlanId | undefined) {
-  return PLANS.find((plan) => plan.id === id);
-}
-
 export const REVIEWS = [
   {
     quote:
