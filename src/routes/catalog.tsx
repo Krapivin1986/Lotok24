@@ -104,10 +104,10 @@ function CatalogPage() {
                     params={{ series: series.id }}
                     className="press ios-filled w-full sm:w-auto"
                   >
-                    Страница серии
+                    Страница товара
                   </Link>
                   <Link to="/contacts" search={{ series: series.id }} className="press ios-tinted w-full text-center sm:w-auto">
-                    Запросить серию
+                    Запросить цену
                   </Link>
                 </div>
               </div>
