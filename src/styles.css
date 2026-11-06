@@ -20,7 +20,7 @@
   --radius-control: 0.75rem;
   --radius-card: 2rem;
 
-  --text-display: clamp(1.85rem, 0.9rem + 4.5vw, 4.35rem);
+  --text-display: clamp(1.75rem, 1rem + 2.2vw, 3.15rem);
   --leading-display: 1.12;
 }
 
@@ -44,8 +44,10 @@
 
   h1,
   h2,
-  h3 {
-    text-wrap: wrap;
+  h3,
+  p,
+  li {
+    text-wrap: pretty;
   }
 
   button:not(:disabled),
@@ -155,6 +157,16 @@
   .ios-tinted:hover {
     background: #c6f0d8;
     box-shadow: 0 6px 16px rgb(14 78 44 / 16%);
+  }
+
+  .header-contact {
+    min-height: 0;
+    white-space: nowrap;
+    padding: 1px 0;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0;
   }
 
   .ios-compact {

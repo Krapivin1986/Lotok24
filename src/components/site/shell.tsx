@@ -20,7 +20,7 @@ import { useSiteCopy } from "@/components/site/use-site-copy";
 
 export function Wordmark({ onDark = false }: { onDark?: boolean }) {
   return (
-    <span className="truncate font-display text-[18px] font-semibold leading-none tracking-[-0.045em] sm:text-[20px]">
+    <span className="whitespace-nowrap font-display text-[15px] font-semibold leading-none tracking-[-0.03em] sm:text-[16px]">
       Лоток<span className={onDark ? "text-[#8ae8b4]" : "text-[#3db878]"}>24</span>
     </span>
   );
@@ -51,8 +51,8 @@ export function Mark({ className = "size-8" }: { className?: string }) {
 
 function navClass(mobile: boolean) {
   return mobile
-    ? "flex h-12 items-center rounded-control px-2 text-base font-medium"
-    : "rounded-control px-3 py-2 text-sm font-medium";
+    ? "flex h-11 items-center whitespace-nowrap rounded-control px-2 text-[15px] font-medium"
+    : "whitespace-nowrap rounded-control px-2 py-1.5 text-[13px] font-medium";
 }
 
 export function SiteFrame({ children }: { children: ReactNode }) {
@@ -114,12 +114,12 @@ export function SiteFrame({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen overflow-x-clip bg-paper text-ink">
       <header className="sticky top-0 z-40 border-b border-line bg-paper/80 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
-          <Link to="/" className="flex min-w-0 items-center gap-1" onClick={() => setOpen(false)}>
-            <Mark />
+        <div className="mx-auto flex min-h-14 max-w-6xl items-center justify-between gap-3 px-4 py-1.5 sm:px-6">
+          <Link to="/" className="flex shrink-0 items-center gap-1.5" onClick={() => setOpen(false)}>
+            <Mark className="size-7" />
             <Wordmark />
           </Link>
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Разделы">
+          <nav className="hidden items-center lg:flex" aria-label="Разделы">
             {NAV.map((item) => (
               <Link
                 key={item.to}
@@ -135,10 +135,12 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <div className="flex items-center gap-2">
-            <PhoneLink className="hidden xl:inline-flex" />
-            <MailLink className="hidden sm:inline-flex" />
+            <div className="hidden shrink-0 flex-col items-start lg:flex">
+              <PhoneLink className="header-contact" />
+              <MailLink className="header-contact" />
+            </div>
             <ChatLinks copy={copy} />
-            <Link to="/contacts" className="press ios-filled max-sm:min-h-9 max-sm:px-3.5 max-sm:text-[15px]">
+            <Link to="/contacts" className="press ios-filled ios-compact">
               Заказать
             </Link>
             <button
@@ -153,9 +155,9 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             </button>
           </div>
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-2 border-t border-line px-4 py-2 xl:hidden">
-          <PhoneLink />
-          <MailLink className="inline-flex sm:hidden" />
+        <div className="flex flex-col items-center border-t border-line px-4 py-1 lg:hidden">
+          <PhoneLink className="header-contact" />
+          <MailLink className="header-contact" />
         </div>
         {open ? (
           <nav id="mobile-nav" className="max-h-[70dvh] overflow-y-auto border-t border-line px-4 py-3 lg:hidden" aria-label="Разделы">
@@ -276,7 +278,7 @@ function ContactChip({
     <a
       href={href}
       aria-label={label}
-      className={`press min-h-9 items-center justify-center gap-2 rounded-full bg-transparent px-3.5 text-sm font-semibold text-teal hover:bg-transparent hover:text-teal-deep ${className}`}
+      className={`press inline-flex items-center gap-1.5 rounded-full bg-transparent font-medium text-teal hover:bg-transparent hover:text-teal-deep ${className}`}
     >
       {children}
     </a>
@@ -296,9 +298,9 @@ function ChatLinks({
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Написать в Telegram"
-      className={`press chat-tg ${wide ? "chat-wide" : ""}`}
+      className={`press chat-tg ${wide ? "chat-wide" : "!size-9 !min-h-9 !min-w-9"}`}
     >
-      <IconTelegram className="size-4 sm:size-5" />
+      <IconTelegram className="size-4" />
       {wide ? <span>Telegram</span> : null}
     </a>
   );
