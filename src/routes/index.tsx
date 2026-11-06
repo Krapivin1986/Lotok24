@@ -52,8 +52,7 @@ function HomePage() {
       <section className="bg-surface">
         <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:gap-8 sm:px-6 sm:py-10 lg:grid-cols-2 lg:gap-10 lg:py-14">
           <div>
-            <p className="kicker">{copy.heroKicker}</p>
-            <h1 className="mt-4 font-display text-display leading-display tracking-tight">{copy.heroTitle}</h1>
+            <h1 className="font-display text-display leading-display tracking-tight">{copy.heroTitle}</h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
               <SeriesText text={copy.heroText} />
             </p>
