@@ -114,11 +114,17 @@ export function SiteFrame({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen overflow-x-clip bg-paper text-ink">
       <header className="sticky top-0 z-40 border-b border-line bg-paper/80 backdrop-blur-md">
-        <div className="mx-auto flex min-h-14 max-w-6xl items-center justify-between gap-3 px-4 py-1.5 sm:px-6">
-          <Link to="/" className="flex shrink-0 items-center gap-1.5" onClick={() => setOpen(false)}>
-            <Mark className="size-7" />
-            <Wordmark />
-          </Link>
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-3 py-2 sm:px-6 lg:min-h-14 lg:gap-3 lg:py-1.5">
+          <div className="flex min-w-0 flex-col">
+            <Link to="/" className="flex w-fit shrink-0 items-center gap-1.5" onClick={() => setOpen(false)}>
+              <Mark className="size-7" />
+              <Wordmark />
+            </Link>
+            <div className="mt-0.5 flex flex-col lg:hidden">
+              <PhoneLink className="header-contact" />
+              <MailLink className="header-contact" />
+            </div>
+          </div>
           <nav className="hidden items-center lg:flex" aria-label="Разделы">
             {NAV.map((item) => (
               <Link
@@ -134,18 +140,18 @@ export function SiteFrame({ children }: { children: ReactNode }) {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-1.5">
             <div className="hidden shrink-0 flex-col items-start lg:flex">
               <PhoneLink className="header-contact" />
               <MailLink className="header-contact" />
             </div>
-            <ChatLinks copy={copy} />
-            <Link to="/contacts" className="press ios-filled ios-compact">
+            <ChatLinks copy={copy} className="hidden lg:inline-flex" />
+            <Link to="/contacts" className="press ios-filled ios-compact max-lg:px-3 max-lg:text-[13px]">
               Заказать
             </Link>
             <button
               type="button"
-              className="press ios-icon lg:hidden"
+              className="press ios-icon !size-9 lg:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
               onClick={() => setOpen((value) => !value)}
@@ -154,10 +160,6 @@ export function SiteFrame({ children }: { children: ReactNode }) {
               {open ? <IconClose className="size-5" /> : <IconMenu className="size-5" />}
             </button>
           </div>
-        </div>
-        <div className="flex flex-col items-center border-t border-line px-4 py-1 lg:hidden">
-          <PhoneLink className="header-contact" />
-          <MailLink className="header-contact" />
         </div>
         {open ? (
           <nav id="mobile-nav" className="max-h-[70dvh] overflow-y-auto border-t border-line px-4 py-3 lg:hidden" aria-label="Разделы">
@@ -288,9 +290,11 @@ function ContactChip({
 function ChatLinks({
   copy,
   wide = false,
+  className = "",
 }: {
   copy: { telegramUrl: string };
   wide?: boolean;
+  className?: string;
 }) {
   return (
     <a
@@ -298,7 +302,7 @@ function ChatLinks({
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Написать в Telegram"
-      className={`press chat-tg ${wide ? "chat-wide" : "!size-9 !min-h-9 !min-w-9"}`}
+      className={`press chat-tg ${wide ? "chat-wide" : "!size-9 !min-h-9 !min-w-9"} ${className}`}
     >
       <IconTelegram className="size-4" />
       {wide ? <span>Telegram</span> : null}

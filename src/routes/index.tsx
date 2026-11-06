@@ -122,7 +122,7 @@ function HomePage() {
               Оцинкованная сталь несёт кабель годами: не горит, не гниёт и не требует покраски на объекте. Секцию крепят
               к шпилькам и консолям без сварки. Перфорация отводит тепло, крышка закрывает трассу от пыли.
             </p>
-            <ul className="mt-4 grid grid-cols-2 gap-2">
+            <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
               {FEATURES.map((feature) => {
                 const Icon = feature.icon;
                 return (
