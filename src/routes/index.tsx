@@ -115,8 +115,7 @@ function HomePage() {
             />
           </figure>
           <div>
-            <p className="kicker">Преимущества</p>
-            <h2 className="mt-2 font-display text-2xl tracking-tight sm:text-3xl">Зачем использовать металлический лоток</h2>
+            <h2 className="font-display text-2xl tracking-tight sm:text-3xl">Зачем использовать металлический лоток</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               Оцинкованная сталь несёт кабель годами: не горит, не гниёт и не требует покраски на объекте. Секцию крепят
               к шпилькам и консолям без сварки. Перфорация отводит тепло, крышка закрывает трассу от пыли.
@@ -142,23 +141,16 @@ function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-10 lg:py-14">
-        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <div className="max-w-2xl">
-            <p className="kicker">Серии</p>
-            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Четыре типа лотков — одна система построения кабельной трассы</h2>
+        <div className="max-w-2xl">
+            <h2 className="font-display text-3xl tracking-tight sm:text-4xl">Четыре типа лотков — одна система построения кабельной трассы</h2>
             <p className="mt-3 text-muted">Цена указана от самого узкого лотка серии, за метр. Ширина, толщина и покрытие меняют сумму в счёте.</p>
-          </div>
-          <Link to="/catalog" className="text-sm font-semibold text-teal hover:text-teal-deep">
-            Весь каталог
-          </Link>
         </div>
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {seriesList
             .filter((series) => series.id !== "cover" && series.id !== "strut" && series.id !== "fastener")
             .map((series) => (
             <li key={series.id} className="flex flex-col rounded-card border border-line bg-surface p-5 ring-1 ring-transparent transition hover:ring-[#7ee2a8]">
-              <p className="text-sm font-semibold text-teal">{series.code}</p>
-              <h3 className="mt-3 font-display text-xl tracking-tight">
+              <h3 className="font-display text-xl tracking-tight">
                 <Link to="/catalog/$series" params={{ series: series.id }} className="hover:text-teal">
                   {series.name}
                 </Link>
@@ -194,8 +186,7 @@ function HomePage() {
 
       <section className="mx-auto max-w-6xl px-4 pb-10 sm:px-6 sm:pb-16">
         <div className="max-w-2xl">
-          <p className="kicker">Комплектующие</p>
-          <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Добавьте крышку, профиль и крепёж в заказ</h2>
+          <h2 className="font-display text-3xl tracking-tight sm:text-4xl">Добавьте крышку, профиль и крепёж в заказ</h2>
           <p className="mt-3 text-muted">
             Крышка закрывает лоток, страт-профиль несёт консоль, метизы собирают стык. Ширина и резьба подбираются под секцию, не «примерно».
           </p>
@@ -205,8 +196,7 @@ function HomePage() {
             .filter((series) => series.id === "cover" || series.id === "strut" || series.id === "fastener")
             .map((series) => (
             <li key={series.id} className="flex flex-col rounded-card border border-line bg-surface p-5 ring-1 ring-transparent transition hover:ring-[#7ee2a8]">
-              <p className="text-sm font-semibold text-teal">{series.code}</p>
-              <h3 className="mt-3 font-display text-xl tracking-tight">
+              <h3 className="font-display text-xl tracking-tight">
                 <Link to="/catalog/$series" params={{ series: series.id }} className="hover:text-teal">
                   {series.name}
                 </Link>
@@ -231,8 +221,7 @@ function HomePage() {
 
       <section className="border-y border-line bg-surface">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-10">
-          <p className="kicker">До заказа</p>
-          <h2 className="mt-3 max-w-2xl font-display text-3xl tracking-tight sm:text-4xl">Что важно знать заранее</h2>
+          <h2 className="max-w-2xl font-display text-3xl tracking-tight sm:text-4xl">Что важно знать заранее</h2>
           <p className="mt-3 max-w-2xl text-muted">
             Длина, срок склада и оплата не зависят от серии. Подробности — на странице{" "}
             <Link to="/delivery" className="font-semibold text-teal underline decoration-teal/40 underline-offset-2">
@@ -263,8 +252,7 @@ function HomePage() {
       <section className="border-y border-line bg-surface">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
           <div className="max-w-2xl">
-            <p className="kicker">Отзывы</p>
-            <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">Отзывы наших клиентов</h2>
+            <h2 className="font-display text-3xl tracking-tight sm:text-4xl">Отзывы наших клиентов</h2>
           </div>
           <ul className="mt-10 grid gap-4 lg:grid-cols-3">
             {copy.reviews.map((review) => (
